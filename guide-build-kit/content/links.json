@@ -1,0 +1,15 @@
+{
+  "_about": "From 'NYBG Resources/Useful links.docx'. One iNaturalist link per screen: species pages link to that species' sightings inside the Garden (place_id); the Quest links to the Garden's iNaturalist project.",
+  "inaturalist": {
+    "place_id": 66109,
+    "project_label": "Biodiversity of the New York Botanical Garden",
+    "project_url": "https://www.inaturalist.org/projects/biodiveristy-of-the-new-york-botanical-garden",
+    "species_url_template": "https://www.inaturalist.org/observations?place_id=66109&taxon_name={scientific_name}&verifiable=true"
+  },
+  "plant_tracker": "https://planttracker.nybg.org/map",
+  "regional": [
+    {"label": "Lower Hudson PRISM", "url": "https://www.lhprism.org/"},
+    {"label": "RISCC Network (Northeast)", "url": "https://www.risccnetwork.org/northeast"},
+    {"label": "NYC Parks: Bronx River invasive plants", "url": "https://www.nycgovparks.org/greening/natural-resources-group/bronx-river-wetlands/vegetation/exotic-invasive-plants"}
+  ]
+}

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Take it home: native swaps</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500&amp;family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2F6E45}a:hover{color:#1F4A2E}
+.ic{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+input:focus{outline:3px solid #B9770F;outline-offset:1px}
+.scr{container-type:inline-size;box-sizing:border-box;display:flex;flex-direction:column;background:#F4F6EE;color:#1F2D1C;font-family:'Alegreya Sans',system-ui,sans-serif;overflow:hidden}
+.only-wide{display:none}
+.wrap{max-width:1200px;margin:0 auto;width:100%;box-sizing:border-box}
+@container (min-width: 900px){
+  .only-wide{display:block}
+  .only-narrow{display:none}
+  .hb-head{padding:40px !important}
+  .hb-head h1{font-size:52px !important}
+  .hb-grid{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:32px;align-items:start;padding:24px 40px !important}
+  .hb-swaps{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</helmet>
+<div class="scr" style="width: {{w}}; height: {{h}}">
+  <div class="only-wide" style="flex: none"><dc-import name="NavBar" mode="top" active="hub" hint-size="100%,64px"></dc-import></div>
+  <div style="flex: 1; min-height: 0; overflow-y: auto">
+    <header style="background: #23402B; color: #F4F6EE">
+      <div class="wrap hb-head" style="padding: 22px 20px 20px; display: flex; flex-direction: column; gap: 10px">
+        <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #A9D9A0">Stop 10 · Take it home</div>
+        <h1 style="margin: 0; font-family: Alegreya, Georgia, serif; font-size: 36px; font-weight: 800; line-height: 1.02">Plant natives instead</h1>
+        <p style="margin: 0; font-size: 17px; line-height: 1.4; color: #E3EAD6; max-width: 560px">Native swaps for home gardeners, and where to buy them.</p>
+      </div>
+    </header>
+
+    <div class="wrap hb-grid" style="padding: 0 0 22px; display: flex; flex-direction: column">
+      <div style="display: flex; flex-direction: column">
+        <section style="padding: 18px 20px 6px; display: flex; flex-direction: column; gap: 10px">
+          <label for="zip" style="font-weight: 800; font-size: 17px">Find native plant nurseries near you</label>
+          <div style="display: flex; gap: 8px">
+            <input id="zip" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="ZIP code" value="{{zip}}" onChange="{{onZip}}" style="flex: 1; min-width: 0; height: 50px; box-sizing: border-box; padding: 0 14px; border-radius: 12px; border: 1.5px solid #8F9C83; background: #FFFFFF; font: 600 18px 'Alegreya Sans', system-ui, sans-serif; color: #1F2D1C">
+            <button type="button" onClick="{{search}}" style="flex: none; height: 50px; padding: 0 18px; border-radius: 12px; border: 0; background: #1F2D1C; color: #F4F6EE; font: 800 16px 'Alegreya Sans', system-ui, sans-serif; cursor: pointer">Search</button>
+          </div>
+          <sc-if value="{{searched}}" hint-placeholder-val="{{ false }}">
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+              <sc-for list="{{nurseries}}" as="nu" hint-placeholder-count="3">
+                <li style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border-radius: 12px; background: #FFFFFF; border: 1px solid #CCD5BE">
+                  <span style="display: flex; flex-direction: column"><span style="font-weight: 800; font-size: 16px">{{nu.name}}</span><span style="font-size: 14px; color: #4A5942">{{nu.meta}}</span></span>
+                  <span style="font-weight: 700; font-size: 15px; color: #2F6E45">{{nu.dist}}</span>
+                </li>
+              </sc-for>
+            </ul>
+            <p style="margin: 0; font-size: 14px; color: #4A5942">[Nursery data source to decide with NYBG]</p>
+          </sc-if>
+        </section>
+        <section style="padding: 16px 20px 0; display: flex; flex-direction: column; gap: 8px">
+          <h2 style="margin: 0; font-family: Alegreya, Georgia, serif; font-size: 22px; font-weight: 700">Learn more</h2>
+          <sc-for list="{{regional}}" as="rl" hint-placeholder-count="3">
+            <a href="{{rl.url}}" style="display: flex; justify-content: space-between; align-items: center; min-height: 48px; padding: 0 14px; border-radius: 12px; background: #FFFFFF; border: 1px solid #CCD5BE; color: #1F2D1C; text-decoration: none; font-weight: 700; font-size: 16px">{{rl.label}}<svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"></path></svg></a>
+          </sc-for>
+        </section>
+      </div>
+
+      <section style="padding: 16px 20px 0; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-family: Alegreya, Georgia, serif; font-size: 25px; font-weight: 700">Native swaps</h2>
+        <div class="hb-swaps" style="display: flex; flex-direction: column; gap: 12px">
+          <sc-for list="{{swaps}}" as="sw" hint-placeholder-count="4">
+            <article style="border-radius: 18px; background: #FFFFFF; border: 1px solid #CCD5BE; overflow: hidden">
+              <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))">
+                <div style="position: relative; height: 120px; background: #E6ECDA">
+                  <sc-if value="{{sw.hasFromImg}}" hint-placeholder-val="{{ true }}">
+                    <img src="{{sw.fromImg}}" alt="{{sw.invasive}}" style="display: block; width: 100%; height: 120px; object-fit: cover; filter: grayscale(0.55)">
+                  </sc-if>
+                  <span style="position: absolute; left: 8px; top: 8px; font-size: 12px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: #8E1442; color: #FFFFFF">Skip</span>
+                </div>
+                <div style="position: relative; height: 120px; background: #DCEBD3">
+                  <sc-if value="{{sw.hasToImg}}" hint-placeholder-val="{{ true }}">
+                    <img src="{{sw.toImg}}" alt="{{sw.native}}" style="display: block; width: 100%; height: 120px; object-fit: cover">
+                  </sc-if>
+                  <span style="position: absolute; left: 8px; top: 8px; font-size: 12px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: #2F6E45; color: #FFFFFF">Plant</span>
+                </div>
+              </div>
+              <div style="padding: 12px 14px 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 12px">
+                <span style="font-weight: 800; font-size: 16px; color: #8E1442">{{sw.invasive}}</span>
+                <span style="font-weight: 800; font-size: 16px; color: #2F6E45">{{sw.native}}</span>
+                <span style="font-size: 14px; color: #4A5942">{{sw.value}}</span>
+                <span style="font-size: 14px; color: #4A5942">{{sw.benefit}}</span>
+              </div>
+            </article>
+          </sc-for>
+        </div>
+        <span style="font-size: 13px; color: #6B7662">Source: {{swapsSource}}</span>
+      </section>
+    </div>
+  </div>
+  <div class="only-narrow" style="flex: none"><dc-import name="NavBar" mode="bottom" active="hub" hint-size="100%,72px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"w":{"editor":null,"default":"390px"},"h":{"editor":null,"default":"844px"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    fetch('/_blob/a0f5c90e12fc68ec6d5095ffa124631b')
+      .then((r) => r.json())
+      .then((d) => this.setState({ data: d }))
+      .catch(() => this.setState({ failed: true }));
+  }
+  renderVals() {
+    const st = this.state || {};
+    const D = st.data;
+    const w = this.props.w || '390px', h = this.props.h || '844px';
+    const base = {
+      w: w, h: h, zip: st.zip || '',
+      onZip: (e) => this.setState({ zip: e.target.value }),
+      searched: !!st.searched,
+      search: () => this.setState({ searched: true }),
+      nurseries: [
+        { name: '[Native plant nursery]', meta: '[Neighborhood] · natives only', dist: '[x.x mi]' },
+        { name: '[Garden center with a native section]', meta: '[Neighborhood]', dist: '[x.x mi]' },
+        { name: '[Seasonal native plant sale]', meta: '[Date and place]', dist: '[x.x mi]' }
+      ]
+    };
+    if (!D) return Object.assign(base, { swaps: [], regional: [], swapsSource: '' });
+    const hub = D.tour.stops.find((s) => s.kind === 'hub') || { swaps: [] };
+    // Photo for a swap name: the info page whose species or alternative carries that name.
+    const findPhoto = (name) => {
+      const n = name.toLowerCase();
+      for (const e of D.species) {
+        const ip = e.info_page;
+        if (!ip) continue;
+        const words = n.split(' ');
+        if (ip.photo && e.common_names.some((c) => words.every((wd) => c.toLowerCase().split(' ').indexOf(wd) >= 0))) return D.assets.photos[ip.photo] || '';
+        const alt = (ip.alternatives || []).find((a) => a.name.toLowerCase() === n);
+        if (alt && alt.photo) return D.assets.photos[alt.photo] || '';
+      }
+      return '';
+    };
+    return Object.assign(base, {
+      swapsSource: hub.swaps_source || '',
+      regional: D.links.regional,
+      swaps: hub.swaps.map((s) => {
+        const fromImg = findPhoto(s.invasive), toImg = findPhoto(s.native);
+        return Object.assign({}, s, { fromImg: fromImg, toImg: toImg, hasFromImg: !!fromImg, hasToImg: !!toImg });
+      })
+    });
+  }
+}
+</script>
+</body>
+</html>

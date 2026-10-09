@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Garden Escape Quest</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500&amp;family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2F6E45}a:hover{color:#1F4A2E}
+.ic{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.row:hover{background:#F7F9F2}
+.scr{container-type:inline-size;box-sizing:border-box;display:flex;flex-direction:column;background:#F4F6EE;color:#1F2D1C;font-family:'Alegreya Sans',system-ui,sans-serif;overflow:hidden}
+.only-wide{display:none}
+.wrap{max-width:1200px;margin:0 auto;width:100%;box-sizing:border-box}
+@container (min-width: 900px){
+  .only-wide{display:block}
+  .only-narrow{display:none}
+  .q-head{padding:40px !important}
+  .q-head h1{font-size:52px !important}
+  .q-grid{display:grid !important;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;align-items:start;padding:24px 40px !important}
+}
+</style>
+</helmet>
+<div class="scr" style="width: {{w}}; height: {{h}}">
+  <div class="only-wide" style="flex: none"><dc-import name="NavBar" mode="top" active="quest" hint-size="100%,64px"></dc-import></div>
+  <div style="flex: 1; min-height: 0; overflow-y: auto">
+    <header style="background: #8E1442; color: #FFFFFF">
+      <div class="wrap q-head" style="padding: 22px 20px 20px; display: flex; flex-direction: column; gap: 12px">
+        <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #FFC9DA">Community science</div>
+        <h1 style="margin: 0; font-family: Alegreya, Georgia, serif; font-size: 36px; font-weight: 800; line-height: 1.02">Garden Escape Quest</h1>
+        <p style="margin: 0; font-size: 17px; line-height: 1.4; color: #FCE3EC; max-width: 560px">Find all {{total}} invaders on the tour. Every sighting you log goes to NYBG scientists through iNaturalist.</p>
+        <div style="display: flex; align-items: center; gap: 12px; margin-top: 4px; max-width: 560px">
+          <div style="flex: 1; height: 10px; border-radius: 5px; background: rgba(255,255,255,.25)"><div style="height: 10px; border-radius: 5px; width: {{pct}}; background: #FFFFFF"></div></div>
+          <span style="font-weight: 800; font-size: 17px">{{count}} of {{total}} found</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap q-grid" style="padding: 0 0 20px; display: flex; flex-direction: column">
+      <div>
+        <ol style="list-style: none; margin: 0; padding: 16px 20px 4px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+          <li style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Alegreya, Georgia, serif; font-size: 22px; font-weight: 800; color: #C21E5A">01</span><span style="font-weight: 800; font-size: 15px">Spot it</span><span style="font-size: 13px; color: #4A5942; line-height: 1.3">at a numbered stop</span></li>
+          <li style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Alegreya, Georgia, serif; font-size: 22px; font-weight: 800; color: #C21E5A">02</span><span style="font-weight: 800; font-size: 15px">Log it</span><span style="font-size: 13px; color: #4A5942; line-height: 1.3">photo goes to iNaturalist</span></li>
+          <li style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Alegreya, Georgia, serif; font-size: 22px; font-weight: 800; color: #C21E5A">03</span><span style="font-weight: 800; font-size: 15px">Count it</span><span style="font-size: 13px; color: #4A5942; line-height: 1.3">adds to the Garden total</span></li>
+        </ol>
+        <section style="padding: 12px 20px 4px">
+          <ul style="list-style: none; margin: 0; padding: 0; border-radius: 16px; background: #FFFFFF; border: 1px solid #CCD5BE; overflow: hidden">
+            <sc-for list="{{items}}" as="it" hint-placeholder-count="8">
+              <li class="row" style="display: flex; align-items: center; gap: 12px; padding: 8px 8px 8px 12px; border-bottom: 1px solid #E6ECDA">
+                <span style="flex: none; width: 30px; height: 30px; border-radius: 50%; background: #C21E5A; color: #FFFFFF; font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center">{{it.n}}</span>
+                <span style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+                  <span style="font-weight: 800; font-size: 16px">{{it.name}}</span>
+                  <span style="font-size: 14px; color: #4A5942">{{it.place}}</span>
+                </span>
+                <button type="button" onClick="{{it.toggle}}" aria-pressed="{{it.pressed}}" aria-label="Mark {{it.name}} as found" style="flex: none; min-width: 92px; height: 44px; border-radius: 12px; border: {{it.border}}; background: {{it.bg}}; color: {{it.fg}}; font: 800 15px 'Alegreya Sans', system-ui, sans-serif; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px">
+                  <sc-if value="{{it.found}}" hint-placeholder-val="{{ false }}">
+                    <svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>
+                  </sc-if>
+                  {{it.label}}
+                </button>
+              </li>
+            </sc-for>
+          </ul>
+        </section>
+      </div>
+
+      <section style="padding: 14px 20px 0; display: flex; flex-direction: column; gap: 12px">
+        <a href="{{inatUrl}}" style="display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; border-radius: 14px; background: #1F2D1C; color: #F4F6EE; text-decoration: none; font-weight: 800; font-size: 17px">
+          <svg class="ic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+          Log a sighting on iNaturalist
+        </a>
+        <span style="font-size: 14px; color: #4A5942; text-align: center">Goes to the {{inatLabel}} project</span>
+        <div style="padding: 16px; border-radius: 16px; background: #E6ECDA; display: flex; flex-direction: column; gap: 4px">
+          <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #2F6E45">Visitor impact this week</span>
+          <span style="font-family: Alegreya, Georgia, serif; font-size: 34px; font-weight: 800">[###] sightings</span>
+          <span style="font-size: 15px; color: #33402E">logged by Garden visitors. [Live count from the NYBG iNaturalist project]</span>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="only-narrow" style="flex: none"><dc-import name="NavBar" mode="bottom" active="quest" hint-size="100%,72px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"w":{"editor":null,"default":"390px"},"h":{"editor":null,"default":"844px"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    fetch('/_blob/a0f5c90e12fc68ec6d5095ffa124631b')
+      .then((r) => r.json())
+      .then((d) => this.setState({ data: d }))
+      .catch(() => this.setState({ failed: true }));
+  }
+  renderVals() {
+    const st = this.state || {};
+    const D = st.data;
+    const w = this.props.w || '390px', h = this.props.h || '844px';
+    if (!D) return { w: w, h: h, items: [], count: 0, total: 0, pct: '0%', inatUrl: '#', inatLabel: '' };
+    const cap = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
+    // The Quest list is the tour's species stops, straight from tour.json + species.json.
+    const list = D.tour.stops.filter((s) => s.species).map((s) => {
+      const e = D.species.find((x) => x.id === s.species) || {};
+      return { n: s.n, name: cap((e.common_names || [])[0] || ((e.forest_plan || {}).common_name)), place: s.place };
+    });
+    const found = st.found || { 2: true, 3: true, 4: true };
+    const count = list.filter((x) => found[x.n]).length;
+    return {
+      w: w, h: h,
+      count: count, total: list.length,
+      pct: Math.round(count / list.length * 100) + '%',
+      inatUrl: D.links.inaturalist.project_url,
+      inatLabel: D.links.inaturalist.project_label,
+      items: list.map((x) => {
+        const f = !!found[x.n];
+        return Object.assign({}, x, {
+          found: f, pressed: f ? 'true' : 'false', label: f ? 'Found' : 'Spot it',
+          bg: f ? '#2F6E45' : '#FFFFFF', fg: f ? '#FFFFFF' : '#1F2D1C', border: f ? '0' : '1.5px solid #1F2D1C',
+          toggle: () => { const nf = Object.assign({}, found); nf[x.n] = !f; this.setState({ found: nf }); }
+        });
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

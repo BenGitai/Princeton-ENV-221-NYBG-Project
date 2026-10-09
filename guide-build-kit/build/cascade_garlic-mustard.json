@@ -1,0 +1,746 @@
+{
+  "source": "garlic-mustard-cascade.html",
+  "photos": {
+    "gm": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/26187497/large.jpeg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/26187497/small.jpeg",
+      "credit": "Photo: jonathan_mack (CC BY-NC), via iNaturalist",
+      "link": "https://www.inaturalist.org/photos/26187497",
+      "alt": "Garlic mustard: a cluster of small white four-petaled flowers above toothed green leaves"
+    },
+    "maple": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/482536/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/482536/small.jpg",
+      "credit": "Photo: scottmo (CC BY-NC), via iNaturalist",
+      "link": "https://www.inaturalist.org/photos/482536",
+      "alt": "A green sugar maple leaf with five lobes"
+    },
+    "sol": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111809822/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/111809822/small.jpg",
+      "credit": "Photo: Emily Scherer (CC BY-NC), via iNaturalist",
+      "link": "https://www.inaturalist.org/photos/111809822",
+      "alt": "False Solomon's seal: arching stems ending in fluffy plumes of tiny cream flowers"
+    },
+    "jw": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/419410578/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/419410578/small.jpg",
+      "credit": "Photo: Thomas Shahan (CC BY-NC), via iNaturalist",
+      "link": "https://www.inaturalist.org/photos/419410578",
+      "alt": "Jewelweed: an orange, spurred, red-spotted flower hanging from a thin stalk"
+    },
+    "cw": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28420401/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/28420401/small.jpg",
+      "credit": "Photo: Liu JimFood (CC BY-NC), via iNaturalist",
+      "link": "https://www.inaturalist.org/photos/28420401",
+      "alt": "Cabbage white: a white butterfly with dark wingtips"
+    },
+    "sal": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/248530577/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/248530577/small.jpg",
+      "credit": "Photo: Ty Smith (CC BY-NC), via iNaturalist",
+      "link": "https://www.inaturalist.org/photos/248530577",
+      "alt": "Eastern red-backed salamander: a slim dark salamander with a reddish stripe down its back"
+    },
+    "deer": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/452215485/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/452215485/small.jpg",
+      "credit": "Photo: James St. John (CC BY), via iNaturalist",
+      "link": "https://www.inaturalist.org/photos/452215485",
+      "alt": "A white-tailed deer buck with antlers standing in tall grass"
+    },
+    "worms": {
+      "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/501395824/large.jpg",
+      "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/501395824/small.jpg",
+      "credit": "Photo: J Norman (CC BY-NC), via iNaturalist",
+      "link": "https://www.inaturalist.org/observations/279224097",
+      "alt": "An Asian earthworm (Amynthas hupeiensis) photographed at the New York Botanical Garden in May 2025"
+    },
+    "amf": {
+      "url": "[inline image]",
+      "thumb": "[inline image]",
+      "credit": "Illustration made for this page",
+      "alt": "Illustration of a plant root with tree-shaped fungal structures inside its cells and fine fungal threads spreading into the soil"
+    }
+  },
+  "cascade": {
+    "invader": "gm",
+    "inatPlace": 66109,
+    "inatAsOf": "October 2026",
+    "scene": {
+      "wildflowers": true,
+      "patches": [
+        {
+          "x0": 540,
+          "x1": 820
+        },
+        {
+          "x0": 1560,
+          "x1": 1700
+        },
+        {
+          "x0": -300,
+          "x1": -160
+        }
+      ],
+      "jewelweed": [
+        {
+          "x0": 250,
+          "x1": 420
+        }
+      ],
+      "worms": [
+        {
+          "x": 470,
+          "y": 1690
+        },
+        {
+          "x": 560,
+          "y": 1760
+        },
+        {
+          "x": 610,
+          "y": 1665
+        }
+      ]
+    },
+    "introFocus": {
+      "x": 430,
+      "y": 1180,
+      "h": 1500
+    },
+    "intro": {
+      "barTitle": "Garlic mustard in the Thain Forest",
+      "where": "Thain Family Forest, New York Botanical Garden",
+      "title": "Garlic mustard",
+      "lede": "Crush a leaf and it smells like garlic. This small white-flowered plant from Europe is one of the most obvious invaders in the Garden’s old-growth forest, and much of what it does happens out of sight, in the soil. Follow it through the forest to see which species it affects, and which ones help it spread.",
+      "ctaPrimary": "Follow the cascade",
+      "ctaSecondary": "See the whole web",
+      "note": "A student prototype for NYBG’s invasive species guide. Every species card names the studies behind its links."
+    },
+    "trailGroups": [
+      {
+        "label": "What it changes",
+        "ids": [
+          "amf",
+          "maple",
+          "sol",
+          "jw",
+          "cw"
+        ]
+      },
+      {
+        "label": "The bigger picture",
+        "ids": [
+          "worms",
+          "sal",
+          "deer"
+        ]
+      }
+    ],
+    "order": [
+      "gm",
+      "amf",
+      "maple",
+      "sol",
+      "jw",
+      "cw",
+      "worms",
+      "sal",
+      "deer"
+    ],
+    "species": [
+      {
+        "id": "gm",
+        "name": "Garlic mustard",
+        "short": "Garlic mustard",
+        "sci": "Alliaria petiolata",
+        "group": "plant",
+        "kind": "Two-year herb from Europe and western Asia, in the mustard family",
+        "step": "The invader",
+        "x": 690,
+        "y": 1440,
+        "m": [
+          650,
+          1440
+        ],
+        "labelPos": "below",
+        "photo": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/26187497/large.jpeg",
+          "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/26187497/small.jpeg",
+          "credit": "Photo: jonathan_mack (CC BY-NC), via iNaturalist",
+          "link": "https://www.inaturalist.org/photos/26187497",
+          "alt": "Garlic mustard: a cluster of small white four-petaled flowers above toothed green leaves"
+        },
+        "inat": "Alliaria petiolata",
+        "inatCount": 160,
+        "headline": "A small plant that changes the forest from below.",
+        "body": [
+          "In its first year garlic mustard is a low rosette of scalloped leaves that stays green all winter. In its second spring it sends up a stalk of small white flowers, drops a heavy crop of tiny seeds, and dies. Deer leave it alone.",
+          "Its best-studied trick is chemical. In experiments, compounds from its roots and leaves suppress the soil fungi that most native plants depend on, so nearby plants can end up with fewer of the partners they rely on underground."
+        ],
+        "nybg": "Rated “Frequent”, the top abundance category (more than five colonies), across the Garden’s 250 acres in its published flora (Atha et al. 2016). It spreads from edges and canopy gaps into the forest interior. The Garden’s own Forest Plan calls it “one of the most obvious and problematic invasive species in the Forest.” It is Category 1 (invasive locally) on NYBG’s 2026 invasive species list, and a prohibited species in New York State.",
+        "cite": [
+          "forestplan",
+          "atha2016",
+          "nybglist"
+        ],
+        "sightings": true
+      },
+      {
+        "id": "amf",
+        "name": "Root fungi",
+        "short": "Root fungi",
+        "sciHTML": "Arbuscular mycorrhizal fungi (phylum Glomeromycota)",
+        "group": "fungus",
+        "kind": "Microscopic fungi that live inside plant roots",
+        "step": "Harmed directly",
+        "x": 900,
+        "y": 1800,
+        "m": [
+          800,
+          2000
+        ],
+        "labelPos": "below",
+        "photo": {
+          "url": "[inline image]",
+          "thumb": "[inline image]",
+          "credit": "Illustration made for this page",
+          "alt": "Illustration of a plant root with tree-shaped fungal structures inside its cells and fine fungal threads spreading into the soil"
+        },
+        "headline": "The underground partners that most forest plants depend on.",
+        "body": [
+          "These fungi grow inside plant roots and send threads far out into the soil, working like an extra root system. They bring the plant water, phosphorus and nitrogen, and the plant pays them in sugars and fats.",
+          "Garlic mustard doesn’t use them. In lab and greenhouse tests, chemicals from its tissues stunted the fungi and kept their spores from sprouting.",
+          "Oaks, the Forest’s dominant trees, rely on a different fungal partner, the kind that sends up mushrooms. In three New England forests there were fewer of those fungi on roots in garlic mustard soil, mostly within about 10 cm of a patch and most strongly in conifer stands. In a greenhouse test, native jewelweed reduced them about as much. Whether this happens under the Garden’s oaks is unknown."
+        ],
+        "finding": "Garlic mustard’s chemicals hit North American fungi much harder than European ones, which fits the idea that native fungi never evolved alongside them (Callaway et al. 2008). The trace amounts found in invaded forest soil were enough to strongly inhibit spore germination of a forest root fungus in the lab (Cantor et al. 2011). In the field the effect is a reduction, not a wipeout: some fungal types tolerate the chemicals (Barto et al. 2011).",
+        "cite": [
+          "callaway2008",
+          "cantor2011",
+          "barto2011",
+          "wolfe2008"
+        ],
+        "nybg": "We found no published survey of these fungi at the Garden. They live in nearly every temperate forest soil, though, and their host plants (maples, ash and most woodland wildflowers) are common here. The Forest Plan lists visiting research on root-fungus partnerships (Cornell, 2008) and on soil microbial communities (Fordham, 2011) in the Forest."
+      },
+      {
+        "id": "maple",
+        "name": "Sugar maple",
+        "short": "Sugar maple",
+        "sci": "Acer saccharum",
+        "group": "tree",
+        "kind": "Canopy tree, shown here as a seedling",
+        "step": "Harmed through its fungi",
+        "x": 1060,
+        "y": 1350,
+        "m": [
+          960,
+          1300
+        ],
+        "labelPos": "right",
+        "photo": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/482536/large.jpg",
+          "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/482536/small.jpg",
+          "credit": "Photo: scottmo (CC BY-NC), via iNaturalist",
+          "link": "https://www.inaturalist.org/photos/482536",
+          "alt": "A green sugar maple leaf with five lobes"
+        },
+        "inat": "Acer saccharum",
+        "inatCount": 96,
+        "headline": "Seedlings grow less when their fungal partners are missing.",
+        "body": [
+          "A maple seedling on the forest floor is part of the Forest’s future canopy, and it relies on root fungi for nutrients. In experiments elsewhere, maple seedlings in soil where garlic mustard had grown carried few of those partners. Red maple, also common here, responds the same way."
+        ],
+        "finding": "Stinson and colleagues grew sugar maple, red maple and white ash seedlings in soil conditioned by different plants. In garlic mustard soil only 0–10% of their roots carried partner fungi, compared with 20–65% in soil from native plants, and the seedlings grew the least (Stinson et al. 2006). Wild sugar maple seedlings collected at eight Ohio and Massachusetts forest sites also had less of their roots colonized inside garlic mustard patches, though the number of fungal types detected was unchanged (Barto et al. 2011). The pot experiments isolate the soil effect; shade from garlic mustard may add to it.",
+        "cite": [
+          "stinson2006",
+          "barto2011"
+        ],
+        "nybg": "Frequent in the 2016 published flora. A 2011 inventory counted about 81 sugar maple stems per hectare in the Forest, and staff collect its seed each August to grow trees for restoration planting."
+      },
+      {
+        "id": "sol",
+        "name": "False Solomon’s seal",
+        "short": "False Solomon’s seal",
+        "sci": "Maianthemum racemosum",
+        "group": "plant",
+        "kind": "Long-lived woodland wildflower",
+        "step": "Harmed through its fungi",
+        "x": 1390,
+        "y": 1420,
+        "m": [
+          1020,
+          1480
+        ],
+        "labelPos": "below",
+        "photo": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111809822/large.jpg",
+          "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/111809822/small.jpg",
+          "credit": "Photo: Emily Scherer (CC BY-NC), via iNaturalist",
+          "link": "https://www.inaturalist.org/photos/111809822",
+          "alt": "False Solomon's seal: arching stems ending in fluffy plumes of tiny cream flowers"
+        },
+        "inat": "Maianthemum racemosum",
+        "inatCount": 186,
+        "headline": "Saves less energy for next year when its fungi are disrupted.",
+        "body": [
+          "This arching wildflower, with a plume of cream flowers in late spring, comes back year after year from an underground stem. Part of its nutrition comes through root fungi. When garlic mustard disrupts them, the plant stores less for the next season, and over several years it flowers less often."
+        ],
+        "finding": "In greenhouse tests, garlic mustard leaves added to its soil acted almost like a fungicide: fewer fungal threads, less photosynthesis and less stored carbohydrate (Hale et al. 2011, 2016). After one season plants held 17% less stored carbohydrate, and in a seven-year Pennsylvania field experiment, pulling garlic mustard made them more likely to flower (Brouwer et al. 2015). A five-to-six-year field experiment in the same forest adds a twist: across ten native species, plants grown with garlic mustard had slightly fewer root fungi but more leaf area and above-ground growth, and false Solomon’s seal put a smaller share of its growth into roots. The authors suspect this short-term boost may cost the plants in the long run (Mutz et al. 2026).",
+        "cite": [
+          "hale2011",
+          "hale2016",
+          "brouwer2015",
+          "mutz2026"
+        ],
+        "nybg": "Rated “Frequent” in the Garden’s published flora (Atha et al. 2016), and grown from local seed in the Garden’s nursery to replant the Forest."
+      },
+      {
+        "id": "jw",
+        "name": "Jewelweed",
+        "short": "Jewelweed",
+        "sci": "Impatiens capensis",
+        "group": "plant",
+        "kind": "Native annual of damp woods",
+        "step": "Held back",
+        "x": 330,
+        "y": 1405,
+        "m": [
+          370,
+          1300
+        ],
+        "labelPos": "below",
+        "photo": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/419410578/large.jpg",
+          "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/419410578/small.jpg",
+          "credit": "Photo: Thomas Shahan (CC BY-NC), via iNaturalist",
+          "link": "https://www.inaturalist.org/photos/419410578",
+          "alt": "Jewelweed: an orange, spurred, red-spotted flower hanging from a thin stalk"
+        },
+        "inat": "Impatiens capensis",
+        "inatCount": 218,
+        "headline": "Held back by it, above ground and below.",
+        "body": [
+          "Jewelweed grows from seed every spring in damp shade, the same places garlic mustard likes. Its orange spurred flowers feed ruby-throated hummingbirds and bumblebees in late summer, and its ripe seed pods burst open at a touch."
+        ],
+        "finding": "In an Ohio forest, jewelweed seedlings planted among garlic mustard survived better and made more fruit when the garlic mustard was cut back. Where it was left standing, mixing activated charcoal into the soil, which soaks up plant chemicals, made jewelweed taller and more fruitful. So garlic mustard seems to hold it back both above ground and through chemicals in the soil (Cipollini, McClain & Cipollini 2008).",
+        "cite": [
+          "cipollini2008"
+        ],
+        "nybg": "Frequent across the Garden in the 2016 published flora."
+      },
+      {
+        "id": "cw",
+        "name": "Cabbage white",
+        "short": "Cabbage white",
+        "sci": "Pieris rapae",
+        "group": "insect",
+        "kind": "Butterfly, also from Europe",
+        "step": "Helped by it",
+        "x": 470,
+        "y": 1130,
+        "m": [
+          560,
+          860
+        ],
+        "labelPos": "below",
+        "photo": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28420401/large.jpg",
+          "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/28420401/small.jpg",
+          "credit": "Photo: Liu JimFood (CC BY-NC), via iNaturalist",
+          "link": "https://www.inaturalist.org/photos/28420401",
+          "alt": "Cabbage white: a white butterfly with dark wingtips"
+        },
+        "inat": "Pieris rapae",
+        "inatCount": 54,
+        "headline": "One invader feeding another.",
+        "body": [
+          "Cabbage white caterpillars eat plants in the mustard family, and they can grow up on garlic mustard. The butterfly came from Europe too, and it is now one of the most familiar white butterflies in North American gardens.",
+          "A native cousin is not so lucky. The West Virginia white lays its eggs on garlic mustard, mistaking it for its native host plants (toothworts), and most of the caterpillars die within days. That butterfly has not been recorded at the Garden."
+        ],
+        "finding": "In Ohio, most garlic mustard plants surveyed at forest edges had cabbage white feeding damage, and caterpillars completed development on both first-year rosettes and flowering plants (Davis & Cipollini 2016). In New York, Ohio and Pennsylvania, West Virginia white females laid more eggs on garlic mustard than on their native host, and none of the caterpillars fed on it survived to pupate (Davis & Cipollini 2014).",
+        "cite": [
+          "davis2016",
+          "davis2014"
+        ],
+        "nybg": "Common at the Garden on iNaturalist, though no one has documented its caterpillars on the Garden’s garlic mustard. The native toothworts are rare here (2016 published flora)."
+      },
+      {
+        "id": "worms",
+        "name": "Non-native earthworms",
+        "short": "Earthworms",
+        "sciHTML": "<i>Lumbricus</i> and <i>Amynthas</i> species",
+        "group": "annelid",
+        "kind": "Soil animals from Europe and Asia",
+        "step": "Helps it spread",
+        "x": 520,
+        "y": 1700,
+        "m": [
+          520,
+          1840
+        ],
+        "labelPos": "below",
+        "photo": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/501395824/large.jpg",
+          "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/501395824/small.jpg",
+          "credit": "Photo: J Norman (CC BY-NC), via iNaturalist",
+          "link": "https://www.inaturalist.org/observations/279224097",
+          "alt": "An Asian earthworm (Amynthas hupeiensis) photographed at the New York Botanical Garden in May 2025"
+        },
+        "headline": "They eat the leaf litter that native plants and animals depend on.",
+        "body": [
+          "Most earthworms in northeastern forests are not native. They arrived from Europe and Asia in soil, potted plants, mulch and fishing bait, and they eat the layer of fallen leaves that covers the forest floor. Where worms are abundant, garlic mustard tends to be abundant too, while leaf litter and many native plants are scarcer."
+        ],
+        "finding": "Across 15 northeastern forests, plots with more earthworms had more non-native plant cover, garlic mustard included, and less leaf litter, less native woody cover and less of most native herbs. Invasive plant cover was actually higher where native plant cover was higher, so the authors argue that the worms, more than the invasive plants, drive the change (Nuzzo, Maerz & Blossey 2009). The study is correlational, so it shows the pattern rather than every step. Around New York City, urban oak forests held about 25 earthworms per square meter, against 2 in rural ones (Steinberg et al. 1997).",
+        "cite": [
+          "nuzzo2009",
+          "steinberg1997"
+        ],
+        "nybgHTML": "Non-native earthworms have been in the Forest since at least the late 1980s, and the Forest Plan names them as a threat to native plant regeneration, though their long-term effects there have not been directly studied. The Garden now plants bare-root saplings partly to avoid bringing in more worms with potting soil. In May 2025 an Asian earthworm related to the jumping worms (<i>Amynthas hupeiensis</i>) was <a href=\"https://www.inaturalist.org/observations/279224097\" target=\"_blank\" rel=\"noopener\">photographed at the Garden</a> (the photo above)."
+      },
+      {
+        "id": "sal",
+        "name": "Eastern red-backed salamander",
+        "short": "Red-backed salamander",
+        "sci": "Plethodon cinereus",
+        "group": "amphibian",
+        "kind": "Lungless salamander of the leaf litter",
+        "step": "Harmed by the worms, not the mustard",
+        "x": 220,
+        "y": 1600,
+        "m": [
+          330,
+          1620
+        ],
+        "labelPos": "right",
+        "labelPosM": "below",
+        "photo": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/248530577/large.jpg",
+          "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/248530577/small.jpg",
+          "credit": "Photo: Ty Smith (CC BY-NC), via iNaturalist",
+          "link": "https://www.inaturalist.org/photos/248530577",
+          "alt": "Eastern red-backed salamander: a slim dark salamander with a reddish stripe down its back"
+        },
+        "inat": "Plethodon cinereus",
+        "inatCount": 14,
+        "headline": "Here garlic mustard is a warning sign, not the cause.",
+        "body": [
+          "This small salamander has no lungs and breathes through its damp skin, so it lives under moist leaves and logs and hunts mites, springtails and small insects. When earthworms eat the leaf litter, it loses both its cover and its food. Garlic mustard often grows in the same worm-stripped places, which makes it a useful sign that something is wrong."
+        ],
+        "finding": "At ten sites, salamander numbers fell steeply as leaf litter disappeared, and at the four sites where prey were counted, so did their prey. Once the litter lost to earthworms was taken into account, invasive plant cover, garlic mustard included, had no separate effect on salamanders (Maerz, Nuzzo & Blossey 2009).",
+        "cite": [
+          "maerz2009"
+        ],
+        "nybg": "NYBG has tracked this species since 2010 with cover boards placed throughout the Forest and checked each spring and fall. The Garden uses it as an indicator of forest health."
+      },
+      {
+        "id": "deer",
+        "name": "White-tailed deer",
+        "short": "Deer (visiting)",
+        "sci": "Odocoileus virginianus",
+        "group": "mammal",
+        "visitor": true,
+        "kind": "Mammal, an occasional visitor to the Garden",
+        "step": "A helper at the gate",
+        "x": 1250,
+        "y": 1150,
+        "m": [
+          990,
+          980
+        ],
+        "labelPos": "below",
+        "photo": {
+          "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/452215485/large.jpg",
+          "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/452215485/small.jpg",
+          "credit": "Photo: James St. John (CC BY), via iNaturalist",
+          "link": "https://www.inaturalist.org/photos/452215485",
+          "alt": "A white-tailed deer buck with antlers standing in tall grass"
+        },
+        "inat": "Odocoileus virginianus",
+        "inatCount": 1,
+        "headline": "Not a resident yet, but a strong ally of garlic mustard where deer are overabundant.",
+        "body": [
+          "Deer browse native wildflowers and tree seedlings but leave garlic mustard alone, so where deer are overabundant, their browsing clears space for it. Deer also seem to boost earthworm numbers.",
+          "As of the Garden’s 2016 Forest Plan, deer came and went along the Bronx River but had not settled in the Forest. The Forest Plan warns they would have a devastating impact if they did, and suggests fencing deer out of parts of the Forest as their numbers grow in the Bronx and lower Westchester."
+        ],
+        "finding": "In a six-year Pennsylvania study, deer never browsed garlic mustard but ate about 22% of the palatable native plants each year. With deer, the garlic mustard population grew by about a third a year; fenced away from them, it shrank, and a native trillium recovered (Kalisz, Spigler & Horvitz 2014). At Fermilab in Illinois, garlic mustard rose with deer numbers and fell after a cull. At West Point, New York, about 80 km up the Hudson from the Garden, false Solomon’s seal inside deer fences grew about twice as tall as plants outside, and only fenced plants flowered (Nuzzo, Dávalos & Blossey 2017). Fencing deer out also lowered earthworm numbers at West Point, New York (Dávalos et al. 2015).",
+        "cite": [
+          "kalisz2014",
+          "nuzzo2017",
+          "davalos2015"
+        ],
+        "nybg": "One verified iNaturalist record inside the Garden, from 2023, with more along the Bronx River nearby."
+      }
+    ],
+    "edges": [
+      {
+        "from": "gm",
+        "to": "amf",
+        "sign": "harm",
+        "label": "stunts them with its chemicals"
+      },
+      {
+        "from": "amf",
+        "to": "maple",
+        "sign": "mutual",
+        "label": "trade nutrients for food",
+        "bend": -0.18
+      },
+      {
+        "from": "amf",
+        "to": "sol",
+        "sign": "mutual",
+        "label": "feed its roots",
+        "bend": 0.2
+      },
+      {
+        "from": "gm",
+        "to": "jw",
+        "sign": "harm",
+        "label": "holds it back, above and below",
+        "bend": 0.22
+      },
+      {
+        "from": "gm",
+        "to": "cw",
+        "sign": "help",
+        "label": "feeds its caterpillars",
+        "bend": -0.15
+      },
+      {
+        "from": "worms",
+        "to": "gm",
+        "sign": "help",
+        "label": "clear the leaf litter",
+        "bend": 0.2
+      },
+      {
+        "from": "worms",
+        "to": "sal",
+        "sign": "harm",
+        "label": "eat the litter it hides and hunts in",
+        "bend": -0.2
+      },
+      {
+        "from": "deer",
+        "to": "gm",
+        "sign": "help",
+        "label": "eat its rivals, skip it",
+        "bend": 0.12
+      },
+      {
+        "from": "deer",
+        "to": "sol",
+        "sign": "harm",
+        "label": "browse it",
+        "bend": -0.22
+      }
+    ],
+    "invaderExtra": {
+      "id": [
+        "Crush a leaf: it smells clearly of garlic, most strongly in spring.",
+        "First year: a low rosette of rounded, scalloped, kidney-shaped leaves that stays green through winter.",
+        "Second year, April to May: a stalk 1–3 feet tall with triangular, toothed leaves and clusters of small white flowers, four petals in a cross.",
+        "Summer: thin upright seed pods that dry to tan. Dead stalks can stand into fall.",
+        "Pulled up, it shows a slender white taproot, often with an S-shaped kink just below the leaves.",
+        "Look-alikes: violets have five-petaled flowers and no garlic smell; native toothworts have divided leaves."
+      ],
+      "seasons": [
+        {
+          "months": [
+            11,
+            12,
+            1,
+            2,
+            3
+          ],
+          "look": "Look for low clumps of rounded, scalloped leaves that stay green after most plants have died back. These are first-year rosettes."
+        },
+        {
+          "months": [
+            4,
+            5
+          ],
+          "look": "Look for stalks 1–3 feet tall topped with small white four-petaled flowers. This is when they are pulled, before they seed."
+        },
+        {
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "look": "Look for thin upright seed pods on yellowing stalks, and new rosettes starting underneath."
+        },
+        {
+          "months": [
+            9,
+            10
+          ],
+          "look": "Look for green first-year rosettes of scalloped leaves on the forest floor, often beside the dry, tan stalks of plants that seeded this summer."
+        }
+      ],
+      "idCite": [
+        "cavers1979"
+      ],
+      "origin": "Garlic mustard is native to Europe and western Asia and was probably brought over by early colonists as a cooking and medicinal herb, not as an ornamental. By 1868 it was growing wild on Long Island, and by 1991 it was spreading across about 6,400 square kilometers (2,500 square miles) of North America a year.",
+      "originCite": [
+        "rodgers2008"
+      ],
+      "management": "Under the Garden’s 2016 Forest Plan, second-year plants are pulled before they set seed in May, and first-year rosettes can be pulled until the soil freezes. The Forest’s yearly work calendar sets aside March and April for it. Researchers have studied it here too: ecologist Janet Morrison in the late 1990s, and a Fordham University study of its population dynamics along an urban-to-rural gradient in 2010–11.",
+      "managementCite": [
+        "forestplan"
+      ]
+    },
+    "end": {
+      "title": "Breaking the cascade",
+      "headline": "Pulling garlic mustard helps. Protecting the leaf litter and soil underneath matters just as much.",
+      "sections": [
+        {
+          "h": "What the Garden does",
+          "html": "<p>The Garden’s Forest Plan calls for pulling garlic mustard each spring before it seeds, replanting restored parts of the Forest with natives grown from local seed (including sugar maple and false Solomon’s seal), and using bare-root saplings, partly to avoid bringing in earthworms. Staff and volunteers have checked salamander cover boards each spring and fall since 2010 to see how the Forest floor is doing.</p>"
+        },
+        {
+          "h": "What you can do",
+          "html": "<ul class=\"ticks\">\n        <li>Learn the smell test and the two-year look, so you can spot it at home or in a park.</li>\n        <li>At home, pull second-year plants before they seed in May and get the whole taproot. If pods have formed, bag the plants for the trash, because the seeds can keep ripening.</li>\n        <li>On Garden grounds, leave the pulling to NYBG staff and volunteers. Ask about volunteering in the Forest if you want to help.</li>\n        <li>Stay on the trails, and brush soil off boots, strollers and paws. The seeds travel in mud.</li>\n        <li>Don’t move earthworms. Never dump leftover bait worms, and buy mulch and compost from sellers that screen for jumping worms.</li>\n        <li>Report what you find on iNaturalist. The Garden has its <a href=\"https://www.inaturalist.org/observations?place_id=66109\" target=\"_blank\" rel=\"noopener\">own place page</a>, and records like these power this guide.</li>\n        <li>It is often foraged, but its leaves, especially young first-year leaves, can contain cyanide at up to 100 parts per million, a level considered toxic to many vertebrates (Cipollini & Gruner 2007). If you eat it, cook it, eat only small amounts, and be sure of your identification.</li>\n      </ul>"
+        },
+        {
+          "h": "Plant these instead",
+          "html": "<p>Native shade plants that fill the same spot in a garden and hold bare soil:</p>\n        <ul class=\"plants\">\n          <li><b>White wood aster</b> <i>Eurybia divaricata</i></li>\n          <li><b>Wild geranium</b> <i>Geranium maculatum</i></li>\n          <li><b>False Solomon’s seal</b> <i>Maianthemum racemosum</i></li>\n          <li><b>Hairy Solomon’s seal</b> <i>Polygonatum pubescens</i></li>\n          <li><b>Pennsylvania sedge</b> <i>Carex pensylvanica</i></li>\n        </ul>"
+        },
+        {
+          "h": "What researchers are still working out",
+          "html": "<ul class=\"ticks open\">\n        <li>None of the fungal effects have been measured at the Garden. The experiments come from Ontario, New England, Ohio and Pennsylvania.</li>\n        <li>Garlic mustard may get less toxic over time. Older populations produced less of its toxic chemicals and harmed three native test plants less (Lankau et al. 2009), and the New York City area has some of the oldest populations in North America.</li>\n        <li>Some ecologists see garlic mustard as a passenger, thriving where worms and deer have already done the damage, rather than the main driver (Nuzzo et al. 2009, 2017). Others measure clear direct harm (Brouwer et al. 2015). It is probably both.</li>\n        <li>The newest long-term field study, in the same Pennsylvania forest, found that native plants growing with garlic mustard had slightly fewer and different root fungi, yet doubled their leaf area and put relatively more growth above ground and less into roots. The authors warn this short-term boost may come at the expense of long-term survival, which has not been measured yet (Mutz et al. 2026).</li>\n      </ul>"
+        }
+      ]
+    },
+    "sources": {
+      "stinson2006": {
+        "short": "Stinson et al. 2006",
+        "full": "Stinson KA, Campbell SA, Powell JR, Wolfe BE, Callaway RM, Thelen GC, Hallett SG, Prati D, Klironomos JN (2006). Invasive plant suppresses the growth of native tree seedlings by disrupting belowground mutualisms. PLoS Biology 4(5): e140.",
+        "url": "https://doi.org/10.1371/journal.pbio.0040140"
+      },
+      "callaway2008": {
+        "short": "Callaway et al. 2008",
+        "full": "Callaway RM, Cipollini D, Barto K, Thelen GC, Hallett SG, Prati D, Stinson K, Klironomos J (2008). Novel weapons: invasive plant suppresses fungal mutualists in America but not in its native Europe. Ecology 89(4): 1043–1055.",
+        "url": "https://doi.org/10.1890/07-0370.1"
+      },
+      "cantor2011": {
+        "short": "Cantor et al. 2011",
+        "full": "Cantor A, Hale A, Aaron J, Traw MB, Kalisz S (2011). Low allelochemical concentrations detected in garlic mustard-invaded forest soils inhibit fungal growth and AMF spore germination. Biological Invasions 13: 3015–3025.",
+        "url": "https://doi.org/10.1007/s10530-011-9986-x"
+      },
+      "barto2011": {
+        "short": "Barto et al. 2011",
+        "full": "Barto EK, Antunes PM, Stinson K, Koch AM, Klironomos JN, Cipollini D (2011). Differences in arbuscular mycorrhizal fungal communities associated with sugar maple seedlings in and outside of invaded garlic mustard forest patches. Biological Invasions 13: 2755–2762.",
+        "url": "https://doi.org/10.1007/s10530-011-9945-6"
+      },
+      "wolfe2008": {
+        "short": "Wolfe et al. 2008",
+        "full": "Wolfe BE, Rodgers VL, Stinson KA, Pringle A (2008). The invasive plant Alliaria petiolata (garlic mustard) inhibits ectomycorrhizal fungi in its introduced range. Journal of Ecology 96: 777–783.",
+        "url": "https://doi.org/10.1111/j.1365-2745.2008.01389.x"
+      },
+      "hale2011": {
+        "short": "Hale et al. 2011",
+        "full": "Hale AN, Tonsor SJ, Kalisz S (2011). Testing the mutualism disruption hypothesis: physiological mechanisms for invasion of intact perennial plant communities. Ecosphere 2(10): art110.",
+        "url": "https://doi.org/10.1890/ES11-00136.1"
+      },
+      "hale2016": {
+        "short": "Hale et al. 2016",
+        "full": "Hale AN, Lapointe L, Kalisz S (2016). Invader disruption of belowground plant mutualisms reduces carbon acquisition and alters allocation patterns in a native forest herb. New Phytologist 209: 542–549.",
+        "url": "https://doi.org/10.1111/nph.13709"
+      },
+      "brouwer2015": {
+        "short": "Brouwer et al. 2015",
+        "full": "Brouwer NL, Hale AN, Kalisz S (2015). Mutualism-disrupting allelopathic invader drives carbon stress and vital rate decline in a forest perennial herb. AoB PLANTS 7: plv014.",
+        "url": "https://doi.org/10.1093/aobpla/plv014"
+      },
+      "mutz2026": {
+        "short": "Mutz et al. 2026",
+        "full": "Mutz J, Heberling JM, Kivlin SN, Smith NG, Chatterjee S, Perkowski EA, Bialic-Murphy L, Edwards JD, Kalisz S (2026). Plant invader alters root fungal microbiome, physiology and biomass allocation in native understory species. Journal of Ecology 114(9): e70427.",
+        "url": "https://doi.org/10.1111/1365-2745.70427"
+      },
+      "cipollini2008": {
+        "short": "Cipollini et al. 2008",
+        "full": "Cipollini KA, McClain GY, Cipollini D (2008). Separating above- and belowground effects of Alliaria petiolata and Lonicera maackii on the performance of Impatiens capensis. American Midland Naturalist 160: 117–128.",
+        "url": "https://doi.org/10.1674/0003-0031(2008)160[117:SAABEO]2.0.CO;2"
+      },
+      "davis2016": {
+        "short": "Davis & Cipollini 2016",
+        "full": "Davis SL, Cipollini D (2016). Evidence for use of Alliaria petiolata in North America by the European cabbage white butterfly, Pieris rapae. Psyche 2016: 9671506.",
+        "url": "https://doi.org/10.1155/2016/9671506"
+      },
+      "davis2014": {
+        "short": "Davis & Cipollini 2014",
+        "full": "Davis SL, Cipollini D (2014). Do mothers always know best? Oviposition mistakes and resulting larval failure of Pieris virginiensis on Alliaria petiolata, a novel, toxic host. Biological Invasions 16: 1941–1950.",
+        "url": "https://doi.org/10.1007/s10530-013-0637-2"
+      },
+      "nuzzo2009": {
+        "short": "Nuzzo et al. 2009",
+        "full": "Nuzzo VA, Maerz JC, Blossey B (2009). Earthworm invasion as the driving force behind plant invasion and community change in northeastern North American forests. Conservation Biology 23: 966–974.",
+        "url": "https://doi.org/10.1111/j.1523-1739.2009.01168.x"
+      },
+      "steinberg1997": {
+        "short": "Steinberg et al. 1997",
+        "full": "Steinberg DA, Pouyat RV, Parmelee RW, Groffman PM (1997). Earthworm abundance and nitrogen mineralization rates along an urban-rural land use gradient. Soil Biology and Biochemistry 29: 427–430.",
+        "url": "https://doi.org/10.1016/S0038-0717(96)00043-0"
+      },
+      "maerz2009": {
+        "short": "Maerz et al. 2009",
+        "full": "Maerz JC, Nuzzo VA, Blossey B (2009). Declines in woodland salamander abundance associated with non-native earthworm and plant invasions. Conservation Biology 23: 975–981.",
+        "url": "https://doi.org/10.1111/j.1523-1739.2009.01167.x"
+      },
+      "kalisz2014": {
+        "short": "Kalisz et al. 2014",
+        "full": "Kalisz S, Spigler RB, Horvitz CC (2014). In a long-term experimental demography study, excluding ungulates reversed invader’s explosive population growth rate and restored natives. PNAS 111(12): 4501–4506.",
+        "url": "https://doi.org/10.1073/pnas.1310121111"
+      },
+      "nuzzo2017": {
+        "short": "Nuzzo et al. 2017",
+        "full": "Nuzzo VA, Dávalos A, Blossey B (2017). Assessing plant community composition fails to capture impacts of white-tailed deer on native and invasive plant species. AoB PLANTS 9(4): plx026.",
+        "url": "https://doi.org/10.1093/aobpla/plx026"
+      },
+      "davalos2015": {
+        "short": "Dávalos et al. 2015",
+        "full": "Dávalos A, Simpson E, Nuzzo V, Blossey B (2015). Non-consumptive effects of native deer on introduced earthworm abundance. Ecosystems 18: 1029–1042.",
+        "url": "https://doi.org/10.1007/s10021-015-9881-x"
+      },
+      "rodgers2008": {
+        "short": "Rodgers et al. 2008",
+        "full": "Rodgers VL, Stinson KA, Finzi AC (2008). Ready or not, garlic mustard is moving in: Alliaria petiolata as a member of eastern North American forests. BioScience 58(5): 426–436.",
+        "url": "https://doi.org/10.1641/B580510"
+      },
+      "cavers1979": {
+        "short": "Cavers et al. 1979",
+        "full": "Cavers PB, Heagy MI, Kokron RF (1979). The biology of Canadian weeds. 35. Alliaria petiolata (M. Bieb.) Cavara and Grande. Canadian Journal of Plant Science 59(1): 217–229.",
+        "url": "https://doi.org/10.4141/cjps79-029"
+      },
+      "lankau2009": {
+        "short": "Lankau et al. 2009",
+        "full": "Lankau RA, Nuzzo V, Spyreas G, Davis AS (2009). Evolutionary limits ameliorate the negative impact of an invasive plant. PNAS 106(36): 15362–15367.",
+        "url": "https://doi.org/10.1073/pnas.0905446106"
+      },
+      "cipolliniGruner2007": {
+        "short": "Cipollini & Gruner 2007",
+        "full": "Cipollini D, Gruner B (2007). Cyanide in the chemical arsenal of garlic mustard, Alliaria petiolata. Journal of Chemical Ecology 33: 85–94.",
+        "url": "https://doi.org/10.1007/s10886-006-9205-x"
+      },
+      "atha2016": {
+        "short": "Atha et al. 2016",
+        "full": "Atha DE, Forrest T, Naczi RFC, Pace MC, Rubin M, Schuler JA, Nee M (2016). The historic and extant spontaneous vascular flora of The New York Botanical Garden. Brittonia 68(3): 245–277.",
+        "url": "https://doi.org/10.1007/s12228-016-9417-5"
+      },
+      "forestplan": {
+        "short": "NYBG Forest Plan 2016",
+        "full": "Schuler JA, Forrest TA (2016). Thain Family Forest Program 2008–2025. The New York Botanical Garden.",
+        "url": ""
+      },
+      "nybglist": {
+        "short": "NYBG invasive list 2026",
+        "full": "The New York Botanical Garden (2026). Invasive Species List, Categories 1 & 2 (staff working list, updated August 27, 2026).",
+        "url": ""
+      }
+    },
+    "colophon": "Made by an ENV221 student team at Princeton University as a prototype for the New York Botanical Garden’s invasive species guide. Not an official NYBG publication. Photos come from iNaturalist under Creative Commons licenses and are credited on each card. Record counts update live from iNaturalist’s New York Botanical Garden place (fallback counts as of October 2026). Research checked October 2026."
+  }
+}

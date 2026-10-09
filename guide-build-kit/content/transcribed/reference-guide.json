@@ -1,0 +1,41 @@
+{
+  "_about": "Hand transcription of 'Invasive Species Reference Guide.pdf' (image-only PDF, so it cannot be parsed automatically). Text is copied word for word from the slides. If the team re-exports the guide as .pptx in the info-page template, extract_info_pages.py replaces this file.",
+  "pages": [
+    {
+      "id": "lythrum-salicaria",
+      "source": "Invasive Species Reference Guide (ENV 221), slide 1",
+      "scientific_name": "Lythrum salicaria",
+      "common_names": ["Purple loosestrife"],
+      "origin_line": "INVASIVE: native to Europe and Asia",
+      "native_range": "Europe and Asia",
+      "impact": "Outcompetes native wetland vegetation by forming dense, impenetrable stands that choke native flora. A single mature plant produces over 2 million seeds annually, spreading rapidly through water systems and severely reducing marsh biodiversity.",
+      "impact_source": "https://www.lhprism.org/species/lythrum-salicaria",
+      "photo": "loosestrife.jpg",
+      "photo_credit": "Photo credit printed on slide: NYBG / Wikimedia Commons (CC BY-SA). Image source listed in the guide: www.rhs.org.uk [credit to confirm]",
+      "alternatives": [
+        {"name": "Blue vervain", "photo": "blue-vervain.jpg", "image_source": "www.prairiemoon.com"},
+        {"name": "Dense blazing star", "photo": "blazing-star.jpg", "image_source": "www.prairienursery.com"},
+        {"name": "Obedient plant", "photo": "obedient-plant.jpg", "image_source": "jerseyyards.org"},
+        {"name": "Swamp milkweed", "photo": "swamp-milkweed.jpg", "image_source": "mowildflowers.net"}
+      ]
+    },
+    {
+      "id": "vinca-minor",
+      "source": "Invasive Species Reference Guide (ENV 221), slide 2",
+      "scientific_name": "Vinca minor",
+      "common_names": ["Common periwinkle", "myrtle"],
+      "origin_line": "INVASIVE: native to Central and Southern Europe",
+      "native_range": "Central and Southern Europe",
+      "impact": "Forms dense, evergreen groundcover mats in forest understories, choking out native spring wildflowers and tree seedlings. Its creeping stems root easily at nodes, making manual removal difficult once established in woods.",
+      "impact_source": "https://www.lhprism.org/species/vinca-minor",
+      "photo": "periwinkle.jpg",
+      "photo_credit": "Photo credit printed on slide: NYBG / Wikimedia Commons (CC BY-SA). Image source listed in the guide: www.poison.org [credit to confirm]",
+      "alternatives": [
+        {"name": "Wild blue phlox", "photo": "wild-blue-phlox.jpg", "image_source": "www.prairiemoon.com"},
+        {"name": "Partridgeberry", "photo": "partridgeberry.jpg", "image_source": "www.wildflower.org"},
+        {"name": "Allegheny pachysandra", "photo": "allegheny-pachysandra.jpg", "image_source": "mtcubacenter.org"},
+        {"name": "Blue vervain", "photo": "blue-vervain.jpg", "image_source": "www.prairiemoon.com"}
+      ]
+    }
+  ]
+}

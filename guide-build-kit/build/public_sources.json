@@ -1,0 +1,267 @@
+{
+ "species": {
+  "iris-pseudacorus": {
+   "summary": {
+    "text": "Paleyellow iris is native to Europe, northern Africa, and temperate Asia. A valued horticultural plant, paleyellow iris was brought to North America and escaped cultivation, often spreading down watercourses or washing downstream in floods.",
+    "source": "Stone, K. R. 2009, Iris pseudacorus, Fire Effects Information System, USDA Forest Service (reference numbers omitted) (U.S. government work, public domain)"
+   },
+   "checklist": {
+    "items": [
+     "The few to several leaves of paleyellow iris are stiff and erect, linear, and 10 to 35 inches (25-90 cm) long.",
+     "Flowers are bright yellow or cream-colored and 3 to 4 inches (7-9 cm) wide.",
+     "Paleyellow iris fruits are 6-angled capsules, 2 to 4 inches (5-9 cm) long.",
+     "Paleyellow iris has rhizomes that are 0.4 to 2 inches (1-4 cm) in diameter."
+    ],
+    "source": "Stone, K. R. 2009, Iris pseudacorus, Fire Effects Information System, USDA Forest Service (reference numbers omitted) (U.S. government work, public domain)"
+   },
+   "seasons": [
+    {
+     "months": [
+      5,
+      6,
+      7
+     ],
+     "look": "Paleyellow iris flowers from late May to early July in North America.",
+     "source": "Stone, K. R. 2009, Iris pseudacorus, Fire Effects Information System, USDA Forest Service (reference numbers omitted) (U.S. government work, public domain)"
+    }
+   ]
+  },
+  "vinca-minor": {
+   "summary": {
+    "text": "Common periwinkle was first introduced into North America in the 1700s as an ornamental. It is still commonly sold as an ornamental ground cover.",
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 104 (U.S. government work, public domain)"
+   },
+   "checklist": {
+    "items": [
+     "Plant: vine-like erect or trailing groundcover; mostly evergreen; stems slender.",
+     "Leaves: opposite, dark green, glossy, oval to lance-shaped, thick-textured; may be variegated.",
+     "Flowers, fruits and seeds: flower blue, lavender or white, about 1 in. across, five petals blunt at tip, arranged in spiral; springtime; no fruits or seeds typically.",
+     "Look-alikes: may be confused with several close relatives of this plant, including bigleaf periwinkle (Vinca major), imported from Europe, and Madagascar periwinkle (Catharanthus roseus), native only to Madagascar, both also invasive in natural areas in the mid-Atlantic and other parts of the United States; and winter creeper (Euonymus fortunei)."
+    ],
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 104 (U.S. government work, public domain)"
+   },
+   "seasons": [
+    {
+     "months": [
+      3,
+      4,
+      5
+     ],
+     "look": "Flowers, fruits and seeds: flower blue, lavender or white, about 1 in. across, five petals blunt at tip, arranged in spiral; springtime; no fruits or seeds typically.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 104 (U.S. government work, public domain)"
+    }
+   ]
+  },
+  "alliaria-petiolata": {
+   "impact": {
+    "text": "Garlic mustard has displaced vast areas occupied by native spring wildflowers like spring beauty (Claytonia virginica), wild ginger (Asarum canadense), bloodroot (Sanguinaria canadensis), trilliums (Trillium species) and toothworts (Cardamine). Three native butterfly species, the West Virginia white (Pieris virginiensis), mustard white butterfly (Pieris oleracea), and the falcate orange-tip (Anthocharis midea annicka), are especially impacted when garlic mustard displaces toothworts, its host plants. Chemicals in garlic mustard are toxic to the larvae of the native butterflies. Other chemicals have been found to affect mychorrhizal fungi associated with native trees, resulting in suppression of native tree seedling growth.",
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 46 (U.S. government work, public domain)"
+   },
+   "photo": {
+    "file": "public/alliaria-petiolata.jpg",
+    "credit": "Photo: Robert Flogaus-Faust, CC BY 4.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Alliaria_petiolata_4_RF.jpg)"
+   }
+  },
+  "phellodendron-amurense": {
+   "impact": {
+    "text": "Once established, it can form patches that displace native plants.",
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 137 (U.S. government work, public domain)"
+   },
+   "checklist": {
+    "items": [
+     "The distinctive bark is a light golden brown on younger trees and gray-brown, ridged, and furrowed on mature trees.",
+     "Bark of both young and old trees is slightly spongy or corky to the touch and has a distinctive bright neon yellow layer of inner bark that can be revealed with a quick scrape of a pocket-knife.",
+     "The leaves are 10-15 in. long, opposite, pinnately compound with 5-11 (up to 13) entire leaflets that are dark green, turning bright yellow in the fall.",
+     "When crushed, the leaves have a distinctive citrusy smell sometimes likened to a disinfectant or skunk odor.",
+     "From mid-June to mid-July, female trees produce abundant clusters of fruits (technically drupes) which are ¼-½ in. diameter."
+    ],
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 137 (U.S. government work, public domain)"
+   },
+   "seasons": [
+    {
+     "months": [
+      5,
+      6
+     ],
+     "look": "Male and female plants are separate (dioecious) and each bears hanging panicles of yellowish-green flowers from May through June.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 137 (U.S. government work, public domain)"
+    },
+    {
+     "months": [
+      7
+     ],
+     "look": "From mid-June to mid-July, female trees produce abundant clusters of fruits (technically drupes) which are ¼-½ in. diameter.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 137 (U.S. government work, public domain)"
+    },
+    {
+     "months": [
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "look": "The fruits bright are green, turning black in late summer to fall, and may remain on the tree until winter.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 137 (U.S. government work, public domain)"
+    }
+   ],
+   "photo": {
+    "file": "public/phellodendron-amurense.jpg",
+    "credit": "Photo: Agnieszka Kwiecień, Nova, CC BY-SA 4.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Phellodendron_amurense_Korkowiec_amurski_2019-05-24_03.jpg)"
+   }
+  },
+  "microstegium-vimineum": {
+   "impact": {
+    "text": "Stiltgrass threatens native understory vegetation in full sun to deep shade. It readily invades disturbed shaded areas, like floodplains that are prone to natural scouring, and areas subject to mowing, tilling and other soil-disturbing activities including white-tailed deer traffic. It spreads opportunistically following disturbance to form dense patches, displacing native wetland and forest vegetation as the patch expands.",
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 28-29 (U.S. government work, public domain)"
+   },
+   "checklist": {
+    "items": [
+     "Look for asymmetrical leaves with a shiny midrib and the stilt-like growth form.",
+     "Plant: annual grass resembling a small, delicate bamboo; mature plants grow to 2-3 ft. in height.",
+     "Leaves: pale green, lance-shaped, asymmetrical, about 3 in. in length, with a shiny midrib.",
+     "Flowers, fruits and seeds: hidden (cleistogamous), self-fertilizing flowers in axils and/or exposed (chasmogamous) flowers in terminal racemes of paired, hairy spikelets that open and are wind-pollinated; fruits awned and bristly; late summer to fall.",
+     "Look-alikes: Virginia cutgrass (Leersia virginica), hairy jointgrass or small carpetgrass (Arthraxon hispidus), and possibly other delicate grasses and wildflowers like Pennsylvania knotweed (Polygonum persicaria)."
+    ],
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 28-29 (U.S. government work, public domain)"
+   },
+   "seasons": [
+    {
+     "months": [
+      8,
+      9,
+      10,
+      11
+     ],
+     "look": "Flowers, fruits and seeds: hidden (cleistogamous), self-fertilizing flowers in axils and/or exposed (chasmogamous) flowers in terminal racemes of paired, hairy spikelets that open and are wind-pollinated; fruits awned and bristly; late summer to fall.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 28-29 (U.S. government work, public domain)"
+    }
+   ],
+   "natives": {
+    "text": "Following disturbance to an area susceptible to stiltgrass, stabilize with native vegetation suitable to site conditions.",
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 28-29 (U.S. government work, public domain)"
+   },
+   "photo": {
+    "file": "public/microstegium-vimineum.jpg",
+    "credit": "Photo: Theresa Yednock, Public domain, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Microstegium_vimineum_NPS.jpg)"
+   }
+  },
+  "lythrum-salicaria": {
+   "summary": {
+    "text": "Purple loosestrife was introduced to the northeastern United States and Canada in the 1800s for ornamental and medicinal uses. It is still widely sold as an ornamental, except in states such as Minnesota, Wisconsin and Illinois where regulations now prohibit its sale, purchase and distribution. Purple loosestrife adapts readily to natural and disturbed wetlands.",
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 51-52 (U.S. government work, public domain)"
+   },
+   "checklist": {
+    "items": [
+     "Plant: erect perennial herb with a square, woody stem usually covered by downy hair; 4-10 ft. high, depending upon conditions.",
+     "Leaves: lance-shaped, stalk-less and rounded to heart-shaped at the base; arranged in pairs or whorls around the stem.",
+     "Flowers, fruits and seeds: produces a showy display of magenta-colored flower spikes throughout much of the summer. Individual flowers have five to seven petals.",
+     "Look-alikes: from a distance, purple loosestrife may be confused with blue vervain (Verbena hastata), blazing star (Liatris aspera and L. spicata), Canada germander (Teucrium canadense), swamp milkweed (Asclepias incarnata), and fireweed (Chamaenerion angustifolium), which is native to the northern U.S. and Canada."
+    ],
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 51-52 (U.S. government work, public domain)"
+   },
+   "seasons": [
+    {
+     "months": [
+      6,
+      7,
+      8,
+      9
+     ],
+     "look": "The flowering season extends from June to September; flowers require pollination by insects, for which they supply an abundant source of nectar.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 51-52 (U.S. government work, public domain)"
+    }
+   ]
+  },
+  "adelges-tsugae": {
+   "impact": {
+    "text": "Native to Asia, the hemlock woolly adelgid (Adelges tsugae) is a small, aphidlike insect that threatens the health and sustainability of eastern hemlock (Tsuga canadensis) and Carolina hemlock (Tsuga caroliniana) in the Eastern United States. Hemlock woolly adelgid was first reported in the Eastern United States in 1951 near Richmond, Virginia. By 2005, it was established in portions of 16 States from Maine to Georgia, where infestations covered about half of the range of hemlock. Areas of extensive tree mortality and decline are found throughout the infested region, but the impact has been most severe in some areas of Virginia, New Jersey, Pennsylvania, and Connecticut. Hemlock decline and mortality typically occur within 4 to 10 years of infestation in the insect’s northern range, but can occur in as little as 3 to 6 years in its southern range.",
+    "source": "USDA Forest Service, Northeastern Area State and Private Forestry 2005, Pest Alert: Hemlock Woolly Adelgid (NA-PR-09-05) (U.S. government work, public domain)"
+   },
+   "checklist": {
+    "items": [
+     "The hemlock woolly adelgid is tiny, less than 1/16-inch (1.5-mm) long, and varies from dark reddish-brown to purplish-black in color.",
+     "As it matures, it produces a covering of wool-like wax filaments to protect itself and its eggs from natural enemies and prevent them from drying out.",
+     "Ovisacs can be readily observed from late fall to early summer on the underside of the outermost branch tips of hemlock trees."
+    ],
+    "source": "USDA Forest Service, Northeastern Area State and Private Forestry 2005, Pest Alert: Hemlock Woolly Adelgid (NA-PR-09-05) (U.S. government work, public domain)"
+   },
+   "seasons": [
+    {
+     "months": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "look": "Ovisacs can be readily observed from late fall to early summer on the underside of the outermost branch tips of hemlock trees.",
+     "source": "USDA Forest Service, Northeastern Area State and Private Forestry 2005, Pest Alert: Hemlock Woolly Adelgid (NA-PR-09-05) (U.S. government work, public domain)"
+    },
+    {
+     "months": [
+      7,
+      8,
+      9
+     ],
+     "look": "The hemlock woolly adelgid is unusual in that it enters a period of dormancy during the hot summer months. The nymphs during this time period have a tiny halo of woolly wax surrounding their bodies.",
+     "source": "USDA Forest Service, Northeastern Area State and Private Forestry 2005, Pest Alert: Hemlock Woolly Adelgid (NA-PR-09-05) (U.S. government work, public domain)"
+    },
+    {
+     "months": [
+      10
+     ],
+     "look": "The adelgids begin to feed once cooler temperatures prevail, usually in October, and continue throughout the winter months.",
+     "source": "USDA Forest Service, Northeastern Area State and Private Forestry 2005, Pest Alert: Hemlock Woolly Adelgid (NA-PR-09-05) (U.S. government work, public domain)"
+    }
+   ],
+   "photo": {
+    "file": "public/adelges-tsugae.jpg",
+    "credit": "Photo: Michael Montgomery, USDA Forest Service, CC BY 3.0 us, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Adelges_tsugae_1276001.jpg)"
+   }
+  },
+  "reynoutria-japonica": {
+   "impact": {
+    "text": "It spreads quickly to form dense thickets and pushes out native plant species. Knotweed poses a significant threat to riparian areas where it can survive flooding events and rapidly colonize scoured shores and islands. Once established, populations are extremely persistent.",
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 48-49 (U.S. government work, public domain)"
+   },
+   "checklist": {
+    "items": [
+     "Plant: upright, shrubby, herbaceous perennial 4-10 ft. tall with stems that are smooth, stout and hollow; stem leaf junctures are swollen and surrounded by a membranous sheath called an “ocrea” which is typical of the family.",
+     "Leaves: variable; about 6 in. long by 3-4 in. wide, broadly oval to somewhat triangular with a truncated base and a tapered tip.",
+     "Flowers, fruits and seeds: tiny greenish to white colored flowers occur in attractive sprays in summer; fruits are winged on three sides; seeds are triangular, dark brown, shiny and about 1/10 in. long.",
+     "Look-alikes: the lovely native Virginia knotweed (Tovara virginiana), and two exotic invasive relatives - prince’s feather (Polygonum orientale) and giant knotweed (Polygonum sachalinense)."
+    ],
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 48-49 (U.S. government work, public domain)"
+   },
+   "seasons": [
+    {
+     "months": [
+      6,
+      7,
+      8
+     ],
+     "look": "Flowers, fruits and seeds: tiny greenish to white colored flowers occur in attractive sprays in summer; fruits are winged on three sides; seeds are triangular, dark brown, shiny and about 1/10 in. long.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 48-49 (U.S. government work, public domain)"
+    }
+   ],
+   "photo": {
+    "file": "public/reynoutria-japonica.jpg",
+    "credit": "Photo: W.carter, CC0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Reynoutria_japonica_in_Brastad_1.jpg)"
+   }
+  }
+ },
+ "swap_photos": {
+  "Japanese Barberry": {
+   "file": "public/berberis-thunbergii.jpg",
+   "credit": "Photo: Dominicus Johannes Bergsma, CC BY-SA 3.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Bes_Berberis_thunbergii.JPG)"
+  },
+  "Winterberry": {
+   "file": "public/ilex-verticillata.jpg",
+   "credit": "Photo: Iurieph, CC0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Ilex_verticillata.jpg)"
+  }
+ }
+}

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Garden map and stops</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500&amp;family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2F6E45}a:hover{color:#1F4A2E}
+.ic{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tour{container-type:inline-size;position:relative;overflow:hidden;display:flex;flex-direction:column;background:#F4F6EE;color:#1F2D1C;font-family:'Alegreya Sans',system-ui,sans-serif;box-sizing:border-box}
+.cols{flex:1;min-height:0;display:flex}
+.pane-map{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;position:relative}
+.pane-stop{flex:none;width:100%;display:flex;flex-direction:column;background:#F4F6EE;min-height:0}
+.tour[data-screen="map"] .pane-stop{display:none}
+.tour[data-screen="stop"] .pane-map{display:none}
+.maparea{flex:1;min-height:0;position:relative;container-type:size;display:flex;align-items:flex-start;justify-content:center}
+.mapbox{position:relative;width:min(100cqw, calc(100cqh * 0.7857));aspect-ratio:440/560}
+.pin{position:absolute;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;border:2.5px solid #FFFFFF;background:#C21E5A;color:#FFFFFF;font:800 15px/1 'Alegreya Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;box-shadow:0 3px 8px -2px rgba(20,30,16,.55);transition:transform .15s,opacity .15s}
+.pin::before{content:"";position:absolute;inset:-7px;border-radius:50%}
+.pin.is-place{background:#2F6E45}
+.pin.is-active{transform:translate(-50%,-50%) scale(1.28);box-shadow:0 0 0 3px #1F2D1C,0 6px 14px -4px rgba(20,30,16,.7);z-index:2}
+.pin.is-dim{opacity:.35}
+.pin:hover{transform:translate(-50%,-50%) scale(1.12)}
+.pin.is-active:hover{transform:translate(-50%,-50%) scale(1.28)}
+.chip{flex:none;min-height:36px;padding:0 13px;border-radius:999px;border:1px solid #CCD5BE;background:#FFFFFF;color:#1F2D1C;font:700 14px 'Alegreya Sans',system-ui,sans-serif;cursor:pointer}
+.chip.is-on{background:#1F2D1C;border-color:#1F2D1C;color:#F4F6EE}
+.sheet{position:absolute;left:10px;right:10px;bottom:10px;z-index:5}
+.topnav{display:none}
+.tabbar{display:block}
+.scroll{flex:1;min-height:0;overflow-y:auto}
+.navbtn:hover{background:#E6ECDA}
+@container (min-width: 900px){
+  .tour[data-screen] .pane-map{display:flex}
+  .tour[data-screen] .pane-stop{display:flex;width:480px;border-left:1px solid #CCD5BE}
+  .tabbar{display:none}
+  .topnav{display:block}
+  .backbtn{display:none}
+  .maparea{align-items:center}
+  .sheet{left:20px;right:auto;bottom:20px;width:380px}
+}
+</style>
+</helmet>
+<div class="tour" data-screen="{{screen}}" style="width: {{w}}; height: {{h}}">
+
+  <div class="topnav" style="flex: none"><dc-import name="NavBar" mode="top" active="map" hint-size="100%,64px"></dc-import></div>
+
+  <div class="cols">
+
+    <!-- ============ MAP PANE ============ -->
+    <section class="pane-map" aria-label="Garden map">
+      <div style="flex: none; padding: 16px 16px 10px; display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; align-items: baseline; justify-content: space-between">
+          <h1 style="margin: 0; font-family: Alegreya, Georgia, serif; font-size: 27px; font-weight: 800">Garden map</h1>
+          <span style="font-size: 14px; color: #4A5942">Tap a number</span>
+        </div>
+        <div role="group" aria-label="Filter by stage" style="display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px">
+          <sc-for list="{{chips}}" as="c" hint-placeholder-count="5">
+            <button type="button" class="chip {{c.cls}}" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}">{{c.label}}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div class="maparea">
+        <div class="mapbox">
+          <img src="/_blob/285dbbe5adfeea09d8cf99c803ba50e6" alt="Illustrated map of the New York Botanical Garden: the Thain Family Forest in the center with the Bronx River along its east side, the Conservatory and Visitor Center to the west." style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+          <sc-for list="{{pins}}" as="p" hint-placeholder-count="10">
+            <button type="button" class="pin {{p.cls}}" style="left: {{p.left}}%; top: {{p.top}}%" onClick="{{p.pick}}" aria-label="Stop {{p.n}}: {{p.label}}">{{p.n}}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <sc-if value="{{hasSel}}" hint-placeholder-val="{{ true }}">
+        <div class="sheet" role="dialog" aria-label="Stop preview" style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 18px 40px -16px rgba(20,30,16,.6), 0 0 0 1px rgba(31,45,28,.1); padding: 14px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; gap: 12px; align-items: flex-start">
+            <sc-if value="{{sel.hasPhoto}}" hint-placeholder-val="{{ false }}">
+              <img src="{{sel.photo}}" alt="{{sel.name}}" style="flex: none; width: 76px; height: 76px; border-radius: 14px; object-fit: cover">
+            </sc-if>
+            <sc-if value="{{sel.noPhoto}}" hint-placeholder-val="{{ true }}">
+              <div style="flex: none; width: 76px; height: 76px; border-radius: 14px; background: {{sel.tint}}; color: #F4F6EE; display: flex; align-items: center; justify-content: center; font-family: Alegreya, Georgia, serif; font-size: 34px; font-weight: 800">{{sel.n}}</div>
+            </sc-if>
+            <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+              <div style="font-size: 13px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: {{sel.tint}}">Stop {{sel.n}} · {{sel.stageName}}</div>
+              <div style="font-family: Alegreya, Georgia, serif; font-size: 22px; font-weight: 800; line-height: 1.1">{{sel.name}}</div>
+              <div style="font-size: 15px; color: #4A5942">{{sel.place}}</div>
+            </div>
+            <button type="button" onClick="{{closeSel}}" aria-label="Close preview" style="flex: none; width: 44px; height: 44px; margin: -8px -8px 0 0; border: 0; background: none; color: #4A5942; cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg class="ic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+            </button>
+          </div>
+          <p style="margin: 0; font-size: 16px; line-height: 1.4; color: #33402E">{{sel.teaser}}</p>
+          <div style="display: flex; gap: 8px">
+            <button type="button" class="navbtn" onClick="{{selPrev}}" aria-label="Previous stop" style="flex: none; width: 48px; height: 48px; border-radius: 14px; border: 1px solid #CCD5BE; background: #FFFFFF; color: #1F2D1C; cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg class="ic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+            </button>
+            <button type="button" onClick="{{openSel}}" style="flex: 1; height: 48px; border-radius: 14px; border: 0; background: #1F2D1C; color: #F4F6EE; font: 800 17px 'Alegreya Sans', system-ui, sans-serif; cursor: pointer">Open stop {{sel.n}}</button>
+            <button type="button" class="navbtn" onClick="{{selNext}}" aria-label="Next stop" style="flex: none; width: 48px; height: 48px; border-radius: 14px; border: 1px solid #CCD5BE; background: #FFFFFF; color: #1F2D1C; cursor: pointer; display: flex; align-items: center; justify-content: center">
+              <svg class="ic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+            </button>
+          </div>
+        </div>
+      </sc-if>
+    </section>
+
+    <!-- ============ STOP PANE ============ -->
+    <section class="pane-stop" aria-label="Stop details">
+      <div style="flex: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px; border-bottom: 1px solid #CCD5BE; background: #FBFCF7">
+        <button type="button" class="backbtn navbtn" onClick="{{backToMap}}" style="display: flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 12px 0 6px; border: 0; border-radius: 12px; background: none; color: #1F2D1C; font: 700 16px 'Alegreya Sans', system-ui, sans-serif; cursor: pointer">
+          <svg class="ic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>Map
+        </button>
+        <span style="font-size: 15px; font-weight: 700; color: #4A5942; padding-left: 8px">Stop {{cur.n}} of {{total}}</span>
+        <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: {{cur.tint}}; padding-right: 8px">{{cur.stageName}}</span>
+      </div>
+
+      <div class="scroll" ref="{{paneRef}}">
+        <sc-if value="{{cur.isSpecies}}" hint-placeholder-val="{{ true }}">
+          <dc-import name="SpeciesPage" species-id="{{cur.species}}" hint-size="100%,2400px"></dc-import>
+        </sc-if>
+
+        <sc-if value="{{cur.isPlace}}" hint-placeholder-val="{{ false }}">
+          <div style="position: relative; margin: 14px 16px 0; height: 160px; border-radius: 18px; overflow: hidden; background: #2F6E45; color: #F4F6EE; display: flex; align-items: flex-end; padding: 18px; box-sizing: border-box">
+            <img src="/_blob/285dbbe5adfeea09d8cf99c803ba50e6" alt="" style="position: absolute; right: -60px; top: -60px; width: 260px; opacity: 0.25">
+            <div style="position: relative; font-family: Alegreya, Georgia, serif; font-size: 64px; font-weight: 800; line-height: 1">{{cur.n}}</div>
+          </div>
+          <div style="padding: 16px 20px 0; display: flex; flex-direction: column; gap: 6px">
+            <div style="font-size: 15px; color: #4A5942; font-weight: 600">{{cur.place}}</div>
+            <h2 style="margin: 0; font-family: Alegreya, Georgia, serif; font-size: 36px; font-weight: 800; line-height: 1.02">{{cur.title}}</h2>
+            <div style="margin-top: 6px; padding: 12px; border-radius: 16px; background: #23402B; color: #F4F6EE; display: flex; align-items: center; gap: 12px">
+              <button type="button" onClick="{{listen}}" aria-label="{{listenLabel}}" style="flex: none; width: 48px; height: 48px; border-radius: 50%; border: 0; background: #F4F6EE; color: #23402B; cursor: pointer; display: flex; align-items: center; justify-content: center">
+                <sc-if value="{{speaking}}" hint-placeholder-val="{{ false }}">
+                  <svg class="ic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="stroke-width: 2.6"><path d="M9 5v14M15 5v14"></path></svg>
+                </sc-if>
+                <sc-if value="{{notSpeaking}}" hint-placeholder-val="{{ true }}">
+                  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l12 7-12 7z" fill="currentColor"></path></svg>
+                </sc-if>
+              </button>
+              <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px">
+                <span style="font-weight: 800; font-size: 16px">Listen to this page</span>
+                <div style="height: 4px; border-radius: 2px; background: rgba(244,246,238,.25)"><div style="height: 4px; border-radius: 2px; width: {{readPct}}; background: #A9D9A0"></div></div>
+                <span style="font-size: 13px; color: #C9D6BC">{{readStatus}}</span>
+              </div>
+            </div>
+          </div>
+
+          <sc-if value="{{cur.isIntro}}" hint-placeholder-val="{{ false }}">
+            <div style="padding: 16px 20px 0; display: flex; flex-direction: column; gap: 14px">
+              <sc-for list="{{cur.quotes}}" as="q" hint-placeholder-count="2">
+                <figure style="margin: 0; display: flex; flex-direction: column; gap: 4px">
+                  <blockquote style="margin: 0; font-family: Alegreya, Georgia, serif; font-size: 22px; line-height: 1.35">“{{q.text}}”</blockquote>
+                  <figcaption style="font-size: 13px; color: #6B7662">Source: {{q.source}}</figcaption>
+                </figure>
+              </sc-for>
+              <a href="Quest.dc.html" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px; border-radius: 16px; background: #FCE3EC; color: #1F2D1C; text-decoration: none">
+                <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 800; font-size: 18px">Join the Garden Escape Quest</span><span style="font-size: 15px; color: #4A5942">Spot the {{speciesStopCount}} invaders on the way and log them</span></span>
+                <svg class="ic" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; color: #C21E5A"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              </a>
+              <a href="Lookup.dc.html" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px; border-radius: 16px; background: #FFFFFF; border: 1px solid #CCD5BE; color: #1F2D1C; text-decoration: none">
+                <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 800; font-size: 18px">Look up any invasive species</span><span style="font-size: 15px; color: #4A5942">All {{speciesTotal}} on NYBG’s list, on the tour or not</span></span>
+                <svg class="ic" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; color: #2F6E45"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+              </a>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{cur.isHub}}" hint-placeholder-val="{{ false }}">
+            <div style="padding: 16px 20px 0; display: flex; flex-direction: column; gap: 10px">
+              <h3 style="margin: 0; font-family: Alegreya, Georgia, serif; font-size: 23px; font-weight: 700">Native swaps for home gardeners</h3>
+              <sc-for list="{{cur.swaps}}" as="sw" hint-placeholder-count="4">
+                <div style="display: grid; grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr); align-items: center; gap: 8px; padding: 12px 14px; border-radius: 14px; background: #FFFFFF; border: 1px solid #CCD5BE">
+                  <span style="font-weight: 700; font-size: 16px; color: #8E1442">{{sw.invasive}}</span>
+                  <svg class="ic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="color: #4A5942"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                  <span style="font-weight: 800; font-size: 16px; color: #2F6E45">{{sw.native}}</span>
+                </div>
+              </sc-for>
+              <span style="font-size: 13px; color: #6B7662">Source: {{cur.swapsSource}}</span>
+              <a href="HomeHub.dc.html" style="display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 14px; background: #1F2D1C; color: #F4F6EE; text-decoration: none; font-weight: 800; font-size: 17px">Find natives near my ZIP code</a>
+            </div>
+          </sc-if>
+        </sc-if>
+
+
+        <!-- you are here -->
+        <div style="margin: 22px 20px 0; padding: 12px; border-radius: 18px; background: #FFFFFF; border: 1px solid #CCD5BE; display: flex; gap: 14px; align-items: center">
+          <div style="position: relative; flex: none; width: 88px; height: 112px; border-radius: 10px; overflow: hidden">
+            <img src="/_blob/285dbbe5adfeea09d8cf99c803ba50e6" alt="" style="display: block; width: 88px; height: 112px">
+            <span style="position: absolute; left: {{cur.left}}%; top: {{cur.top}}%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: {{cur.tint}}; border: 2px solid #FFFFFF; box-shadow: 0 0 0 2px #1F2D1C"></span>
+          </div>
+          <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #4A5942">You are here</span>
+            <span style="font-weight: 700; font-size: 16px">{{cur.place}}</span>
+            <button type="button" class="backbtn" onClick="{{backToMap}}" style="align-self: flex-start; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #1F2D1C; background: none; color: #1F2D1C; font: 700 15px 'Alegreya Sans', system-ui, sans-serif; cursor: pointer">Show on map</button>
+          </div>
+        </div>
+
+        <div style="height: 24px"></div>
+      </div>
+
+      <div style="flex: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 10px; border-top: 1px solid #CCD5BE; background: #FBFCF7">
+        <button type="button" class="navbtn" onClick="{{curPrev}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; min-height: 56px; padding: 6px 12px; border-radius: 14px; border: 1px solid #CCD5BE; background: #FFFFFF; color: #1F2D1C; cursor: pointer; text-align: left; font-family: 'Alegreya Sans', system-ui, sans-serif">
+          <span style="font-size: 13px; color: #4A5942">Previous · {{prevStop.n}}</span>
+          <span style="font-weight: 800; font-size: 16px; line-height: 1.2">{{prevStop.short}}</span>
+        </button>
+        <button type="button" onClick="{{curNext}}" style="display: flex; flex-direction: column; align-items: flex-end; gap: 0; min-height: 56px; padding: 6px 12px; border-radius: 14px; border: 0; background: #1F2D1C; color: #F4F6EE; cursor: pointer; text-align: right; font-family: 'Alegreya Sans', system-ui, sans-serif">
+          <span style="font-size: 13px; color: #C9D6BC">Next · {{nextStop.n}}</span>
+          <span style="font-weight: 800; font-size: 16px; line-height: 1.2">{{nextStop.short}}</span>
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <div class="tabbar" style="flex: none"><dc-import name="NavBar" mode="bottom" active="map" hint-size="100%,72px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"w":{"editor":null,"default":"390px"},"h":{"editor":null,"default":"844px"},"startScreen":{"editor":"enum","options":["map","stop"],"default":"map"},"startStop":{"editor":"int","min":1,"max":10,"default":4},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    fetch('/_blob/a0f5c90e12fc68ec6d5095ffa124631b')
+      .then((r) => r.json())
+      .then((d) => this.setState({ data: d }))
+      .catch(() => this.setState({ failed: true }));
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState && this.state && prevState.cur !== this.state.cur) {
+      if (this.pane) this.pane.scrollTop = 0;
+      if (this.state.reading) { try { window.speechSynthesis.cancel(); } catch (e) {} this.setState({ reading: false, paused: false, chunk: -1 }); }
+    }
+  }
+  componentWillUnmount() { try { window.speechSynthesis.cancel(); } catch (e) {} }
+
+  // Read-aloud for place stops (species stops use SpeciesPage's own player):
+  // exactly the text shown on the page, in order, nothing added or left out.
+  placeChunks(v) {
+    const c = [v.place, v.title];
+    v.quotes.forEach((q) => { c.push(q.text); c.push('Source: ' + q.source); });
+    if (v.isIntro) { c.push('Join the Garden Escape Quest'); c.push('Look up any invasive species'); }
+    if (v.isHub) { c.push('Native swaps for home gardeners'); v.swaps.forEach((w) => c.push(w.invasive + ' to ' + w.native)); c.push('Source: ' + v.swapsSource); c.push('Find natives near my ZIP code'); }
+    c.push('You are here'); c.push(v.place);
+    return c;
+  }
+
+  // One stop from tour.json, joined with its species record from species.json.
+  view(D, s) {
+    const cap = (x) => (x ? x.charAt(0).toUpperCase() + x.slice(1) : '');
+    const firstSentence = (t) => (t || '').split(/(?<=\.)\s/)[0];
+    const stage = D.tour.stages.find((g) => g.n === s.stage) || {};
+    const e = s.species ? D.species.find((x) => x.id === s.species) : null;
+    const fp = (e && e.forest_plan) || {};
+    const ip = (e && e.info_page) || {};
+    const name = e ? cap(e.common_names[0] || fp.common_name) : s.kind === 'intro' ? 'Welcome: garden escapes' : 'Take it home';
+    const photo = ip.photo ? D.assets.photos[ip.photo] : '';
+    return {
+      n: s.n, place: s.place, species: s.species || '', title: name, name: name, short: name,
+      stageName: stage.name || '',
+      tint: e ? '#C21E5A' : '#2F6E45',
+      left: ((s.x - 40) / 440 * 100).toFixed(2), top: ((s.y - 95) / 560 * 100).toFixed(2),
+      isSpecies: !!e, isPlace: !e, isIntro: s.kind === 'intro', isHub: s.kind === 'hub',
+      photo: photo, hasPhoto: !!photo, noPhoto: !photo,
+      teaser: e ? firstSentence(ip.impact || fp.threat || fp.summary) : s.kind === 'intro' ? (s.quotes || [{}])[0].text : 'Native swaps for home gardeners.',
+      quotes: s.quotes || [], swaps: s.swaps || [], swapsSource: s.swaps_source || ''
+    };
+  }
+
+  renderVals() {
+    const st = this.state || {};
+    const D = st.data;
+    const w = this.props.w || '390px', h = this.props.h || '844px';
+    const screen = st.screen || this.props.startScreen || 'map';
+    if (!D) {
+      const blank = { n: 0, place: '', name: '', short: '', title: '', stageName: '', tint: '#2F6E45', left: 0, top: 0, isSpecies: false, isPlace: false, isIntro: false, isHub: false, hasPhoto: false, noPhoto: true, quotes: [], swaps: [] };
+      return { w: w, h: h, screen: screen, chips: [], pins: [], hasSel: false, sel: blank, cur: blank, prevStop: blank, nextStop: blank, speciesTotal: 0, speciesStopCount: 0, speaking: false, notSpeaking: true, readPct: '0%', readStatus: '' };
+    }
+    const S = D.tour.stops;
+    const total = S.length;
+    const startStop = Number(this.props.startStop || 4);
+    const cur = st.cur || startStop;
+    const sel = st.sel === undefined ? startStop : st.sel;
+    const stage = st.stage || 0;
+    const wrap = (n) => (n < 1 ? total : n > total ? 1 : n);
+    const byN = (n) => S.find((s) => s.n === n);
+    const curV = this.view(D, byN(cur));
+    const selV = this.view(D, byN(sel || 1));
+    return {
+      w: w, h: h, screen: screen,
+      chips: [{ n: 0, name: 'All stops' }].concat(D.tour.stages).map((g) => ({
+        label: g.n === 0 ? g.name : g.n + ' · ' + g.name,
+        cls: stage === g.n ? 'is-on' : '',
+        pressed: stage === g.n ? 'true' : 'false',
+        pick: () => this.setState({ stage: g.n })
+      })),
+      pins: S.map((s) => {
+        const v = this.view(D, s);
+        const cls = [s.species ? '' : 'is-place', s.n === sel ? 'is-active' : '', stage && s.stage !== stage ? 'is-dim' : ''].join(' ');
+        return { n: s.n, label: v.name, left: v.left, top: v.top, cls: cls, pick: () => this.setState({ sel: s.n, cur: s.n }) };
+      }),
+      hasSel: !!sel,
+      sel: selV,
+      closeSel: () => this.setState({ sel: null }),
+      openSel: () => this.setState({ screen: 'stop', cur: sel || 1 }),
+      selPrev: () => { const n = wrap((sel || 1) - 1); this.setState({ sel: n, cur: n }); },
+      selNext: () => { const n = wrap((sel || 1) + 1); this.setState({ sel: n, cur: n }); },
+      cur: curV,
+      total: total,
+      prevStop: this.view(D, byN(wrap(cur - 1))),
+      nextStop: this.view(D, byN(wrap(cur + 1))),
+      curPrev: () => { const n = wrap(cur - 1); this.setState({ cur: n, sel: n }); },
+      curNext: () => { const n = wrap(cur + 1); this.setState({ cur: n, sel: n }); },
+      backToMap: () => this.setState({ screen: 'map', sel: cur }),
+      paneRef: (el) => { this.pane = el; },
+      speaking: !!st.reading && !st.paused,
+      notSpeaking: !(st.reading && !st.paused),
+      listenLabel: st.reading && !st.paused ? 'Pause reading' : 'Read this page aloud',
+      readPct: st.reading && st.chunk >= 0 ? Math.round((st.chunk + 1) / this.placeChunks(curV).length * 100) + '%' : '0%',
+      readStatus: st.reading ? (st.paused ? 'Paused' : 'Reading part ' + (st.chunk + 1) + ' of ' + this.placeChunks(curV).length) : 'Reads everything on this page, word for word',
+      listen: () => {
+        const synth = window.speechSynthesis;
+        if (!synth) return;
+        if (st.reading && !st.paused) { synth.pause(); this.setState({ paused: true }); return; }
+        if (st.reading && st.paused) { synth.resume(); this.setState({ paused: false }); return; }
+        const chunks = this.placeChunks(curV);
+        synth.cancel();
+        chunks.forEach((t, i) => {
+          const u = new SpeechSynthesisUtterance(t);
+          u.onstart = () => this.setState({ chunk: i });
+          if (i === chunks.length - 1) u.onend = () => this.setState({ reading: false, paused: false, chunk: -1 });
+          synth.speak(u);
+        });
+        this.setState({ reading: true, paused: false, chunk: 0 });
+      },
+      speciesTotal: D.species.length,
+      speciesStopCount: S.filter((s) => s.species).length
+    };
+  }
+}
+</script>
+</body>
+</html>

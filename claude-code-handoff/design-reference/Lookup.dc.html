@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Species lookup</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500&amp;family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2F6E45}a:hover{color:#1F4A2E}
+.ic{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.chip{flex:none;min-height:36px;padding:0 13px;border-radius:999px;border:1px solid #CCD5BE;background:#FFFFFF;color:#1F2D1C;font:700 14px 'Alegreya Sans',system-ui,sans-serif;cursor:pointer}
+.chip.is-on{background:#1F2D1C;border-color:#1F2D1C;color:#F4F6EE}
+.row{width:100%;display:flex;align-items:center;gap:12px;padding:10px 12px;border:0;border-bottom:1px solid #E6ECDA;background:#FFFFFF;color:#1F2D1C;cursor:pointer;text-align:left;font-family:'Alegreya Sans',system-ui,sans-serif}
+.row:hover{background:#F7F9F2}
+input:focus{outline:3px solid #B9770F;outline-offset:1px}
+.scr{container-type:inline-size;box-sizing:border-box;display:flex;flex-direction:column;background:#F4F6EE;color:#1F2D1C;font-family:'Alegreya Sans',system-ui,sans-serif;overflow:hidden}
+.only-wide{display:none}
+.lk-cols{flex:1;min-height:0;display:flex}
+.lk-list,.lk-page{flex:1;min-width:0;display:flex;flex-direction:column;min-height:0}
+.is-hidden{display:none}
+.row.is-sel{background:#E6ECDA}
+@container (min-width: 900px){
+  .only-wide{display:block}
+  .only-narrow{display:none}
+  .lk-list{flex:none;width:420px;border-right:1px solid #CCD5BE;display:flex !important}
+  .lk-page{display:flex !important}
+  .lk-back{display:none !important}
+}
+</style>
+</helmet>
+<div class="scr" style="width: {{w}}; height: {{h}}">
+  <div class="only-wide" style="flex: none"><dc-import name="NavBar" mode="top" active="species" hint-size="100%,64px"></dc-import></div>
+  <div class="lk-cols">
+    <section class="lk-list {{listCls}}" aria-label="Species list">
+      <div style="flex: none; padding: 16px 16px 8px; display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; align-items: baseline; justify-content: space-between">
+          <h1 style="margin: 0; font-family: Alegreya, Georgia, serif; font-size: 27px; font-weight: 800">Species lookup</h1>
+          <span style="font-size: 14px; color: #4A5942">{{countText}}</span>
+        </div>
+        <label for="q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search invasive species</label>
+        <div style="position: relative">
+          <svg class="ic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 14px; top: 15px; color: #4A5942"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+          <input id="q" type="search" placeholder="Common or scientific name" value="{{q}}" onChange="{{onQ}}" style="width: 100%; height: 50px; box-sizing: border-box; padding: 0 14px 0 44px; border-radius: 14px; border: 1.5px solid #8F9C83; background: #FFFFFF; font: 600 17px 'Alegreya Sans', system-ui, sans-serif; color: #1F2D1C">
+        </div>
+        <div role="group" aria-label="Filter" style="display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px">
+          <sc-for list="{{filters}}" as="f" hint-placeholder-count="6">
+            <button type="button" class="chip {{f.cls}}" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}">{{f.label}}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="flex: 1; min-height: 0; overflow-y: auto">
+        <ul style="list-style: none; margin: 0 12px; padding: 0; border-radius: 16px; overflow: hidden; border: 1px solid #CCD5BE">
+          <sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+            <li>
+              <button type="button" class="row {{r.cls}}" onClick="{{r.open}}" aria-current="{{r.current}}">
+                <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px">
+                  <span style="font-weight: 800; font-size: 16px; line-height: 1.2">{{r.name}}</span>
+                  <span style="font-style: italic; font-size: 14px; color: #4A5942">{{r.sci}}</span>
+                  <span style="display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px">
+                    <sc-for list="{{r.tags}}" as="t" hint-placeholder-count="2">
+                      <span style="font-size: 12px; font-weight: 800; padding: 2px 8px; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}">{{t.label}}</span>
+                    </sc-for>
+                  </span>
+                </span>
+                <span aria-label="{{r.depthLabel}}" style="flex: none; display: flex; gap: 3px">
+                  <sc-for list="{{r.dots}}" as="dt" hint-placeholder-count="4">
+                    <span style="width: 8px; height: 8px; border-radius: 50%; background: {{dt.c}}"></span>
+                  </sc-for>
+                </span>
+                <svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="flex: none; color: #4A5942"><path d="M9 6l6 6-6 6"></path></svg>
+              </button>
+            </li>
+          </sc-for>
+        </ul>
+        <sc-if value="{{hasMore}}" hint-placeholder-val="{{ true }}">
+          <div style="padding: 12px">
+            <button type="button" onClick="{{more}}" style="width: 100%; min-height: 48px; border-radius: 12px; border: 1px solid #1F2D1C; background: none; color: #1F2D1C; font: 800 16px 'Alegreya Sans', system-ui, sans-serif; cursor: pointer">Show more ({{remaining}})</button>
+          </div>
+        </sc-if>
+        <p style="margin: 8px 16px 16px; font-size: 13px; line-height: 1.45; color: #6B7662">Dots show which sources feed each page: NYBG list · Forest Plan · info page · cascade. Pages are assembled from those files by a script.</p>
+      </div>
+    </section>
+
+    <section class="lk-page {{pageCls}}" aria-label="Species page">
+      <div class="lk-back" style="flex: none; display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-bottom: 1px solid #CCD5BE; background: #FBFCF7">
+        <button type="button" onClick="{{back}}" style="display: flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 12px 0 6px; border: 0; border-radius: 12px; background: none; color: #1F2D1C; font: 700 16px 'Alegreya Sans', system-ui, sans-serif; cursor: pointer">
+          <svg class="ic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>All species
+        </button>
+      </div>
+      <div style="flex: 1; min-height: 0; overflow-y: auto">
+        <dc-import name="SpeciesPage" species-id="{{openId}}" hint-size="100%,2400px"></dc-import>
+      </div>
+    </section>
+  </div>
+  <div class="only-narrow" style="flex: none"><dc-import name="NavBar" mode="bottom" active="species" hint-size="100%,72px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"w":{"editor":null,"default":"390px"},"h":{"editor":null,"default":"844px"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    fetch('/_blob/a0f5c90e12fc68ec6d5095ffa124631b')
+      .then((r) => r.json())
+      .then((d) => this.setState({ data: d }))
+      .catch(() => this.setState({ failed: true }));
+  }
+
+  renderVals() {
+    const st = this.state || {};
+    const D = st.data;
+    const q = st.q || '';
+    const filter = st.filter || 'all';
+    const FILTERS = [
+      { id: 'all', label: 'All', test: () => true },
+      { id: 'tour', label: 'On the tour', test: (e) => !!e.tour_stop },
+      { id: 'full', label: 'Has a full page', test: (e) => e.completeness > 0 },
+      { id: 'c1', label: 'Category 1', test: (e) => e.category === 1 },
+      { id: 'c2', label: 'Category 2', test: (e) => e.category === 2 },
+      { id: 'pests', label: 'Pests & diseases', test: (e) => e.kind !== 'plant' }
+    ];
+    const base = {
+      q: q, onQ: (ev) => this.setState({ q: ev.target.value, limit: 40 }),
+      filters: FILTERS.map((f) => ({ label: f.label, cls: f.id === filter ? 'is-on' : '', pressed: f.id === filter ? 'true' : 'false', pick: () => this.setState({ filter: f.id, limit: 40 }) })),
+      w: this.props.w || '390px', h: this.props.h || '844px',
+      listCls: st.open ? 'is-hidden' : '',
+      pageCls: st.open ? '' : 'is-hidden',
+      openId: st.open || 'alliaria-petiolata',
+      back: () => this.setState({ open: null })
+    };
+    if (!D) return Object.assign(base, { rows: [], countText: 'Loading…', hasMore: false, remaining: 0, more: () => {} });
+
+    const cap = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
+    const needle = q.trim().toLowerCase();
+    const f = FILTERS.find((x) => x.id === filter);
+    const hits = D.species.filter((e) => f.test(e) && (!needle ||
+      [e.scientific_name].concat(e.names, e.synonyms, e.common_names, e.forest_plan ? [e.forest_plan.common_name] : []).some((n) => n && n.toLowerCase().indexOf(needle) >= 0)));
+    const limit = st.limit || 40;
+    const webs = {};
+    D.webs.forEach((w) => { webs[w.id] = 1; });
+    return Object.assign(base, {
+      countText: hits.length + ' of ' + D.species.length,
+      rows: hits.slice(0, limit).map((e) => {
+        const tags = [];
+        if (e.tour_stop) tags.push({ label: 'Stop ' + e.tour_stop, bg: '#C21E5A', fg: '#FFFFFF' });
+        if (e.category) tags.push({ label: 'Category ' + e.category, bg: '#E6ECDA', fg: '#2D4A26' });
+        if (e.kind !== 'plant') tags.push({ label: e.kind === 'pest' ? 'Pest' : 'Disease', bg: '#E3EEF7', fg: '#1C3A5A' });
+        if (webs[e.id]) tags.push({ label: 'Forest layers', bg: '#23402B', fg: '#F4F6EE' });
+        const parts = [e.category != null, !!e.forest_plan, !!e.info_page, !!e.cascade];
+        return {
+          name: cap(e.common_names[0] || (e.forest_plan || {}).common_name || e.scientific_name),
+          sci: e.scientific_name, tags: tags,
+          dots: parts.map((on) => ({ c: on ? '#2F6E45' : '#D3DAC8' })),
+          depthLabel: parts.filter(Boolean).length + ' of 4 sources',
+          cls: e.id === (st.open || 'alliaria-petiolata') ? 'is-sel' : '',
+          current: e.id === st.open ? 'true' : 'false',
+          open: () => this.setState({ open: e.id })
+        };
+      }),
+      hasMore: hits.length > limit,
+      remaining: Math.max(0, hits.length - limit),
+      more: () => this.setState({ limit: limit + 40 })
+    });
+  }
+}
+</script>
+</body>
+</html>

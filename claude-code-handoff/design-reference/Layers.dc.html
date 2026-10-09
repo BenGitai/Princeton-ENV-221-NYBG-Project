@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Forest layers: linked species webs</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500&amp;family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2F6E45}a:hover{color:#1F4A2E}
+.ic{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.node{position:absolute;width:0;height:0;border:0;padding:0;background:none;cursor:pointer}
+.node .ring{position:absolute;left:-26px;top:-26px;width:52px;height:52px;border-radius:50%;background:#F4F6EE;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.node .lbl{position:absolute;left:0;top:30px;transform:translateX(-50%);white-space:nowrap;font:700 13px/1.1 'Alegreya Sans',system-ui,sans-serif;background:#F4F6EE;color:#1F2D1C;padding:3px 8px 4px;border-radius:999px;box-shadow:0 2px 6px -3px rgba(20,30,16,.5)}
+.node .link{position:absolute;left:14px;top:-30px;width:18px;height:18px;border-radius:50%;background:#1F2D1C;color:#F4F6EE;display:flex;align-items:center;justify-content:center}
+.node.is-on .ring{transform:scale(1.2)}
+.node:hover .ring{transform:scale(1.08)}
+.node.is-on:hover .ring{transform:scale(1.2)}
+.node.is-on .lbl{background:#1F2D1C;color:#F4F6EE}
+.chip{flex:none;min-height:36px;padding:0 13px;border-radius:999px;border:1px solid #CCD5BE;background:#FFFFFF;color:#1F2D1C;font:700 14px 'Alegreya Sans',system-ui,sans-serif;cursor:pointer}
+.chip.is-on{background:#C21E5A;border-color:#C21E5A;color:#FFFFFF}
+.navbtn:hover{background:#E6ECDA}
+.act:hover{background:#E6ECDA}
+.scr{container-type:inline-size;box-sizing:border-box;display:flex;flex-direction:column;background:#F4F6EE;color:#1F2D1C;font-family:'Alegreya Sans',system-ui,sans-serif;overflow:hidden}
+.only-wide{display:none}
+.ly-main{flex:1;min-height:0;display:flex;flex-direction:column}
+.ly-stage{flex:none;width:390px;height:504px;position:relative;overflow:hidden;align-self:center}
+.ly-stage-in{position:absolute;left:19.5px;top:0;width:390px;height:560px;transform:scale(0.9);transform-origin:top left}
+.ly-card{flex:1;min-height:0;margin:6px 10px 10px}
+@container (min-width: 900px){
+  .only-wide{display:block}
+  .only-narrow{display:none}
+  .ly-main{flex-direction:row;gap:28px;padding:12px 32px 24px;justify-content:center}
+  .ly-stage{width:468px;height:672px;border-radius:20px;align-self:flex-start}
+  .ly-stage-in{left:0;transform:scale(1.2)}
+  .ly-card{flex:none;width:400px;margin:0;align-self:stretch}
+  .ly-head,.ly-chips,.ly-legend{padding-left:32px !important;padding-right:32px !important}
+}
+</style>
+</helmet>
+<div class="scr" style="width: {{w}}; height: {{h}}">
+  <div class="only-wide" style="flex: none"><dc-import name="NavBar" mode="top" active="layers" hint-size="100%,64px"></dc-import></div>
+
+  <header class="ly-head" style="flex: none; display: flex; align-items: center; gap: 6px; padding: 8px 12px 2px 4px">
+    <a href="Stop.dc.html" aria-label="Back to the species page" style="flex: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #1F2D1C; border-radius: 12px">
+      <svg class="ic" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+    </a>
+    <div style="display: flex; flex-direction: column">
+      <h1 style="margin: 0; font-family: Alegreya, Georgia, serif; font-size: 24px; font-weight: 800; line-height: 1.1">Forest layers</h1>
+      <span style="font-size: 14px; color: #4A5942">{{title}} · tap a species, follow the links</span>
+    </div>
+  </header>
+
+  <div class="ly-chips" role="group" aria-label="Choose an invader" style="flex: none; display: flex; gap: 6px; overflow-x: auto; padding: 6px 12px 6px">
+    <sc-for list="{{webChips}}" as="wc" hint-placeholder-count="8">
+      <button type="button" class="chip {{wc.cls}}" aria-pressed="{{wc.pressed}}" onClick="{{wc.pick}}">{{wc.label}}</button>
+    </sc-for>
+  </div>
+
+  <ul class="ly-legend" aria-label="How to read the web" style="flex: none; flex-wrap: wrap; list-style: none; margin: 0; padding: 2px 16px 6px; display: flex; gap: 12px; font-size: 13px; font-weight: 700; color: #33402E">
+    <li style="display: flex; align-items: center; gap: 6px"><span style="width: 20px; height: 3px; border-radius: 2px; background: #C21E5A"></span>Harms</li>
+    <li style="display: flex; align-items: center; gap: 6px"><span style="width: 20px; height: 0; border-top: 3px dashed #B9770F"></span>Helps</li>
+    <li style="display: flex; align-items: center; gap: 6px"><span style="width: 20px; height: 0; border-top: 3px dotted #2F6E45"></span>Partners</li>
+    <li style="display: flex; align-items: center; gap: 6px"><span style="width: 20px; height: 0; border-top: 2px dashed #4A5942"></span>Named together</li>
+    <li style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 16px; border-radius: 50%; background: #1F2D1C; color: #F4F6EE; display: flex; align-items: center; justify-content: center"><svg class="ic" width="10" height="10" viewBox="0 0 24 24" aria-hidden="true" style="stroke-width: 3"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>Links out</li>
+  </ul>
+
+  <div class="ly-main">
+  <div class="ly-stage">
+    <div class="ly-stage-in">
+      <img src="{{bg}}" alt="" style="position: absolute; inset: 0; width: 390px; height: 560px; display: block">
+      <img src="{{overlay}}" alt="{{overlayAlt}}" style="position: absolute; inset: 0; width: 390px; height: 560px; display: block">
+      <span style="position: absolute; left: 8px; top: 112px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #3D5233">Canopy</span>
+      <span style="position: absolute; left: 8px; top: 244px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #3D5233">Understory</span>
+      <span style="position: absolute; left: 8px; top: 352px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #4A3520">Forest floor</span>
+      <span style="position: absolute; left: 8px; top: 538px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #E8DCC4">Soil</span>
+      <sc-for list="{{nodes}}" as="nd" hint-placeholder-count="6">
+        <button type="button" class="node {{nd.cls}}" style="left: {{nd.x}}px; top: {{nd.y}}px" onClick="{{nd.pick}}" aria-label="{{nd.name}}: {{nd.step}}">
+          <span class="ring" style="box-shadow: 0 0 0 3px #F4F6EE, 0 0 0 6px {{nd.color}}, 0 8px 16px -6px rgba(0,0,0,.55); color: {{nd.color}}">
+            <svg class="ic" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="{{nd.icon}}"></path></svg>
+          </span>
+          <sc-if value="{{nd.links}}" hint-placeholder-val="{{ false }}">
+            <span class="link"><svg class="ic" width="11" height="11" viewBox="0 0 24 24" aria-hidden="true" style="stroke-width: 3"><path d="M7 17 17 7M9 7h8v8"></path></svg></span>
+          </sc-if>
+          <span class="lbl">{{nd.short}}</span>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+
+  <section class="ly-card" aria-live="polite" style="border-radius: 18px; background: #FFFFFF; box-shadow: 0 0 0 1px rgba(31,45,28,.1); display: flex; overflow: hidden">
+    <div style="flex: 1; min-width: 0; overflow-y: auto; padding: 10px 14px; display: flex; flex-direction: column; gap: 5px">
+      <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: {{cur.stepColor}}">{{cur.step}}</span>
+      <span style="font-family: Alegreya, Georgia, serif; font-size: 20px; font-weight: 800; line-height: 1.1">{{cur.name}}</span>
+      <p style="margin: 0; font-size: 15px; line-height: 1.4; color: #33402E">“{{cur.quote}}”</p>
+      <span style="font-size: 12px; color: #6B7662">Source: {{cur.source}}</span>
+      <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-top: 2px">
+        <sc-if value="{{cur.hasPage}}" hint-placeholder-val="{{ false }}">
+          <a class="act" href="Lookup.dc.html" style="display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #1F2D1C; color: #1F2D1C; text-decoration: none; font-weight: 800; font-size: 14px">Species page</a>
+        </sc-if>
+        <sc-if value="{{cur.hasOwnWeb}}" hint-placeholder-val="{{ false }}">
+          <button type="button" class="act" onClick="{{cur.openOwnWeb}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #C21E5A; background: #FFFFFF; color: #8E1442; font: 800 14px 'Alegreya Sans', system-ui, sans-serif; cursor: pointer">Its own web</button>
+        </sc-if>
+        <sc-for list="{{cur.also}}" as="al" hint-placeholder-count="0">
+          <button type="button" class="act" onClick="{{al.pick}}" style="min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #CCD5BE; background: #F4F6EE; color: #1F2D1C; font: 700 14px 'Alegreya Sans', system-ui, sans-serif; cursor: pointer">Also in: {{al.label}}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="flex: none; display: flex; flex-direction: column; border-left: 1px solid #E1E7D6">
+      <button type="button" class="navbtn" onClick="{{prev}}" aria-label="Previous species in this web" style="flex: 1; width: 46px; border: 0; background: none; color: #1F2D1C; cursor: pointer; display: flex; align-items: center; justify-content: center">
+        <svg class="ic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg>
+      </button>
+      <button type="button" class="navbtn" onClick="{{next}}" aria-label="Next species in this web" style="flex: 1; width: 46px; border: 0; border-top: 1px solid #E1E7D6; background: none; color: #1F2D1C; cursor: pointer; display: flex; align-items: center; justify-content: center">
+        <svg class="ic" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+      </button>
+    </div>
+  </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"w":{"editor":null,"default":"390px"},"h":{"editor":null,"default":"844px"},"startWeb":{"editor":"enum","options":["alliaria-petiolata","reynoutria-japonica","adelges-tsugae","lythrum-salicaria","iris-pseudacorus","vinca-minor","phellodendron-amurense","microstegium-vimineum"],"default":"alliaria-petiolata"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    fetch('/_blob/a0f5c90e12fc68ec6d5095ffa124631b')
+      .then((r) => r.json())
+      .then((d) => this.setState({ data: d }))
+      .catch(() => this.setState({ failed: true }));
+  }
+
+  renderVals() {
+    const IC = {
+      plant: 'M12 21V10M12 14c-3.5 0-6-2.2-6-6 3.5 0 6 2.2 6 6zM12 11c3 0 5-2 5-5-3 0-5 2-5 5z',
+      tree: 'M12 22v-6M12 3 6 12h3l-3 4h12l-3-4h3z',
+      fungus: 'M4 11a8 8 0 0 1 16 0zM10 11v8a2 2 0 0 0 4 0v-8',
+      worm: 'M3 14c2-4 4-4 6 0s4 4 6 0 4-4 6 0',
+      insect: 'M12 7v12M12 9c-2-4-7-5-8-2s3 6 8 5c-4 1-6 4-4 6s4-1 4-4M12 9c2-4 7-5 8-2s-3 6-8 5c4 1 6 4 4 6s-4-1-4-4',
+      salamander: 'M4 15c3-1 4-5 8-5s6 3 8 2M8 13l-2 3M10 11l-1-3M15 11l1-3M17 12l2 3',
+      deer: 'M9 21v-5l-2-5h10l-2 5v5M7 11 5 6M5 6 3 4M5 6l1-3M17 11l2-5M19 6l2-2M19 6l-1-3',
+      invader: 'M12 21V9M12 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12 13c-3 0-5-1.5-6-4M12 15c3 0 5-1.5 6-4',
+      water: 'M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0',
+      people: 'M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0',
+      wind: 'M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8',
+      bird: 'M3 12c3-4 6-4 9 0 3-4 6-4 9 0M8 16c2-2 6-2 8 0',
+      seed: 'M12 3c4 4 6 8 6 11a6 6 0 0 1-12 0c0-3 2-7 6-11zM12 9v8'
+    };
+    const C = { invader: '#E8326F', plant: '#5E8A3E', tree: '#3F6B2E', fungus: '#A8874A', worm: '#B06A4F', salamander: '#B4532A',
+      deer: '#7B5B44', insect: '#3E6E8E', water: '#3F7D96', people: '#6A5A8C', wind: '#6B7C88', bird: '#3E6E8E', seed: '#8C6A3E' };
+    const st = this.state || {};
+    const D = st.data;
+    const w = this.props.w || '390px', h = this.props.h || '844px';
+    if (!D) return { w: w, h: h, title: 'Loading…', webChips: [], nodes: [], bg: '', overlay: '', overlayAlt: '', cur: { name: '', quote: '', source: '', step: '', also: [] } };
+
+    const webId = st.web || this.props.startWeb || 'alliaria-petiolata';
+    const web = D.webs.find((w) => w.id === webId) || D.webs[0];
+    const titleOf = (id) => (D.webs.find((w) => w.id === id) || {}).title || id;
+    const goWeb = (id) => this.setState({ web: id, i: 0 });
+    const idx = Math.min(st.i || 0, web.nodes.length - 1);
+    const go = (i) => this.setState({ i: (i + web.nodes.length) % web.nodes.length });
+
+    const decorate = (n) => {
+      const ownWeb = n.species && n.species !== web.id && D.webs.some((w) => w.id === n.species) ? n.species : '';
+      const also = (D.shared_nodes[n.shared] || []).filter((w) => w !== web.id);
+      const hasPage = !!n.species && D.species.some((s) => s.id === n.species);
+      return { ownWeb: ownWeb, also: also, hasPage: hasPage, links: !!(ownWeb || also.length || (hasPage && n.species !== web.id)) };
+    };
+    const n0 = web.nodes[idx];
+    const d0 = decorate(n0);
+    const edgesIn = web.edges.filter((e) => e.to === n0.id || e.from === n0.id);
+
+    return {
+      w: w, h: h,
+      title: web.title,
+      bg: D.assets.layers_bg,
+      overlay: D.assets.web_overlays[web.id],
+      overlayAlt: 'Arrows: ' + web.edges.map((e) => titleOrName(web, e.from) + ' ' + e.label + ' → ' + titleOrName(web, e.to)).join('; '),
+      webChips: D.webs.map((w) => ({ label: w.title, cls: w.id === web.id ? 'is-on' : '', pressed: w.id === web.id ? 'true' : 'false', pick: () => goWeb(w.id) })),
+      nodes: web.nodes.map((n, i) => ({
+        x: n.x, y: n.y, name: n.name, short: n.short || n.name, step: n.step || '', color: C[n.group] || '#4A5942', icon: IC[n.group] || IC.plant,
+        links: decorate(n).links, cls: i === idx ? 'is-on' : '', pick: () => go(i)
+      })),
+      cur: {
+        name: n0.name, step: n0.step || '', quote: n0.quote, source: n0.source,
+        stepColor: n0.group === 'invader' ? '#C21E5A' : '#4A5942',
+        hasPage: d0.hasPage,
+        hasOwnWeb: !!d0.ownWeb,
+        openOwnWeb: () => goWeb(d0.ownWeb),
+        also: d0.also.map((w) => ({ label: titleOf(w), pick: () => goWeb(w) }))
+      },
+      prev: () => go(idx - 1),
+      next: () => go(idx + 1)
+    };
+    function titleOrName(w, id) { const n = w.nodes.find((x) => x.id === id); return n ? n.name : id; }
+  }
+}
+</script>
+</body>
+</html>

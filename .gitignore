@@ -1,0 +1,21 @@
+# Allowlist: only the website, its build kit and the design hand-off go to GitHub.
+# The raw source files (NYBG staff list, Forest Plan PDF, draft policy, student decks, readings)
+# stay on this computer; the build kit needs them only to regenerate the data.
+/*
+!/.gitignore
+!/.github/
+!/README.md
+!/LICENSE
+!/nybg-guide/
+!/guide-build-kit/
+!/claude-code-handoff/
+
+# never commit these, even inside the allowed folders
+*.zip
+__pycache__/
+.DS_Store
+Thumbs.db
+
+# internal staff edition (whole NYBG list): never commit
+/guide-build-kit/build/*_staff.json
+/staff-edition/

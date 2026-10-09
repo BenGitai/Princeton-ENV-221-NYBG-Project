@@ -1,0 +1,113 @@
+/* Design tokens: every color, font, radius and spacing value used by the site.
+   Taken from the mockup (claude-code-handoff/design-reference). Change a value here and it changes everywhere. */
+:root {
+  /* palette */
+  --ink: #1F2D1C;
+  --ink-soft: #4A5942;
+  --ink-2: #33402E;            /* body text on tinted panels */
+  --muted: #5C6754;            /* source lines; mockup #6B7662 darkened to pass 4.5:1 on paper-2 */
+  --muted-2: #5B6852;          /* photo credits */
+  --paper: #F4F6EE;
+  --paper-2: #E6ECDA;
+  --paper-3: #FBFCF7;          /* bars: tab bar, stop header/footer */
+  --white: #FFFFFF;
+  --hover: #F7F9F2;
+  --rule: #CCD5BE;
+  --rule-soft: #E1E7D6;
+  --rule-strong: #8F9C83;      /* input and checkbox borders */
+  --ph-border: #A9B79A;        /* placeholder dashed border */
+  --forest: #23402B;
+  --moss: #2F6E45;
+  --moss-dark: #1F4A2E;
+  --moss-light: #A9D9A0;
+  --on-forest: #F4F6EE;
+  --on-forest-2: #E3EAD6;
+  --on-forest-3: #C9D6BC;
+  --invader: #C21E5A;
+  --banner: #FCE3EC;
+  --banner-ink: #8E1442;
+  --quest-kicker: #FFC9DA;
+  --help: #B9770F;
+  --verify-bg: #F6E6C4;
+  --verify-ink: #7A4E07;
+  --natives: #E3EEF7;
+  --natives-ink: #1C3A5A;
+  --natives-ink-2: #3C5470;
+  --badge-ink: #2D4A26;
+  --plant-bg: #DCEBD3;
+  --dot-off: #D3DAC8;
+  --prov-off: #B8C0AE;
+  --switch-off: #78836D;       /* mockup #9AA58E darkened so the off switch is visible (3:1) */
+  --map-card: #ECE8DC;
+  --layer-canopy: #3D5233;
+  --layer-floor: #3A2816;
+  --layer-soil: #E8DCC4;
+
+  /* tour stages (Home "Your walk" bars), by stage number */
+  --stage-1: #2F6E45;
+  --stage-2: #5E8A3E;
+  --stage-3: #3F7D96;
+  --stage-4: #B9770F;
+
+  /* forest-layer web: arrow kinds */
+  --edge-harm: #C21E5A;
+  --edge-help: #B9770F;
+  --edge-mutual: #2F6E45;
+  --edge-link: #4A5942;
+
+  /* forest-layer web: node groups */
+  --g-invader: #E8326F;
+  --g-plant: #5E8A3E;
+  --g-tree: #3F6B2E;
+  --g-fungus: #A8874A;
+  --g-worm: #B06A4F;
+  --g-salamander: #B4532A;
+  --g-deer: #7B5B44;
+  --g-insect: #3E6E8E;
+  --g-water: #3F7D96;
+  --g-people: #6A5A8C;
+  --g-wind: #6B7C88;
+  --g-bird: #3E6E8E;
+  --g-seed: #8C6A3E;
+
+  /* type */
+  --font-display: Alegreya, Georgia, 'Times New Roman', serif;
+  --font-body: 'Alegreya Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* radii */
+  --r-xs: 7px;
+  --r-sm: 10px;
+  --r-md: 12px;
+  --r-lg: 14px;
+  --r-xl: 16px;
+  --r-2xl: 18px;
+  --r-3xl: 20px;
+  --r-pill: 999px;
+
+  /* spacing */
+  --s-1: 4px;
+  --s-2: 6px;
+  --s-3: 8px;
+  --s-4: 10px;
+  --s-5: 12px;
+  --s-6: 14px;
+  --s-7: 16px;
+  --s-8: 20px;
+  --s-9: 24px;
+  --s-10: 28px;
+  --s-11: 32px;
+  --s-12: 40px;
+
+  /* sizes */
+  --touch: 44px;
+  --stop-panel: 480px;
+  --lookup-list: 420px;
+  --layers-card: 400px;
+  --focus: 3px solid #B9770F;
+
+  /* shadows */
+  --shadow-pin: 0 3px 8px -2px rgba(20, 30, 16, .55);
+  --shadow-sheet: 0 18px 40px -16px rgba(20, 30, 16, .6), 0 0 0 1px rgba(31, 45, 28, .1);
+  --shadow-card: 0 0 0 1px rgba(31, 45, 28, .1);
+  --shadow-hero-map: 0 20px 40px -20px rgba(0, 0, 0, .6);
+}

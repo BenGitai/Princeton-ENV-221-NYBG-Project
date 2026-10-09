@@ -1,0 +1,72 @@
+/* Reset, app shell, focus rings, reduced motion. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.4;
+  -webkit-text-size-adjust: 100%;
+  overflow: hidden;
+}
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+button { font: inherit; color: inherit; }
+a { color: var(--moss); }
+a:hover { color: var(--moss-dark); }
+h1, h2, h3, p, figure, blockquote { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+.ic { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Visible focus rings everywhere */
+:focus { outline: none; }
+:focus-visible { outline: var(--focus); outline-offset: 2px; border-radius: 4px; }
+input:focus-visible { outline-offset: 1px; }
+
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* App shell: top bar (wide), the current screen, tab bar (narrow). */
+.app {
+  container: app / inline-size;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.app-top { flex: none; display: none; }
+.app-main { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.app-main:focus { outline: none; }
+.app-tabs { flex: none; display: block; }
+.app[data-route="layers"] .app-tabs { display: none; }
+@container app (min-width: 900px) {
+  .app-top { display: block; }
+  .app-tabs { display: none; }
+}
+
+/* Every screen is one component that adapts by its own width */
+.scr {
+  container-type: inline-size;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--paper);
+}
+.scroll { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; }
+.wrap { max-width: 1200px; margin: 0 auto; width: 100%; }
+.only-wide { display: none !important; }
+@container (min-width: 900px) {
+  .only-wide { display: block !important; }
+  .only-narrow { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}

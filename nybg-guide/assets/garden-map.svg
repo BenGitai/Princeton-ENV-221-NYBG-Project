@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 95 440 560" width="880" height="1120">
+  <defs>
+    <pattern id="trees" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="#6E9450"/>
+      <circle cx="4" cy="4" r="4.2" fill="#5E8743"/>
+      <circle cx="11" cy="10" r="4.6" fill="#7FA35E"/>
+      <circle cx="3" cy="12" r="2.6" fill="#57803D"/>
+      <circle cx="12" cy="2" r="2.4" fill="#86AA66"/>
+    </pattern>
+    <pattern id="lawn" width="10" height="10" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#DDE7C6"/>
+      <circle cx="2" cy="3" r="0.8" fill="#CFDDB3"/>
+      <circle cx="7" cy="8" r="0.8" fill="#CFDDB3"/>
+    </pattern>
+  </defs>
+
+  <!-- surrounding city -->
+  <rect x="40" y="95" width="440" height="560" fill="#ECE8DC"/>
+  <g stroke="#E1DCCD" stroke-width="2">
+    <path d="M40 140 L480 120 M40 220 L480 200 M40 300 L120 296 M40 380 L80 378 M40 460 L90 458 M40 540 L130 536 M40 620 L200 640 M420 320 L480 318 M440 420 L480 418 M400 560 L480 556"/>
+    <path d="M90 95 L80 655 M150 95 L140 170 M420 95 L430 260 M470 95 L470 655"/>
+  </g>
+
+  <!-- garden grounds -->
+  <path d="M250 108 C275 110 300 116 322 132 C350 152 368 182 390 214 C414 246 438 280 448 322 C458 368 450 414 436 458 C422 504 404 548 380 584 C356 618 324 642 286 648 C252 652 222 640 196 618 C168 594 146 562 124 524 C102 486 82 446 70 400 C60 360 62 316 70 276 C78 238 96 208 126 186 C160 160 200 138 230 116 Z" fill="url(#lawn)" stroke="#B7C79A" stroke-width="2"/>
+
+  <!-- Thain Family Forest -->
+  <path d="M228 210 C238 200 250 194 266 191 C284 188 306 186 324 194 C340 202 350 222 352 248 C354 278 344 306 336 336 C328 368 322 398 314 430 C308 458 302 484 294 508 C288 526 278 538 266 536 C252 532 244 514 240 494 C234 466 234 434 232 404 C230 372 226 342 222 312 C218 282 214 256 216 236 C218 222 222 214 228 210 Z" fill="url(#trees)" stroke="#557A3A" stroke-width="1.5"/>
+
+  <!-- woodland south along river -->
+  <path d="M270 548 C284 548 296 560 298 580 C300 604 292 626 276 636 C262 644 248 636 246 618 C244 596 254 566 270 548 Z" fill="url(#trees)" opacity="0.75"/>
+
+  <!-- northern pond -->
+  <ellipse cx="270" cy="132" rx="16" ry="10" fill="#9CC8D8" stroke="#7DB0C4" stroke-width="1"/>
+
+  <!-- Bronx River -->
+  <path d="M352 96 C350 130 348 160 346 182 C344 208 340 232 338 250 C334 284 330 306 324 334 C318 362 312 392 308 420 C304 446 300 466 294 490 C288 514 282 536 278 560 C274 588 272 618 268 655" fill="none" stroke="#7DB6CF" stroke-width="8" stroke-linecap="round"/>
+  <path d="M352 96 C350 130 348 160 346 182 C344 208 340 232 338 250 C334 284 330 306 324 334 C318 362 312 392 308 420 C304 446 300 466 294 490 C288 514 282 536 278 560 C274 588 272 618 268 655" fill="none" stroke="#A9D2E0" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Twin Lakes -->
+  <path d="M206 368 C214 366 220 374 219 386 C218 398 212 406 206 404 C200 402 198 392 199 382 C200 374 202 369 206 368 Z" fill="#9CC8D8" stroke="#7DB0C4" stroke-width="1"/>
+  <path d="M214 418 C221 417 225 425 224 434 C223 443 217 449 212 447 C207 445 206 437 207 429 C208 422 210 419 214 418 Z" fill="#9CC8D8" stroke="#7DB0C4" stroke-width="1"/>
+
+  <!-- main drives and paths -->
+  <g fill="none" stroke="#FBFCF7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M118 232 C150 214 190 196 226 186 C262 176 300 160 330 168"/>
+    <path d="M118 232 C102 270 96 316 104 360 C112 404 130 446 154 486 C176 522 206 556 236 588 C254 606 270 622 284 640"/>
+    <path d="M360 214 C384 252 404 292 414 334 C424 380 416 430 400 474 C386 512 362 548 334 578 C316 598 300 616 286 640"/>
+    <path d="M206 330 C220 334 228 340 236 348"/>
+    <path d="M300 444 C320 446 340 452 362 462 C378 470 392 480 400 474"/>
+    <path d="M150 360 C170 362 186 368 198 376"/>
+    <path d="M226 186 C220 200 214 220 212 240"/>
+  </g>
+
+  <!-- forest trails -->
+  <g fill="none" stroke="#B5855A" stroke-width="2" stroke-dasharray="1 0" stroke-linecap="round" opacity="0.9">
+    <path d="M232 222 C246 244 256 270 262 300 C266 324 250 344 240 352"/>
+    <path d="M240 352 C262 352 290 346 318 342"/>
+    <path d="M302 206 C306 236 308 270 306 300 C304 320 300 336 296 346"/>
+    <path d="M262 352 C266 384 274 414 286 440 C292 456 296 470 294 488"/>
+    <path d="M286 440 C292 442 298 444 304 444"/>
+  </g>
+
+  <!-- buildings -->
+  <g fill="#E9E1CC" stroke="#B9AE92" stroke-width="1.2">
+    <!-- Haupt Conservatory -->
+    <path d="M86 284 L134 284 L134 296 L122 296 L122 316 L98 316 L98 296 L86 296 Z"/>
+    <circle cx="110" cy="290" r="7"/>
+    <!-- Visitor Center -->
+    <rect x="150" y="344" width="24" height="14" rx="2"/>
+    <!-- Library -->
+    <rect x="190" y="204" width="28" height="16" rx="1"/>
+    <!-- Stone Mill -->
+    <rect x="312" y="448" width="12" height="9" rx="1"/>
+    <!-- Rose Garden -->
+    <path d="M376 492 L396 492 L400 508 L386 518 L372 508 Z"/>
+  </g>
+  <!-- garden beds -->
+  <g fill="#C9D9A6" stroke="#AFC48A" stroke-width="1">
+    <ellipse cx="200" cy="320" rx="13" ry="9"/>
+    <ellipse cx="206" cy="262" rx="11" ry="8"/>
+    <ellipse cx="236" cy="470" rx="14" ry="9"/>
+  </g>
+
+  <!-- labels -->
+  <g font-family="Alegreya Sans, Helvetica, Arial, sans-serif" fill="#4A5942" font-size="8.5" font-weight="600">
+    <text x="300" y="226" font-size="11" font-weight="700" fill="#F4F6EE" font-family="Alegreya, Georgia, serif" text-anchor="middle">Thain Family</text>
+    <text x="300" y="239" font-size="11" font-weight="700" fill="#F4F6EE" font-family="Alegreya, Georgia, serif" text-anchor="middle">Forest</text>
+    <text x="110" y="330" text-anchor="middle">Haupt</text>
+    <text x="110" y="340" text-anchor="middle">Conservatory</text>
+    <text x="162" y="369" text-anchor="middle">Visitor Center</text>
+    <text x="204" y="198" text-anchor="middle">Library</text>
+    <text x="184" y="266" text-anchor="end">Rock Garden</text>
+    <text x="184" y="312" text-anchor="end">Native Plant</text>
+    <text x="184" y="322" text-anchor="end">Garden</text>
+    <text x="196" y="420" text-anchor="end">Twin Lakes</text>
+    <text x="232" y="492" text-anchor="middle">Azalea Garden</text>
+    <text x="330" y="470">Stone Mill</text>
+    <text x="388" y="530" text-anchor="middle">Rose Garden</text>
+    <text x="362" y="330" fill="#3F7D96" font-style="italic" transform="rotate(-76 362 330)">Bronx River</text>
+  </g>
+  <g font-family="Alegreya Sans, Helvetica, Arial, sans-serif" fill="#6B7462" font-size="7.5" font-weight="700" letter-spacing="0.6">
+    <text x="128" y="182">MOSHOLU GATE</text>
+    <text x="66" y="420" text-anchor="start">CONSERVATORY</text>
+    <text x="66" y="429" text-anchor="start">GATE</text>
+    <text x="452" y="396" text-anchor="end">EAST GATE</text>
+  </g>
+
+  <!-- compass -->
+  <g transform="translate(452 128)">
+    <circle r="12" fill="#F4F6EE" stroke="#B9AE92" stroke-width="1"/>
+    <path d="M0 -8 L4 4 L0 1.5 L-4 4 Z" fill="#1F2D1C"/>
+    <text y="-14" font-family="Alegreya Sans, Helvetica, Arial, sans-serif" font-size="7" font-weight="700" fill="#4A5942" text-anchor="middle">N</text>
+  </g>
+</svg>

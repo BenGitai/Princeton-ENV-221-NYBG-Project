@@ -1,0 +1,4 @@
+{
+  "_about": "Spot-it checklists for species that have no cascade page. Copy each item word for word from a source (for example the Lower Hudson PRISM species page) and name it. Format: \"<species-id>\": {\"source\": \"...\", \"items\": [\"...\"], \"seasons\": [{\"months\": [4,5], \"look\": \"...\"}]}. Species ids are in build/species.json.",
+  "checklists": {}
+}

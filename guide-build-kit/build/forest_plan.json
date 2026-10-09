@@ -1,0 +1,528 @@
+[
+  {
+    "scientific_name": "Acer platanoides",
+    "names_in_plan": [
+      "Acer platanoides"
+    ],
+    "common_name": "Norway maple",
+    "family": "Sapindaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Norway maple is a wind-dispersed, shade-tolerant tree that has become one of the most widespread and destructive invasive exotic species in eastern forests (Emmerich, 1999). It produces allelopathic chemicals that inhibit the growth of native species.",
+    "native_range": "Europe",
+    "first_record": "1897 (N.L. Britton, 1898)",
+    "threat": "Norway maple is present in small numbers in the Forest but will certainly increase over time. This shade-tolerant species inhibits the regeneration of native plants and can lead to erosion by reducing the herbaceous layer.",
+    "control": "Seedlings and saplings can be removed by hand or with a weed-wrench. Mature specimens can be girdled or cut and treated with glyphosate. Cut stumps should be monitored for resprouting and recut and treated with herbicide if necessary. Injection with glyphosate has proven ineffective.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Ailanthus altissima",
+    "names_in_plan": [
+      "Ailanthus altissima"
+    ],
+    "common_name": "tree-of-heaven",
+    "family": "Simaroubaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "This fast-growing, extremely aggressive tree produces root suckers that can colonize large areas. It is dioecious and female trees can produce huge quantities of wind-dispersed seeds. Tree-of-heaven grows vigorously in full sun and outcompetes all other tree species on poor soils.",
+    "native_range": "China",
+    "first_record": "1897 (N.L. Britton, 1898)",
+    "threat": "Tree-of-heaven has colonized dry ridges in the Forest and is present in the soil seedbank.",
+    "control": "Young seedlings should be removed by hand. Older seedlings and trees should be cut and painted with herbicide. Cutting and painting reduces soil disturbance that promotes the germination of new seedlings.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Alliaria petiolata",
+    "names_in_plan": [
+      "Alliaria petiolata"
+    ],
+    "common_name": "garlic mustard",
+    "family": "Brassicaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Garlic mustard is a shade-tolerant biennial herb that spreads from edges and canopy gaps into forest interiors. It produces heavy seed crops.",
+    "native_range": "Europe",
+    "first_record": "unknown",
+    "threat": "Garlic mustard completely displaces native herbs. It is one of the most obvious and problematic invasive species in the Forest (Morrison, 1998).",
+    "control": "Second year plants are removed before they go to seed in May. First-year seedlings can be pulled until the soil freezes. Plants may be composted after they are removed.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Ampelopsis brevipedunculata",
+    "names_in_plan": [
+      "Ampelopsis brevipedunculata"
+    ],
+    "common_name": "porcelain-berry",
+    "family": "Vitaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Porcelain-berry is a fast-growing, bird-dispersed woody vine that thrives along forest edges and in canopy gaps where it damages saplings and tree crowns. Seeds remain viable in the soil for two years (Emmerich, 1999).",
+    "native_range": "China, Korea, Japan, and the Russian Far East",
+    "first_record": "unknown, has spread substantially since 1999",
+    "threat": "Porcelain-berry engulfs seedlings and saplings of native trees, damages crowns of mature plants, and shades out herbaceous plants.",
+    "control": "Physical removal of mature plants is potentially damaging to surrounding native plants. Cut climbing vines, remove from native vegetation, if possible, and grub roots or apply herbicide to cut stump. Most porcelain-berry present in the Forest are seedlings and young saplings that can be mechanically removed.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Aralia elata",
+    "names_in_plan": [
+      "Aralia elata"
+    ],
+    "common_name": "Japanese angelica tree",
+    "family": "Araliaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Japanese angelica tree is a spiny, colony-forming tree that spreads by root suckers and forms large clumps in disturbed or open areas throughout our region.",
+    "native_range": "Japan, Korea, Manchuria, and Russian Far East",
+    "first_record": "1901 accession record",
+    "threat": "A vigorous grower that outcompetes native trees and shrubs. This is by far the most threatening woody invasive plant species currently growing in the Forest. Its seeds are more abundant in the Forest soil seedbank than any other species. Previous mechanical management and recent natural disturbances have resulted in an exponential spread of this species over the past five years.",
+    "control": "First- and second-year seedlings are carefully weeded using a weed fork to remove all parts of the root system. Saplings less than one meter tall are treated with a 50% Rodeo® mixture applied with a foam brush to leaves and stems. Young trees larger than one meter tall are cut with a handsaw by 1/3 diameter and the fresh cut is treated with 50% Rodeo® mixture. Wounding the trees but not felling them results in greater uptake and better control. Based on inventory data, Forest staff target priority areas throughout the growing season and remove all flowering individuals in July to reduce additional seed production in August. All treated areas are monitored for three to four weeks after an application. Follow-up treatments are necessary for at least two years.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Celastrus orbiculatus",
+    "names_in_plan": [
+      "Celastrus orbiculatus"
+    ],
+    "common_name": "Asian bittersweet",
+    "family": "Celastraceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Bittersweet is a bird-and animal-dispersed, aggressive woody vine that colonizes forest edges produces copious quantities of fruit. Its seeds have a high germination rate. Once established it is very difficult to remove.",
+    "native_range": "Japan and China",
+    "first_record": "unknown",
+    "threat": "Bittersweet can choke out native trees, shrubs, and herbs. Aggressive climbing stems pull down saplings and damage tree crowns. Bittersweet is a problem in disturbed areas along edges and in canopy gaps.",
+    "control": "Physical removal of mature plants is difficult and often damages surrounding native plants. Seedlings and young plants should be pulled as soon as they are seen.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Corydalis incisa",
+    "names_in_plan": [
+      "Corydalis incisa"
+    ],
+    "common_name": "incised fumewort",
+    "family": "Papaveraceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Incised fumewort is a new invasive species in the mid-Atlantic region with known populations in New York, Pennsylvania, Maryland, Virginia, and the District of Columbia. A biennial with explosively dehiscent fruit, fumewort can form dense stands in forests or wetlands.",
+    "native_range": "Korea, Taiwan, eastern China",
+    "first_record": "2010 field inventory",
+    "threat": "There are well-established populations of fumewort present in Westchester County and Bronx County north of the Garden along the Bronx River (Atha et al., 2014).",
+    "control": "Fumewort is an early detection and rapid response species. Forest staff and Garden scientists scout the Bronx River bank for fumewort in May and manually remove all individuals they encounter.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Ficaria verna",
+    "names_in_plan": [
+      "Ficaria verna"
+    ],
+    "common_name": "lesser celandine",
+    "family": "Ranunculaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Lesser celandine is a spring ephemeral that grows from belowground tubers, bulbils, and seed. It leafs out in early spring, flowers in March-April, and goes dormant by early summer. It thrives in disturbed areas, spreads easily, and forms dense monocultures that inhibit the growth of native species.",
+    "native_range": "Europe",
+    "first_record": "1900 accession record",
+    "threat": "Lesser celandine has spread across the Garden landscape and region in the past decade, primarily invading river banks, streams, and roadsides, but also invading upland forests. Water plays a role in spreading this species’ seeds and bulbils. Lawn mowers, string trimmers, and other garden tools also spread lesser celandine across the landscape.",
+    "control": "This species is extremely difficult to control. Hand weeding smaller upland patches in the Forest has been successful with 80% control per season. All bulbils and tubers must be removed completely and discarded plant material kept separate from regular compost and monitored closely. Herbicide treatment with a 33% Rodeo® mixture before the plants flower can be effective if the conditions for uptake are perfect.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Hedera helix",
+    "names_in_plan": [
+      "Hedera helix"
+    ],
+    "common_name": "English ivy",
+    "family": "Araliaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "English ivy is a shade-tolerant, evergreen vine, commonly used as a groundcover in cultivation, which spreads vegetatively or by bird-dispersed seeds.",
+    "native_range": "Europe",
+    "first_record": "unknown",
+    "threat": "English ivy forms a dense groundcover that overwhelms native species. Forest staff have been removing all fruiting specimens across the grounds over the past decade, reducing the amount of propagule pressure within the landscape and Forest.",
+    "control": "English ivy is effectively managed by mechanical removal in late fall or early winter when native plants are dormant.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Humulus japonicus",
+    "names_in_plan": [
+      "Humulus japonicus"
+    ],
+    "common_name": "Japanese hops",
+    "family": "Cannabaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Japanese hops is a climbing or trailing annual vine that flowers and fruits from July to September. It is often found in open, disturbed sites such as abandoned fields, forest edges, and river banks.",
+    "native_range": "Asia",
+    "first_record": "unknown",
+    "threat": "Japanese hops is densely established on the Bronx River bank and a priority for management along the entire Bronx River corridor.",
+    "control": "Mechanical control by cutting stems and removing roots 2–3 times per year is a recommended best management practice (Yau et al., 2012).",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Lonicera japonica",
+    "names_in_plan": [
+      "Lonicera japonica"
+    ],
+    "common_name": "Japanese honeysuckle",
+    "family": "Caprifoliaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Japanese honeysuckle is a bird-dispersed, evergreen, climbing vine that rapidly colonizes large areas.",
+    "native_range": "Asia",
+    "first_record": "unknown",
+    "threat": "Japanese honeysuckle forms dense mats of intertwining vines on the Forest floor that inhibit the growth of native species. If left unchecked, it will climb and overwhelm small trees and shrubs.",
+    "control": "Mechanically remove dense mats by cutting and rolling. Follow-up weeding is required for many years. Climbing vines should be removed with care or cut and left to avoid additional harm to native vegetation.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Lonicera maackii",
+    "names_in_plan": [
+      "Lonicera maackii"
+    ],
+    "common_name": "Amur honeysuckle",
+    "family": "Caprifoliaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Amur honeysuckle is a bird-dispersed, shade-tolerant shrub that thrives in woodlands where it displaces native vegetation.",
+    "native_range": "Asia",
+    "first_record": "1917 accession record",
+    "threat": "Honeysuckle displaces native shrubs and inhibits native plant growth through allelopathy.",
+    "control": "Amur honeysuckle has been successfully managed in the Forest by mechanical removal.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Microstegium vimineum",
+    "names_in_plan": [
+      "Microstegium vimineum"
+    ],
+    "common_name": "Japanese stiltgrass",
+    "family": "Poaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Stiltgrass is a mammal- and water-dispersed annual grass that thrives in a variety of habitats. It spreads vegetatively or by seed and has formed dense monocultures in forests throughout the mid-Atlantic and southern New England.",
+    "native_range": "Asia",
+    "first_record": "1991 field inventory",
+    "threat": "Stiltgrass is regularly found growing along Forest trails and in the turnaround oval of the Waterfall Walk. We believe it is brought in on the shoes or clothing of visitors.",
+    "control": "Stiltgrass is an early detection and rapid response species that Forest staff monitors for and removes immediately. This method of control has been successful to date.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Persicaria perfoliatum",
+    "names_in_plan": [
+      "Persicaria perfoliatum"
+    ],
+    "common_name": "mile-a-minute vine",
+    "family": "Polygonaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "This rapidly growing, annual vine can reach lengths of over 20 feet in a single growing season and form dense patches that inhibit the growth of native species. Its metallic blue fruits ripen from September to November and are dispersed by birds and small mammals.",
+    "native_range": "Asia",
+    "first_record": "2011 field inventory",
+    "threat": "Mile-a-minute vine is present throughout the region, creating monocultures in forest openings, inhibiting the growth of all native species. This species has been introduced to the Garden by birds, nursery stock, and construction materials.",
+    "control": "This species is discovered annually along Forest trails and in canopy gaps. It is an early detection and rapid response species that Forest staff monitors for along trails and in canopy gaps. Plants are removed as soon as they are discovered. This method of control has been successful to date.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Phellodendron amurense",
+    "names_in_plan": [
+      "Phellodendron amurense"
+    ],
+    "common_name": "Amur corktree",
+    "family": "Rutaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Amur corktree has the qualities of the perfect invasive: it is bird-dispersed, shade and drought-tolerant, and long lived. Female trees can produce large seed crops at a relatively young age.",
+    "native_range": "China, Korea, Siberia, Japan",
+    "first_record": "1896 accession record",
+    "threat": "Since it is shade-tolerant, Amur corktree competes with the regeneration of native tree species throughout the Forest. Amur corktree thrives on good soils and competes with tulip tree and sweetgum on the best sites. Amur corktree is abundant in the Forest soil seedbank and a continual threat to the future of the Forest.",
+    "control": "Seedlings and saplings can be removed by hand or with a weed-wrench. Mature specimens are effectively managed by injecting glyphosate. Cut stumps will resprout and require additional herbicide treatments. Surrounding areas will require at least two years of postremoval management to eliminate seedlings.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Reynoutria japonica",
+    "names_in_plan": [
+      "Reynoutria japonica",
+      "Reynoutria x bohemica"
+    ],
+    "common_name": "knotweeds",
+    "family": "Polygonaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Knotweed is a wind-or water-dispersed, sun-loving, perennial that grows from nearly impenetrable mats of rhizomes. Once established, it forms a monoculture that prevents the growth of native plants. It is very difficult to control.",
+    "native_range": "Asia",
+    "first_record": "1901 accession record",
+    "threat": "Knotweed has colonized large areas of the Bronx River floodplain and is invading the upland forest along edges and in gaps. It completely displaces native vegetation—in fact, nothing can grow through the mats of rhizomes.",
+    "control": "Small populations can be treated with a 33% Rodeo® mixture, applied with a foam paint brush to all leaves and stem surfaces. Start applications in early May to prevent stems from growing tall and hardening off. If this is not possible, consider cutting stems and then treating. Repeat treatments are necessary. Larger colonies are a challenge and their management requires repeated monthly cutting beginning in May and ending in September. Once stem density of a colony decreases, densely planting an area with restoration trees and continuing knotweed management will further reduce its vigor.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Viburnum dilatatum",
+    "names_in_plan": [
+      "Viburnum dilatatum"
+    ],
+    "common_name": "linden viburnum",
+    "family": "Adoxaceae",
+    "plan_section": "Invasive Plants of Immediate Concern",
+    "summary": "Linden viburnum is a bird-dispersed, understory shrub that has invaded forests throughout eastern North America.",
+    "native_range": "Asia",
+    "first_record": "1895 accession record",
+    "threat": "Linden viburnum is increasing in the Forest understory. With the rise of viburnum leaf beetle, which feeds on native viburnums but not linden viburnum, this species will likely become even more abundant in the Forest if not managed.",
+    "control": "Mechanically removing linden viburnum is an effective method of control. It can resprout from roots, so thorough removal of all root fragments and follow-up treatments may be necessary.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Acer pseudoplatanus",
+    "names_in_plan": [
+      "Acer pseudoplatanus"
+    ],
+    "common_name": "Sycamore maple",
+    "family": "Sapindaceae",
+    "plan_section": "Invasive Plants of Potential Concern in the Future",
+    "summary": "This wind-dispersed, shade tolerant tree inhibits the growth of native species.",
+    "native_range": "Europe",
+    "first_record": "1896 accession record",
+    "threat": "Sycamore maple is present in small numbers in the Forest but has the potential of increasing over time. This shade-tolerant species inhibits the regeneration of native plants and can lead to erosion by reducing the herbaceous layer.",
+    "control": "Seedlings and saplings can be removed by hand or with a weed-wrench. Mature specimens can be girdled or cut. Cut stumps should be monitored for resprouting and cut again or treated with herbicide as necessary. Injection with glyphosate is not an effective method of control.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Anthriscus sylvestris",
+    "names_in_plan": [
+      "Anthriscus sylvestris"
+    ],
+    "common_name": "wild chervil",
+    "family": "Apiaceae",
+    "plan_section": "Invasive Plants of Potential Concern in the Future",
+    "summary": "This biennial reproduces by seed and is spread by landscape maintenance activities.",
+    "native_range": "Europe",
+    "first_record": "unknown",
+    "threat": "Distributions of wild chervil have increased in recent years north of the Garden along the Bronx River corridor. It has the potential of invading the banks of the Bronx River, Forest edges, and outlying areas of the Garden. Once established it will quickly form a monoculture. For these reasons, wild chervil is an early detection and rapid response species.",
+    "control": "Mechanical management by removing individuals and mowing patches before they go to seed in June has proven to be successful. Caution should be taken when handling this plant—its sap causes phytophototoxicity.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Commelina communis",
+    "names_in_plan": [
+      "Commelina communis"
+    ],
+    "common_name": "common dayflower",
+    "family": "Commelinaceae",
+    "plan_section": "Invasive Plants of Potential Concern in the Future",
+    "summary": "This annual grows quickly in disturbed soils in full sun and is a common weed in eastern North America.",
+    "native_range": "Eastern Asia",
+    "first_record": "1897 (N.L. Britton, 1898)",
+    "threat": "Asiatic dayflower is one of the most common herbaceous species in the Forest.",
+    "control": "Chemical control with glyphosate is recommended by some sources. Mechanical removal followed by restoration planting should be used to manage dense patches. If this approach is not successful, chemical controls should be implemented.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Magnolia kobus",
+    "names_in_plan": [
+      "Magnolia kobus"
+    ],
+    "common_name": "Kobus magnolia",
+    "family": "Magnoliaceae",
+    "plan_section": "Invasive Plants of Potential Concern in the Future",
+    "summary": "An ornamental flowering tree that has escaped cultivation, particularly around mature parks and gardens.",
+    "native_range": "Asia",
+    "first_record": "1918 accession record",
+    "threat": "Kobus magnolia has naturalized in the Forest from the Magnolia Collection and should continue to be monitored.",
+    "control": "No control is necessary at this time. Mechanical control methods such as girdling or removal may be effective if control is necessary in the future.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Paulownia tomentosa",
+    "names_in_plan": [
+      "Paulownia tomentosa"
+    ],
+    "common_name": "empress tree",
+    "family": "Paulowniaceae",
+    "plan_section": "Invasive Plants of Potential Concern in the Future",
+    "summary": "Empress tree is a wind-dispersed shade-intolerant tree that produces copious quantities of seed. It grows very quickly on disturbed soils and produces root and stump sprouts.",
+    "native_range": "Asia",
+    "first_record": "1897 (N.L. Britton, 1898)",
+    "threat": "There are a number of large empress trees growing on the grounds of the Garden adjacent to the Forest. These trees are a source of seed. Empress tree has been observed growing along forest trails and in canopy gaps.",
+    "control": "Young seedlings and saplings can be removed mechanically. Larger specimens can resprout from girdling and cut stumps and will require an herbicide stump or sprout treatment.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Persicaria spp.",
+    "names_in_plan": [
+      "Persicaria spp."
+    ],
+    "common_name": "smart weeds",
+    "family": "Polygonaceae",
+    "plan_section": "Invasive Plants of Potential Concern in the Future",
+    "summary": "A variety of non-native smart weeds have become established in the northeastern United States.",
+    "native_range": "Asia",
+    "first_record": "1897 (N.L. Britton, 1898)",
+    "threat": "The non-native smartweeds outcompete native species and disturb ecosystem processes. They should be monitored and managed as necessary.",
+    "control": "Mechanical weeding should suffice.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Prunus spp. (avium, subhirtella, × yedoensis, sargentii, incisa)",
+    "names_in_plan": [
+      "Prunus spp. (avium, subhirtella, × yedoensis, sargentii, incisa)"
+    ],
+    "common_name": "weedy cherries",
+    "family": "Rosaceae",
+    "plan_section": "Invasive Plants of Potential Concern in the Future",
+    "summary": "A variety of ornamental flowering cherries have escaped from cultivation in North America. These fast-growing, bird-dispersed trees colonize disturbed areas, edges, and canopy gaps.",
+    "native_range": "various",
+    "first_record": "1897 (N.L. Britton, 1898)",
+    "threat": "Weedy cherries have been noted in forest inventories for several decades and are expanding in recent inventories.",
+    "control": "Tree seedlings and young saplings can be removed mechanically. Older specimens are best controlled by cutting and applying herbicide.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Rhamnus frangula",
+    "names_in_plan": [
+      "Rhamnus frangula"
+    ],
+    "common_name": "smooth buckthorn",
+    "family": "Rhamnaceae",
+    "plan_section": "Invasive Plants of Potential Concern in the Future",
+    "summary": "This bird-dispersed, understory shrub is increasing its foothold in disturbed areas throughout the northeastern United States.",
+    "native_range": "Eurasia",
+    "first_record": "1964 accession record",
+    "threat": "Smooth buckthorn has only recently become established in the Forest and its population is growing. It still may be possible to eradicate.",
+    "control": "Mechanical removal is an effective method of control.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Rubus phoenicolasius",
+    "names_in_plan": [
+      "Rubus phoenicolasius"
+    ],
+    "common_name": "wineberry",
+    "family": "Rosaceae",
+    "plan_section": "Invasive Plants of Potential Concern in the Future",
+    "summary": "Wineberry, a relative off blackberry and raspberry, is a common weed of disturbed woodlands in our region.",
+    "native_range": "East Asia",
+    "first_record": "unknown",
+    "threat": "Wineberry is well established along the Forest edges and throughout the understory. Its impacts on the Forest and the effectiveness of potential control measures are still relatively unknown.",
+    "control": "Mechanical weeding or cut stem herbicide treatments are recommended.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Ulmus parvifolia",
+    "names_in_plan": [
+      "Ulmus parvifolia"
+    ],
+    "common_name": "Chinese elm",
+    "family": "Ulmaceae",
+    "plan_section": "Invasive Plants of Potential Concern in the Future",
+    "summary": "This relative of our native American elm has escaped cultivation in urban and suburban areas. Drought tolerant and adaptable to tough sites, Chinese elm is on the rise as an invasive species in the northeastern United States.",
+    "native_range": "East Asia",
+    "first_record": "1932 accession record",
+    "threat": "Chinese elm has been observed naturalizing in the Forest and throughout the NYC region. This species should continue to be monitored and considered a candidate for early detection and rapid response in the Forest.",
+    "control": "Mechanical removal of seedlings and young saplings should be an effective method of control.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Adelges tsugae",
+    "names_in_plan": [
+      "Adelges tsugae"
+    ],
+    "common_name": "hemlock woolly adelgid",
+    "family": "Adelgidae",
+    "plan_section": "Invasive Pests and Diseases of Immediate Concern",
+    "summary": "Hemlock wooly adelgid is a small aphidlike insect that is threatening the existence of hemlock in the eastern United States.",
+    "native_range": "Asia",
+    "first_record": "1985",
+    "threat": "Hemlock woolly adelgid was introduced to the Forest on the winds of Hurricane Gloria in 1985 and has led to the severe decline of hemlocks in the Forest.",
+    "control": "Hemlocks in the Living Collections are treated with horticultural oil.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Fiorinia externa",
+    "names_in_plan": [
+      "Fiorinia externa"
+    ],
+    "common_name": "elongate hemlock scale",
+    "family": "Diaspididae",
+    "plan_section": "Invasive Pests and Diseases of Immediate Concern",
+    "summary": "Elongate hemlock scale is an armored scale that was first identified in Queens, NY in 1908. It feeds on stressed hemlocks and has thrived in the Forest since hemlock woolly adelgid arrived in 1985.",
+    "native_range": "Japan",
+    "first_record": "circa 1908",
+    "threat": "Elongate hemlock scale has essentially finished off hemlocks weakened by hemlock woolly adelgid.",
+    "control": "Due to restricted site access and the proximity of the Bronx River, chemical controls have never been an option for this insect. However, new studies are revealing the potential for entomopathogenic fungi as a biocontrol for elongate hemlock scale. If this is method is proven safe it could be an option for the future control of elongate hemlock scale on the remaining hemlocks in the Forest.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Pyrrhalta viburni",
+    "names_in_plan": [
+      "Pyrrhalta viburni"
+    ],
+    "common_name": "viburnum leaf beetle",
+    "family": "Chrysomelidae",
+    "plan_section": "Invasive Pests and Diseases of Immediate Concern",
+    "summary": "This invasive beetle is devastating to native viburnums, particularly arrowwood. Larvae hatch from eggs on young twigs in April, feed on the new leaves, and pupate in the soil in June. Adult beetles hatch in late June/July and feed on new leaves, mate, and lay eggs until the frosts of November/December.",
+    "native_range": "Eurasia",
+    "first_record": "2008 field inventory",
+    "threat": "Arrowwood, the preferred host species, is a common understory shrub throughout the Forest. If viburnum leaf beetle reduces or eliminates arrowwood from the Forest, it will have cascading impacts on the entire ecosystem.",
+    "control": "Forest staff have established a monitoring and management program that includes removing egg sites from half of the Forest’s arrowwoods each winter. This mechanical pruning of egg sites is labor intensive but has proven to be 80% effective. Only cutting back half of the population each year allows for arrowwood regeneration.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Ophiostoma novo-ulmi",
+    "names_in_plan": [
+      "Ophiostoma novo-ulmi"
+    ],
+    "common_name": "Dutch elm disease",
+    "family": "Ascomycota",
+    "plan_section": "Invasive Pests and Diseases of Immediate Concern",
+    "summary": "Dutch elm disease is one of the most destructive shade tree diseases in North America, impacting American elms as street trees and in their native habitats of bottomland forest. Although this disease has resulted in tremendous losses, American elm is still present in the Forest today as part of the canopy and understory.",
+    "native_range": "Europe",
+    "first_record": "introduced into region in 1950s",
+    "threat": "American elm is an important canopy tree in the Forest ecosystem that is constantly threatened by Dutch elm disease.",
+    "control": "Chemical control by microinjecting fungicide into individual trees has proven effective throughout the Living Collections and in specimen trees along the Spicebush Trail in the Forest. This method of control should continue to preserve the presence of canopy American elms along the Forest trails. d. Invasive Pests and Diseases of Future Concern",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Agrilus planipennis",
+    "names_in_plan": [
+      "Agrilus planipennis"
+    ],
+    "common_name": "emerald ash borer",
+    "family": "Buprestidae",
+    "plan_section": "Invasive Pests and Diseases of Immediate Concern",
+    "summary": "Emerald ash borer is a beetle that has quickly spread from an original infestation in Michigan across the eastern United States. This larvae bore into the stems of ash trees and ultimately girdle them. Over the last decade, emerald ash borer has destroyed millions of ash trees across the eastern United States and all attempts at its control management have been unsuccessful.",
+    "native_range": "Asia",
+    "first_record": "",
+    "threat": "Ash tree species are regenerating in great numbers in the Forest understory. While not yet present at the Garden, emerald ash borer represents a significant threat to the health of these trees. If it does reach the Garden, emerald ash borer will substantially change the future composition of the tree canopy.",
+    "control": "Currently, preventative treatments are recommended for mature specimens. There are currently only a few large ash trees present in the Forest, all of which are in poor condition and not candidates for treatment. If emerald ash borer is found at the Garden, managers will notify USDA-APHIS and NYS DEC and follow required protocols.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Anoplophora glabripennis",
+    "names_in_plan": [
+      "Anoplophora glabripennis"
+    ],
+    "common_name": "Asian long-horned beetle",
+    "family": "Cerambycidae",
+    "plan_section": "Invasive Pests and Diseases of Immediate Concern",
+    "summary": "The larvae of Asian long-horned beetle bore into the stems of a wide variety of native trees including maple, sycamore, and birch. Infestations of Asian long-horned beetle have devastated urban forests in New York City, Boston, and Chicago.",
+    "native_range": "Asia",
+    "first_record": "",
+    "threat": "Asian long-horned beetle has an extensive host tree range, including many species native to the Forest. Its establishment would decimate a high percentage of the existing Forest canopy.",
+    "control": "This species is in the category of early detection and rapid response. Garden staff participate in regular scouting in partnership with USDA-APHIS inspectors to confirm that the beetle is not present at the Garden. The Plant Health Care Program also maintains pheromone traps to aid in monitoring. If Asian-long horned beetle is discovered at the Garden, managers will notify USDA-APHIS and NYS DEC and follow required protocols.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Ceratocystis fagacaerum",
+    "names_in_plan": [
+      "Ceratocystis fagacaerum"
+    ],
+    "common_name": "oak wilt",
+    "family": "Cerotocystidaceae",
+    "plan_section": "Invasive Pests and Diseases of Immediate Concern",
+    "summary": "This vascular wilt has devastated oaks in Texas, the Midwest, and portions of the Northeast. In 2008 there was a small outbreak in upstate New York that has been eradicated. Oak wilt affects species in both the red and white oak subgenera but is more immediately lethal to the red oaks killing them within a few months of infection. The fungus spreads by sap beetles and root grafts.",
+    "native_range": "unknown",
+    "first_record": "",
+    "threat": "Today, the most abundant Forest canopy species is red oak. Oak wilt can kill a red oak tree within months of infection.",
+    "control": "Oak wilt is the category of early detection and rapid response. If found at the Garden, managers will notify USDA-APHIS and NYS DEC and follow required protocols.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  },
+  {
+    "scientific_name": "Phytophthora ramorum",
+    "names_in_plan": [
+      "Phytophthora ramorum"
+    ],
+    "common_name": "sudden oak death",
+    "family": "Peronosporaceae",
+    "plan_section": "Invasive Pests and Diseases of Immediate Concern",
+    "summary": "This fungal pathogen kills native oak trees and understory shrubs including viburnums. First identified in California in 1995, this disease has spread to other states through infested nursery stock and has been observed in New York State.",
+    "native_range": "unknown",
+    "first_record": "",
+    "threat": "Oaks are currently the dominant canopy species in the Forest, the infestation of this disease would have a similar effect as the American chestnut blight in the early 1900s.",
+    "control": "Sudden oak death is an early detection and rapid response species. If observed in the Garden, managers will notify USDA-APHIS and NYS DEC and follow required protocols. Chinese elm has the potential to become invasive in the Forest.",
+    "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+  }
+]

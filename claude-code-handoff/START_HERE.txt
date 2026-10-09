@@ -1,0 +1,18 @@
+NYBG GARDEN ESCAPES: CLAUDE CODE HANDOFF
+=======================================
+
+What this is: everything Claude Code needs to build the mockup as a real website that runs on your computer.
+
+1. Make sure these two folders sit inside your "NY Botanical Gardens" folder, next to the source files
+   (Forest Plan PDF, the NYBG species list xlsx, Madison's info-page pptx, garlic-mustard-cascade.html, the Reference Guide PDF):
+     claude-code-handoff/    this folder: the prompt and the design reference
+     guide-build-kit/        the content pipeline and its data
+2. Open Claude Code in the "NY Botanical Gardens" folder.
+3. Paste the whole of claude-code-handoff/PROMPT.txt (everything below its line) as your first message.
+4. Claude Code runs the pipeline, then proposes a file plan and waits for your OK.
+5. When it finishes, open nybg-guide/index.html in your browser.
+
+Updating content later never needs code:
+  - new species info page: add the slide to the info-page .pptx, then run  python guide-build-kit/tools/build_data.py
+  - ID checklist for a species: guide-build-kit/content/id-checklists.json
+  - tour stops: guide-build-kit/content/tour.json   (forest-layers webs regenerate for every tour species)

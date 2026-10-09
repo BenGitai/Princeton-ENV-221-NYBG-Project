@@ -1,0 +1,503 @@
+{
+  "_about": "Gap-filling from public sources. Only U.S. government works (public domain) are used for text; photos come from Wikimedia Commons with their own licenses and credits. Text is never typed here: each field names a source, its PDF pages, and a short 'from' and 'to' phrase, and tools/extract_public_sources.py copies the span between them word for word. Season 'months' are the one editorial choice: they map the source's own timing words (e.g. 'springtime', 'June to September') to calendar months for the 'Right now' note. The source files live in guide-build-kit/sources/public/.",
+  "sources": {
+    "plant-invaders": {
+      "type": "pdf",
+      "file": "sources/public/plant-invaders-mid-atlantic-2010.pdf",
+      "cite": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service",
+      "url": "https://www.invasive.org/alien/pubs/midatlantic/",
+      "rights": "U.S. government work, public domain",
+      "printed_page_offset": -2,
+      "drop_lines": [
+        "^\\s*\\d{1,3}\\s*$",
+        "^\\s*[A-Z]\\s*$",
+        "^\\s*_+\\s*$",
+        "^\\s*(GRASSES & SEDGES|HERBACEOUS FORBS|SHRUBS|TREES|VINES|AQUATIC PLANTS)\\s*$"
+      ],
+      "drop_text": [
+        "Bill Johnson",
+        "James H. Miller, USDA FS",
+        "Chris Evans, River to River CWMA",
+        "Robert Vidéki, Doronicum Kft.",
+        "GRASSES & SEDGES",
+        "HERBACEOUS FORBS",
+        "_____"
+      ],
+      "drop_regex": [
+        "\\s{4,}[A-Z]\\s*$"
+      ],
+      "dehyphenate": true,
+      "joins": {
+        "An- thocharis": "Anthocharis",
+        "but- terfly": "butterfly",
+        "mus- tard": "mustard"
+      }
+    },
+    "hwa-pest-alert": {
+      "type": "html",
+      "encoding": "cp1252",
+      "file": "sources/public/usfs-pest-alert-hemlock-woolly-adelgid-2005.htm",
+      "cite": "USDA Forest Service, Northeastern Area State and Private Forestry 2005, Pest Alert: Hemlock Woolly Adelgid (NA-PR-09-05)",
+      "url": "https://web.archive.org/web/20161021090614/http://na.fs.fed.us/spfo/pubs/pest_al/hemlock/hwa05.htm",
+      "rights": "U.S. government work, public domain",
+      "drop_regex": [
+        "\\s*\\(figures? \\d+(?:\\s*(?:and|,)\\s*\\d+)*\\)"
+      ],
+      "joins": {
+        "fi rst": "first",
+        "fi laments": "filaments",
+        "fi rst instar": "first instar"
+      }
+    },
+    "feis-iris": {
+      "type": "html",
+      "file": "sources/public/feis-iris-pseudacorus-2009.html",
+      "cite": "Stone, K. R. 2009, Iris pseudacorus, Fire Effects Information System, USDA Forest Service (reference numbers omitted)",
+      "url": "https://www.fs.usda.gov/database/feis/plants/forb/iripse/all.html",
+      "rights": "U.S. government work, public domain",
+      "drop_regex": [
+        "\\s*\\((?:[^()]*?\\[\\s*\\d[\\d,\\s]*\\]\\s*,?\\s*)+[^()]*?\\)",
+        "\\s*\\[\\s*\\d[\\d,\\s]*\\]"
+      ]
+    }
+  },
+  "species": {
+    "iris-pseudacorus": {
+      "summary": {
+        "source": "feis-iris",
+        "from": "Paleyellow iris is native to Europe",
+        "to": "washing downstream in floods."
+      },
+      "checklist": {
+        "source": "feis-iris",
+        "items": [
+          {
+            "from": "The few to several leaves of paleyellow iris",
+            "to": "(25-90 cm) long."
+          },
+          {
+            "from": "Flowers are bright yellow or cream-colored",
+            "to": "(7-9 cm) wide."
+          },
+          {
+            "from": "Paleyellow iris fruits are 6-angled capsules",
+            "to": "(5-9 cm) long."
+          },
+          {
+            "from": "Paleyellow iris has rhizomes that are",
+            "to": "(1-4 cm) in diameter."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "feis-iris",
+          "from": "Paleyellow iris flowers from late May",
+          "to": "in North America.",
+          "months": [
+            5,
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    "vinca-minor": {
+      "summary": {
+        "source": "plant-invaders",
+        "from": "Common periwinkle was first introduced",
+        "to": "ornamental ground cover.",
+        "pages": [
+          106
+        ]
+      },
+      "checklist": {
+        "source": "plant-invaders",
+        "pages": [
+          106
+        ],
+        "items": [
+          {
+            "from": "Plant: vine-like",
+            "to": "stems slender."
+          },
+          {
+            "from": "Leaves: opposite, dark green",
+            "to": "may be variegated."
+          },
+          {
+            "from": "Flowers, fruits and seeds: flower blue",
+            "to": "no fruits or seeds typically."
+          },
+          {
+            "from": "Look-alikes: may be confused",
+            "to": "(Euonymus fortunei)."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "plant-invaders",
+          "from": "Flowers, fruits and seeds: flower blue",
+          "to": "no fruits or seeds typically.",
+          "pages": [
+            106
+          ],
+          "months": [
+            3,
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    "alliaria-petiolata": {
+      "impact": {
+        "source": "plant-invaders",
+        "from": "Garlic mustard has displaced vast",
+        "to": "native tree seedling growth.",
+        "pages": [
+          48
+        ]
+      },
+      "photo": {
+        "commons": "File:Alliaria petiolata 4 RF.jpg",
+        "file": "alliaria-petiolata.jpg"
+      }
+    },
+    "phellodendron-amurense": {
+      "impact": {
+        "source": "plant-invaders",
+        "from": "Once established, it can form patches",
+        "to": "displace native plants.",
+        "pages": [
+          139
+        ]
+      },
+      "checklist": {
+        "source": "plant-invaders",
+        "pages": [
+          139
+        ],
+        "items": [
+          {
+            "from": "The distinctive bark is",
+            "to": "furrowed on mature trees."
+          },
+          {
+            "from": "Bark of both young and old trees",
+            "to": "scrape of a pocket-knife."
+          },
+          {
+            "from": "The leaves are 10-15 in. long",
+            "to": "bright yellow in the fall."
+          },
+          {
+            "from": "When crushed, the leaves",
+            "to": "disinfectant or skunk odor."
+          },
+          {
+            "from": "From mid-June to mid-July",
+            "to": "in. diameter."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "plant-invaders",
+          "from": "Male and female plants are separate",
+          "to": "from May through June.",
+          "pages": [
+            139
+          ],
+          "months": [
+            5,
+            6
+          ]
+        },
+        {
+          "source": "plant-invaders",
+          "from": "From mid-June to mid-July",
+          "to": "in. diameter.",
+          "pages": [
+            139
+          ],
+          "months": [
+            7
+          ]
+        },
+        {
+          "source": "plant-invaders",
+          "from": "The fruits bright are green",
+          "to": "until winter.",
+          "pages": [
+            139
+          ],
+          "months": [
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        }
+      ],
+      "photo": {
+        "commons": "File:Phellodendron amurense Korkowiec amurski 2019-05-24 03.jpg",
+        "file": "phellodendron-amurense.jpg"
+      }
+    },
+    "microstegium-vimineum": {
+      "impact": {
+        "source": "plant-invaders",
+        "from": "Stiltgrass threatens native",
+        "to": "as the patch expands.",
+        "pages": [
+          30,
+          31
+        ]
+      },
+      "checklist": {
+        "source": "plant-invaders",
+        "pages": [
+          30,
+          31
+        ],
+        "items": [
+          {
+            "from": "Look for asymmetrical leaves",
+            "to": "stilt-like growth form."
+          },
+          {
+            "from": "Plant: annual grass",
+            "to": "2-3 ft. in height."
+          },
+          {
+            "from": "Leaves: pale green",
+            "to": "with a shiny midrib."
+          },
+          {
+            "from": "Flowers, fruits and seeds: hidden",
+            "to": "late summer to fall."
+          },
+          {
+            "from": "Look-alikes: Virginia cutgrass",
+            "to": "(Polygonum persicaria)."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "plant-invaders",
+          "from": "Flowers, fruits and seeds: hidden",
+          "to": "late summer to fall.",
+          "pages": [
+            30,
+            31
+          ],
+          "months": [
+            8,
+            9,
+            10,
+            11
+          ]
+        }
+      ],
+      "natives": {
+        "source": "plant-invaders",
+        "from": "Following disturbance to an area susceptible",
+        "to": "suitable to site conditions.",
+        "pages": [
+          30,
+          31
+        ]
+      },
+      "photo": {
+        "commons": "File:Microstegium vimineum NPS.jpg",
+        "file": "microstegium-vimineum.jpg"
+      }
+    },
+    "lythrum-salicaria": {
+      "summary": {
+        "source": "plant-invaders",
+        "from": "Purple loosestrife was introduced to",
+        "to": "natural and disturbed wetlands.",
+        "pages": [
+          53,
+          54
+        ]
+      },
+      "checklist": {
+        "source": "plant-invaders",
+        "pages": [
+          53,
+          54
+        ],
+        "items": [
+          {
+            "from": "Plant: erect perennial herb",
+            "to": "depending upon conditions."
+          },
+          {
+            "from": "Leaves: lance-shaped, stalk-less",
+            "to": "whorls around the stem."
+          },
+          {
+            "from": "Flowers, fruits and seeds: produces a showy",
+            "to": "five to seven petals."
+          },
+          {
+            "from": "Look-alikes: from a distance",
+            "to": "northern U.S. and Canada."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "plant-invaders",
+          "from": "The flowering season extends from June to September",
+          "to": "source of nectar.",
+          "pages": [
+            53,
+            54
+          ],
+          "months": [
+            6,
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "adelges-tsugae": {
+      "impact": {
+        "source": "hwa-pest-alert",
+        "from": "Native to Asia, the hemlock woolly adelgid",
+        "to": "in its southern range."
+      },
+      "checklist": {
+        "source": "hwa-pest-alert",
+        "items": [
+          {
+            "from": "The hemlock woolly adelgid is tiny",
+            "to": "purplish-black in color."
+          },
+          {
+            "from": "As it matures, it produces",
+            "to": "prevent them from drying out."
+          },
+          {
+            "from": "Ovisacs can be readily observed",
+            "to": "branch tips of hemlock trees."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "hwa-pest-alert",
+          "from": "Ovisacs can be readily observed",
+          "to": "branch tips of hemlock trees.",
+          "months": [
+            11,
+            12,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "source": "hwa-pest-alert",
+          "from": "The hemlock woolly adelgid is unusual in that it enters",
+          "to": "surrounding their bodies.",
+          "months": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "source": "hwa-pest-alert",
+          "from": "The adelgids begin to feed",
+          "to": "throughout the winter months.",
+          "months": [
+            10
+          ]
+        }
+      ],
+      "photo": {
+        "commons": "File:Adelges tsugae 1276001.jpg",
+        "file": "adelges-tsugae.jpg"
+      }
+    },
+    "reynoutria-japonica": {
+      "impact": {
+        "source": "plant-invaders",
+        "from": "It spreads quickly to form dense thickets",
+        "to": "extremely persistent.",
+        "pages": [
+          50,
+          51
+        ]
+      },
+      "checklist": {
+        "source": "plant-invaders",
+        "pages": [
+          50,
+          51
+        ],
+        "items": [
+          {
+            "from": "Plant: upright, shrubby",
+            "to": "typical of the family."
+          },
+          {
+            "from": "Leaves: variable;",
+            "to": "a tapered tip."
+          },
+          {
+            "from": "Flowers, fruits and seeds: tiny greenish",
+            "to": "about 1/10 in. long."
+          },
+          {
+            "from": "Look-alikes: the lovely native",
+            "to": "(Polygonum sachalinense)."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "plant-invaders",
+          "from": "Flowers, fruits and seeds: tiny greenish",
+          "to": "about 1/10 in. long.",
+          "pages": [
+            50,
+            51
+          ],
+          "months": [
+            6,
+            7,
+            8
+          ]
+        }
+      ],
+      "photo": {
+        "commons": "File:Reynoutria japonica in Brastad 1.jpg",
+        "file": "reynoutria-japonica.jpg"
+      }
+    }
+  },
+  "swap_photos": {
+    "Japanese Barberry": {
+      "commons": "File:Bes Berberis thunbergii.JPG",
+      "file": "berberis-thunbergii.jpg"
+    },
+    "Winterberry": {
+      "commons": "File:Ilex verticillata.jpg",
+      "file": "ilex-verticillata.jpg"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Store debug · Garden Escapes</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/screens.css">
+<style>body { overflow: auto; }</style>
+</head>
+<body>
+<div class="debug" id="out"><h1 class="h1">Store API results</h1></div>
+<script src="data/guide-data.js"></script>
+<script src="js/ns.js"></script>
+<script src="js/state.js"></script>
+<script src="js/store.js"></script>
+<script>
+(function () {
+  var S = NYBG.store, out = document.getElementById('out');
+  function show(label, value) {
+    var h2 = document.createElement('h2'); h2.textContent = label; out.appendChild(h2);
+    var pre = document.createElement('pre'); pre.textContent = JSON.stringify(value, null, 2); out.appendChild(pre);
+  }
+  var gm = S.species('alliaria-petiolata');
+  show('count()', S.count());
+  show('generated_from', S.raw().generated_from);
+  show('stops()', S.stops().map(function (s) { return { n: s.n, stage: s.stage, place: s.place, species: s.species || s.kind, verify: !!s.verify }; }));
+  show('stop(4)', S.stop(4));
+  show('stopForSpecies("lythrum-salicaria")', S.stopForSpecies('lythrum-salicaria'));
+  show('search("knot", "all")', S.search('knot', 'all').map(function (e) { return e.id; }));
+  show('search("", "tour").length / "full" / "c1" / "c2" / "pests"', ['tour', 'full', 'c1', 'c2', 'pests'].map(function (f) { return f + ': ' + S.search('', f).length; }));
+  show('species("alliaria-petiolata") — name, badges, status, range', { name: S.name(gm), badges: S.badges(gm), status: S.status(gm), range: S.range(gm) });
+  show('checklist(garlic mustard)', S.checklist(gm));
+  show('seasonNow(garlic mustard, this month)', S.seasonNow(gm, new Date().getMonth() + 1));
+  show('alternatives(iris)', S.alternatives(S.species('iris-pseudacorus')));
+  show('inat(garlic mustard)', S.inat(gm));
+  show('provenance(garlic mustard)', S.provenance(gm));
+  show('teaser per tour species', S.speciesStops().map(function (s) { return [s.n, (S.teaser(S.species(s.species)) || {}).text]; }));
+  show('webs()', S.webs().map(function (w) { return { id: w.id, title: w.title, nodes: w.nodes.length, edges: w.edges.length }; }));
+  show('webLinks("alliaria-petiolata")', S.webLinks('alliaria-petiolata'));
+  show('monthPick(each month)', [1,2,3,4,5,6,7,8,9,10,11,12].map(function (m) { var p = S.monthPick(m); return m + ': ' + (p ? p.species.id : 'none'); }));
+  show('swapPhoto(each swap)', (S.stop(10).swaps || []).map(function (w) { return [w.invasive, S.swapPhoto(w.invasive), w.native, S.swapPhoto(w.native)]; }));
+  show('photo("periwinkle.jpg")', S.photo('periwinkle.jpg'));
+  show('links()', S.links());
+  show('routePath()', S.routePath());
+})();
+</script>
+</body>
+</html>

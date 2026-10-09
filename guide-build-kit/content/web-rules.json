@@ -1,0 +1,27 @@
+{
+  "_about": "Rules that generate a forest-layers web for every tour species from its sourced text (no hand-drawn webs). Each rule is a regular expression searched in the species' sourced fields; the first sentence that matches becomes the node's quote, word for word. 'label' is short UI text for the arrow. role: helper (arrow points to the invader), harmed (arrow points away), manager (holds it back). stratum: canopy | understory | floor | soil. 'fields' lists which sourced fields a rule may read. Species with a cascade page use the cascade's own web instead.",
+  "fields": {
+    "helper": ["forest_plan.summary", "forest_plan.threat", "info_page.impact"],
+    "harmed": ["forest_plan.summary", "forest_plan.threat", "info_page.impact"]
+  },
+  "rules": [
+    {"id": "birds", "role": "helper", "name": "Birds", "group": "bird", "stratum": "canopy", "label": "carry its seeds", "pattern": "bird-? ?(?:and animal-)?dispersed|dispersed by birds"},
+    {"id": "wind", "role": "helper", "name": "Wind", "group": "wind", "stratum": "canopy", "label": "carries it", "pattern": "\\bwinds? of\\b|wind-? ?(?:or|and)? ?(?:water-)?dispersed"},
+    {"id": "water", "role": "helper", "name": "Water", "group": "water", "stratum": "floor", "label": "carries it downstream", "shared": "water", "pattern": "water-dispersed|via water|water systems|floodplain"},
+    {"id": "mammals", "role": "helper", "name": "Mammals", "group": "deer", "stratum": "understory", "label": "spread it", "pattern": "mammal-"},
+    {"id": "visitors", "role": "helper", "name": "Visitors", "group": "people", "stratum": "understory", "label": "bring it in", "shared": "visitors", "pattern": "shoes or clothing of visitors"},
+    {"id": "seedbank", "role": "helper", "name": "Seeds in the soil", "group": "seed", "stratum": "soil", "label": "keep it coming back", "pattern": "seedbank|seed bank"},
+    {"id": "roots", "role": "helper", "name": "Spreading roots", "group": "seed", "stratum": "soil", "label": "spread it underground", "pattern": "rhizomes|root suckers|stems root"},
+    {"id": "hemlocks", "role": "harmed", "name": "Hemlocks", "group": "tree", "stratum": "understory", "label": "kills them", "pattern": "\\bhemlocks?\\b"},
+    {"id": "trees", "role": "harmed", "name": "Native tree seedlings", "group": "tree", "stratum": "understory", "label": "crowds them out", "shared": "native-tree-seedlings", "pattern": "tree seedlings|regeneration of native tree|native trees"},
+    {"id": "named-trees", "role": "harmed", "name": "Tulip tree and sweetgum", "group": "tree", "stratum": "understory", "label": "competes with them", "pattern": "tulip tree and sweetgum"},
+    {"id": "wildflowers", "role": "harmed", "name": "Native wildflowers", "group": "plant", "stratum": "floor", "label": "chokes them out", "shared": "native-wildflowers", "pattern": "native (?:spring )?wildflowers|native herbs"},
+    {"id": "wetland", "role": "harmed", "name": "Wetland plants", "group": "plant", "stratum": "floor", "label": "chokes them out", "shared": "wetland-plants", "pattern": "native wetland vegetation"},
+    {"id": "natives", "role": "harmed", "name": "Native plants", "group": "plant", "stratum": "floor", "label": "displaces them", "shared": "native-plants", "unless": ["wildflowers", "wetland"], "pattern": "native (?:vegetation|species|plants|flora)|dense monocultures"},
+    {"id": "edges", "role": "harmed", "name": "Forest edges and gaps", "group": "tree", "stratum": "understory", "label": "invades", "pattern": "edges and in gaps|forest edges|canopy gaps"},
+    {"id": "biodiversity", "role": "harmed", "name": "Marsh life", "group": "insect", "stratum": "canopy", "label": "reduces it", "pattern": "biodiversity"},
+    {"id": "animals", "role": "harmed", "name": "Animals", "group": "deer", "stratum": "understory", "label": "poisons them", "pattern": "toxic to animals"}
+  ],
+  "manager": {"name": "NYBG forest team", "group": "people", "label": "removes it", "shared": "nybg-forest-team", "field": "forest_plan.control"},
+  "mentions": {"label": "named together", "group": "invader", "fields": ["forest_plan.summary", "forest_plan.threat", "forest_plan.control"]}
+}

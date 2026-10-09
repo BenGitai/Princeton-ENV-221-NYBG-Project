@@ -1,0 +1,31 @@
+{
+ "_about": "The mockup files reference uploaded files as /_blob/<id>. This maps each id to the local file in this folder.",
+ "blobs": {
+  "285dbbe5adfeea09d8cf99c803ba50e6": "guide-build-kit/garden-map.svg",
+  "fa2eb4a265b557be81204620c4416704": "guide-build-kit/forest-layers-bg.svg",
+  "7b44184ea9eb21030a9021e94ad6a52d": "(v1 forest-layers.svg with garlic mustard arrows baked in; superseded: draw arrows at runtime)",
+  "a0f5c90e12fc68ec6d5095ffa124631b": "data bundle = guide-build-kit/build/species.json + build/webs.json + content/tour.json + content/links.json (+ asset paths). Your bundle script makes nybg-guide/data/guide-data.js from these.",
+  "a37e474cf6ab1a3a1ef2a5ead55d0e4d": "guide-build-kit/photos/iris-pseudacorus.png (also yellow-iris.jpg)",
+  "5d8601410dd61409205817102314934c": "guide-build-kit/photos/iris-pseudacorus--marsh-marigold.png",
+  "a15921c74b2ce50ee2c7bc4991191d59": "guide-build-kit/photos/iris-pseudacorus--yellow-stargrass.png",
+  "a722c7bf5c2cccf380c16b9a8ecc787a": "guide-build-kit/photos/iris-pseudacorus--golden-star.png",
+  "af0a47ab5057dcd04a2b518e0a2d98ee": "guide-build-kit/photos/iris-pseudacorus--northern-blue-flag.png",
+  "0ac99a673e1e290c7089895ead5d8eb6": "guide-build-kit/photos/loosestrife.jpg",
+  "53a814df54fae56433df98d9d31f09b0": "guide-build-kit/photos/blue-vervain.jpg",
+  "57281f8e163be9f12f1a27db8f46fab1": "guide-build-kit/photos/blazing-star.jpg",
+  "3a5d474536aa039b1e3e8e8809f84851": "guide-build-kit/photos/obedient-plant.jpg",
+  "c21d52f1da18c23dd49d40f9233f32d1": "guide-build-kit/photos/swamp-milkweed.jpg",
+  "60c0223f79576a8ac21f5fe70862dab2": "guide-build-kit/photos/periwinkle.jpg",
+  "26f635892d1c49f0d00b7d62c41f4cdb": "guide-build-kit/photos/wild-blue-phlox.jpg",
+  "89b4fc3f0504072cbd8bd581b598c422": "guide-build-kit/photos/partridgeberry.jpg",
+  "b2a0f141df636c1876c96ff5b60ae200": "guide-build-kit/photos/allegheny-pachysandra.jpg",
+  "90b6605b1e9d5ded9413cc9b79043411": "(mockup-only arrow overlay for the adelges-tsugae web; in the real site draw arrows at runtime from build/webs.json)",
+  "d9d06139d0283906ad370712887f6f77": "(mockup-only arrow overlay for the alliaria-petiolata web; in the real site draw arrows at runtime from build/webs.json)",
+  "ca7691a140c8d79838ce91fa21087bd3": "(mockup-only arrow overlay for the iris-pseudacorus web; in the real site draw arrows at runtime from build/webs.json)",
+  "9e938de35fe135b72049d7b4cc684876": "(mockup-only arrow overlay for the lythrum-salicaria web; in the real site draw arrows at runtime from build/webs.json)",
+  "81d00191ca0e4912c17a2ab099a5234b": "(mockup-only arrow overlay for the microstegium-vimineum web; in the real site draw arrows at runtime from build/webs.json)",
+  "9c35c883d1289b6646349d77114b8ba2": "(mockup-only arrow overlay for the phellodendron-amurense web; in the real site draw arrows at runtime from build/webs.json)",
+  "cc4d358c020f3bc76200b315e7a94507": "(mockup-only arrow overlay for the reynoutria-japonica web; in the real site draw arrows at runtime from build/webs.json)",
+  "a6df92cae6de87612fba06bcc9a0a886": "(mockup-only arrow overlay for the vinca-minor web; in the real site draw arrows at runtime from build/webs.json)"
+ }
+}

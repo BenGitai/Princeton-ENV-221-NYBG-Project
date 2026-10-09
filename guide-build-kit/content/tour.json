@@ -1,0 +1,30 @@
+{
+  "_about": "Tour layout only: where each stop is and which species it shows. Species facts live in species.json and are never written here. x,y are in garden-map.svg coordinates (viewBox 40 95 440 560). verify=true means the spot is approximate and needs confirming with NYBG / Plant Tracker. The dashed route on the map is drawn from these stops in order: a straight line into each stop, or the SVG path commands in route_in when the path curves.",
+  "stages": [
+    {"n": 1, "name": "Arrival"}, {"n": 2, "name": "Forest edge"}, {"n": 3, "name": "Forest & river"}, {"n": 4, "name": "Take it home"}
+  ],
+  "stops": [
+    {"n": 1, "stage": 1, "place": "Leon Levy Visitor Center", "x": 165, "y": 355, "kind": "intro",
+     "quotes": [
+       {"text": "Many priority invasives entered North America as prized ornamental plants valued for vivid colors and rapid growth.", "source": "NYBG Invasive Species Immersive Experience Guide, slide 3"},
+       {"text": "Escaping cultivated boundaries, these species outcompete native flora in the 50-acre Thain Family Forest.", "source": "NYBG Invasive Species Immersive Experience Guide, slide 3"}
+     ]},
+    {"n": 2, "stage": 2, "place": "Twin Lakes", "x": 210, "y": 392, "species": "iris-pseudacorus", "verify": true},
+    {"n": 3, "stage": 2, "place": "Native Plant Garden", "x": 226, "y": 322, "species": "vinca-minor", "verify": true},
+    {"n": 4, "stage": 2, "place": "Forest edge by the Rock Garden", "x": 240, "y": 258, "species": "alliaria-petiolata", "verify": true},
+    {"n": 5, "stage": 3, "place": "Thain Forest interior", "x": 285, "y": 318, "species": "phellodendron-amurense", "verify": true},
+    {"n": 6, "stage": 3, "place": "Waterfall Walk", "x": 312, "y": 404, "species": "microstegium-vimineum"},
+    {"n": 7, "stage": 3, "place": "Bronx River by the Stone Mill", "x": 326, "y": 458, "species": "lythrum-salicaria", "verify": true},
+    {"n": 8, "stage": 3, "place": "Hemlocks south of Hester Bridge", "x": 280, "y": 494, "species": "adelges-tsugae"},
+    {"n": 9, "stage": 3, "place": "Bronx River floodplain", "x": 272, "y": 562, "species": "reynoutria-japonica"},
+    {"n": 10, "stage": 4, "place": "Conservatory Gate", "x": 128, "y": 412, "kind": "hub",
+     "route_in": "C256 580 244 592 236 588 C210 560 180 526 160 490 C146 464 134 438 128 412",
+     "swaps_source": "NYBG Invasive Species Immersive Experience Guide, slide 8 (Native Swaps for Home Gardeners)",
+     "swaps": [
+       {"invasive": "Yellow Iris", "value": "Vivid spring water bloom", "native": "Northern Blue Flag", "benefit": "Protects aquatic ecosystems"},
+       {"invasive": "Purple Loosestrife", "value": "Showy purple spikes", "native": "Dense Blazing Star", "benefit": "Monarch-friendly nectar"},
+       {"invasive": "Common Periwinkle", "value": "Low blue groundcover", "native": "Wild Blue Phlox", "benefit": "Native bee forage"},
+       {"invasive": "Japanese Barberry", "value": "Red winter berries", "native": "Winterberry", "benefit": "Essential bird food source"}
+     ]}
+  ]
+}

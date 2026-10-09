@@ -1,0 +1,894 @@
+{
+ "shared_nodes": {
+  "water": [
+   "iris-pseudacorus",
+   "microstegium-vimineum",
+   "lythrum-salicaria",
+   "reynoutria-japonica"
+  ],
+  "native-plants": [
+   "iris-pseudacorus",
+   "microstegium-vimineum",
+   "reynoutria-japonica"
+  ],
+  "native-tree-seedlings": [
+   "vinca-minor",
+   "alliaria-petiolata",
+   "phellodendron-amurense"
+  ],
+  "native-wildflowers": [
+   "vinca-minor",
+   "alliaria-petiolata",
+   "alliaria-petiolata"
+  ],
+  "nybg-forest-team": [
+   "phellodendron-amurense",
+   "microstegium-vimineum",
+   "adelges-tsugae",
+   "reynoutria-japonica"
+  ]
+ },
+ "webs": [
+  {
+   "id": "iris-pseudacorus",
+   "title": "Yellow flag",
+   "generated_from": "content/web-rules.json",
+   "nodes": [
+    {
+     "id": "invader",
+     "name": "Yellow flag",
+     "short": "Yellow flag",
+     "group": "invader",
+     "x": 196,
+     "y": 300,
+     "quote": "Outcompetes native species by forming dense, impenetrable colonies.",
+     "source": "ENV 221 info page (pptx)",
+     "species": "iris-pseudacorus",
+     "step": "The invader"
+    },
+    {
+     "id": "water",
+     "name": "Water",
+     "short": "Water",
+     "group": "water",
+     "x": 72,
+     "y": 320,
+     "quote": "Because they grow in wet environments, the seeds are able to spread via water.",
+     "source": "ENV 221 info page (pptx)",
+     "step": "Helps it spread",
+     "shared": "water"
+    },
+    {
+     "id": "natives",
+     "name": "Native plants",
+     "short": "Native plants",
+     "group": "plant",
+     "x": 318,
+     "y": 320,
+     "quote": "Outcompetes native species by forming dense, impenetrable colonies.",
+     "source": "ENV 221 info page (pptx)",
+     "step": "Harmed",
+     "shared": "native-plants"
+    },
+    {
+     "id": "animals",
+     "name": "Animals",
+     "short": "Animals",
+     "group": "deer",
+     "x": 318,
+     "y": 225,
+     "quote": "This plant is toxic to animals.",
+     "source": "ENV 221 info page (pptx)",
+     "step": "Harmed"
+    }
+   ],
+   "edges": [
+    {
+     "from": "water",
+     "to": "invader",
+     "sign": "help",
+     "label": "carries it downstream",
+     "source": "ENV 221 info page (pptx)"
+    },
+    {
+     "from": "invader",
+     "to": "natives",
+     "sign": "harm",
+     "label": "displaces them",
+     "source": "ENV 221 info page (pptx)"
+    },
+    {
+     "from": "invader",
+     "to": "animals",
+     "sign": "harm",
+     "label": "poisons them",
+     "source": "ENV 221 info page (pptx)"
+    }
+   ]
+  },
+  {
+   "id": "vinca-minor",
+   "title": "Common periwinkle",
+   "generated_from": "content/web-rules.json",
+   "nodes": [
+    {
+     "id": "invader",
+     "name": "Common periwinkle",
+     "short": "Common periwinkle",
+     "group": "invader",
+     "x": 196,
+     "y": 300,
+     "quote": "Forms dense, evergreen groundcover mats in forest understories, choking out native spring wildflowers and tree seedlings.",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 2",
+     "species": "vinca-minor",
+     "step": "The invader"
+    },
+    {
+     "id": "roots",
+     "name": "Spreading roots",
+     "short": "Spreading roots",
+     "group": "seed",
+     "x": 72,
+     "y": 465,
+     "quote": "Its creeping stems root easily at nodes, making manual removal difficult once established in woods.",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 2",
+     "step": "Helps it spread"
+    },
+    {
+     "id": "trees",
+     "name": "Native tree seedlings",
+     "short": "Native tree seedlings",
+     "group": "tree",
+     "x": 318,
+     "y": 225,
+     "quote": "Forms dense, evergreen groundcover mats in forest understories, choking out native spring wildflowers and tree seedlings.",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 2",
+     "step": "Harmed",
+     "shared": "native-tree-seedlings"
+    },
+    {
+     "id": "wildflowers",
+     "name": "Native wildflowers",
+     "short": "Native wildflowers",
+     "group": "plant",
+     "x": 318,
+     "y": 320,
+     "quote": "Forms dense, evergreen groundcover mats in forest understories, choking out native spring wildflowers and tree seedlings.",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 2",
+     "step": "Harmed",
+     "shared": "native-wildflowers"
+    }
+   ],
+   "edges": [
+    {
+     "from": "roots",
+     "to": "invader",
+     "sign": "help",
+     "label": "spread it underground",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 2"
+    },
+    {
+     "from": "invader",
+     "to": "trees",
+     "sign": "harm",
+     "label": "crowds them out",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 2"
+    },
+    {
+     "from": "invader",
+     "to": "wildflowers",
+     "sign": "harm",
+     "label": "chokes them out",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 2"
+    }
+   ]
+  },
+  {
+   "id": "alliaria-petiolata",
+   "title": "Garlic mustard",
+   "generated_from": "garlic-mustard-cascade.html",
+   "nodes": [
+    {
+     "id": "gm",
+     "name": "Garlic mustard",
+     "short": "Garlic mustard",
+     "group": "invader",
+     "x": 188,
+     "y": 318,
+     "quote": "A small plant that changes the forest from below.",
+     "source": "garlic-mustard-cascade.html",
+     "step": "The invader",
+     "species": "alliaria-petiolata"
+    },
+    {
+     "id": "amf",
+     "name": "Root fungi",
+     "short": "Root fungi",
+     "group": "fungus",
+     "x": 290,
+     "y": 462,
+     "quote": "The underground partners that most forest plants depend on.",
+     "source": "garlic-mustard-cascade.html",
+     "step": "Harmed directly"
+    },
+    {
+     "id": "maple",
+     "name": "Sugar maple",
+     "short": "Sugar maple",
+     "group": "tree",
+     "x": 196,
+     "y": 214,
+     "quote": "Seedlings grow less when their fungal partners are missing.",
+     "source": "garlic-mustard-cascade.html",
+     "step": "Harmed through its fungi",
+     "shared": "native-tree-seedlings"
+    },
+    {
+     "id": "sol",
+     "name": "False Solomon’s seal",
+     "short": "Solomon’s seal",
+     "group": "plant",
+     "x": 322,
+     "y": 300,
+     "quote": "Saves less energy for next year when its fungi are disrupted.",
+     "source": "garlic-mustard-cascade.html",
+     "step": "Harmed through its fungi",
+     "shared": "native-wildflowers"
+    },
+    {
+     "id": "jw",
+     "name": "Jewelweed",
+     "short": "Jewelweed",
+     "group": "plant",
+     "x": 64,
+     "y": 296,
+     "quote": "Held back by it, above ground and below.",
+     "source": "garlic-mustard-cascade.html",
+     "step": "Held back",
+     "shared": "native-wildflowers"
+    },
+    {
+     "id": "cw",
+     "name": "Cabbage white",
+     "short": "Cabbage white",
+     "group": "insect",
+     "x": 92,
+     "y": 96,
+     "quote": "One invader feeding another.",
+     "source": "garlic-mustard-cascade.html",
+     "step": "Helped by it"
+    },
+    {
+     "id": "worms",
+     "name": "Non-native earthworms",
+     "short": "Earthworms",
+     "group": "worm",
+     "x": 160,
+     "y": 452,
+     "quote": "They eat the leaf litter that native plants and animals depend on.",
+     "source": "garlic-mustard-cascade.html",
+     "step": "Helps it spread"
+    },
+    {
+     "id": "sal",
+     "name": "Eastern red-backed salamander",
+     "short": "Salamander",
+     "group": "salamander",
+     "x": 74,
+     "y": 410,
+     "quote": "Here garlic mustard is a warning sign, not the cause.",
+     "source": "garlic-mustard-cascade.html",
+     "step": "Harmed by the worms, not the mustard"
+    },
+    {
+     "id": "deer",
+     "name": "White-tailed deer",
+     "short": "Deer (visiting)",
+     "group": "deer",
+     "x": 300,
+     "y": 150,
+     "quote": "Not a resident yet, but a strong ally of garlic mustard where deer are overabundant.",
+     "source": "garlic-mustard-cascade.html",
+     "step": "A helper at the gate"
+    }
+   ],
+   "edges": [
+    {
+     "from": "gm",
+     "to": "amf",
+     "sign": "harm",
+     "label": "stunts them with its chemicals",
+     "source": "garlic-mustard-cascade.html"
+    },
+    {
+     "from": "amf",
+     "to": "maple",
+     "sign": "mutual",
+     "label": "trade nutrients for food",
+     "source": "garlic-mustard-cascade.html"
+    },
+    {
+     "from": "amf",
+     "to": "sol",
+     "sign": "mutual",
+     "label": "feed its roots",
+     "source": "garlic-mustard-cascade.html"
+    },
+    {
+     "from": "gm",
+     "to": "jw",
+     "sign": "harm",
+     "label": "holds it back, above and below",
+     "source": "garlic-mustard-cascade.html"
+    },
+    {
+     "from": "gm",
+     "to": "cw",
+     "sign": "help",
+     "label": "feeds its caterpillars",
+     "source": "garlic-mustard-cascade.html"
+    },
+    {
+     "from": "worms",
+     "to": "gm",
+     "sign": "help",
+     "label": "clear the leaf litter",
+     "source": "garlic-mustard-cascade.html"
+    },
+    {
+     "from": "worms",
+     "to": "sal",
+     "sign": "harm",
+     "label": "eat the litter it hides and hunts in",
+     "source": "garlic-mustard-cascade.html"
+    },
+    {
+     "from": "deer",
+     "to": "gm",
+     "sign": "help",
+     "label": "eat its rivals, skip it",
+     "source": "garlic-mustard-cascade.html"
+    },
+    {
+     "from": "deer",
+     "to": "sol",
+     "sign": "harm",
+     "label": "browse it",
+     "source": "garlic-mustard-cascade.html"
+    }
+   ]
+  },
+  {
+   "id": "phellodendron-amurense",
+   "title": "Amur corktree",
+   "generated_from": "content/web-rules.json",
+   "nodes": [
+    {
+     "id": "invader",
+     "name": "Amur corktree",
+     "short": "Amur corktree",
+     "group": "invader",
+     "x": 196,
+     "y": 300,
+     "quote": "Amur corktree has the qualities of the perfect invasive: it is bird-dispersed, shade and drought-tolerant, and long lived.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "species": "phellodendron-amurense",
+     "step": "The invader"
+    },
+    {
+     "id": "birds",
+     "name": "Birds",
+     "short": "Birds",
+     "group": "bird",
+     "x": 72,
+     "y": 110,
+     "quote": "Amur corktree has the qualities of the perfect invasive: it is bird-dispersed, shade and drought-tolerant, and long lived.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Helps it spread"
+    },
+    {
+     "id": "seedbank",
+     "name": "Seeds in the soil",
+     "short": "Seeds in the soil",
+     "group": "seed",
+     "x": 72,
+     "y": 465,
+     "quote": "Amur corktree is abundant in the Forest soil seedbank and a continual threat to the future of the Forest.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Helps it spread"
+    },
+    {
+     "id": "trees",
+     "name": "Native tree seedlings",
+     "short": "Native tree seedlings",
+     "group": "tree",
+     "x": 318,
+     "y": 225,
+     "quote": "Since it is shade-tolerant, Amur corktree competes with the regeneration of native tree species throughout the Forest.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Harmed",
+     "shared": "native-tree-seedlings"
+    },
+    {
+     "id": "named-trees",
+     "name": "Tulip tree and sweetgum",
+     "short": "Tulip tree and sweetgum",
+     "group": "tree",
+     "x": 318,
+     "y": 325,
+     "quote": "Amur corktree thrives on good soils and competes with tulip tree and sweetgum on the best sites.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Harmed"
+    },
+    {
+     "id": "manager",
+     "name": "NYBG forest team",
+     "short": "NYBG forest team",
+     "group": "people",
+     "x": 196,
+     "y": 470,
+     "quote": "Seedlings and saplings can be removed by hand or with a weed-wrench.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "shared": "nybg-forest-team",
+     "step": "Holds it back"
+    }
+   ],
+   "edges": [
+    {
+     "from": "birds",
+     "to": "invader",
+     "sign": "help",
+     "label": "carry its seeds",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "seedbank",
+     "to": "invader",
+     "sign": "help",
+     "label": "keep it coming back",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "invader",
+     "to": "trees",
+     "sign": "harm",
+     "label": "crowds them out",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "invader",
+     "to": "named-trees",
+     "sign": "harm",
+     "label": "competes with them",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "manager",
+     "to": "invader",
+     "sign": "harm",
+     "label": "removes it",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    }
+   ]
+  },
+  {
+   "id": "microstegium-vimineum",
+   "title": "Japanese stilt grass",
+   "generated_from": "content/web-rules.json",
+   "nodes": [
+    {
+     "id": "invader",
+     "name": "Japanese stilt grass",
+     "short": "Japanese stilt grass",
+     "group": "invader",
+     "x": 196,
+     "y": 300,
+     "quote": "Stiltgrass is a mammal- and water-dispersed annual grass that thrives in a variety of habitats.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "species": "microstegium-vimineum",
+     "step": "The invader"
+    },
+    {
+     "id": "water",
+     "name": "Water",
+     "short": "Water",
+     "group": "water",
+     "x": 72,
+     "y": 320,
+     "quote": "Stiltgrass is a mammal- and water-dispersed annual grass that thrives in a variety of habitats.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Helps it spread",
+     "shared": "water"
+    },
+    {
+     "id": "mammals",
+     "name": "Mammals",
+     "short": "Mammals",
+     "group": "deer",
+     "x": 72,
+     "y": 225,
+     "quote": "Stiltgrass is a mammal- and water-dispersed annual grass that thrives in a variety of habitats.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Helps it spread"
+    },
+    {
+     "id": "visitors",
+     "name": "Visitors",
+     "short": "Visitors",
+     "group": "people",
+     "x": 72,
+     "y": 125,
+     "quote": "We believe it is brought in on the shoes or clothing of visitors.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Helps it spread",
+     "shared": "visitors"
+    },
+    {
+     "id": "natives",
+     "name": "Native plants",
+     "short": "Native plants",
+     "group": "plant",
+     "x": 318,
+     "y": 320,
+     "quote": "It spreads vegetatively or by seed and has formed dense monocultures in forests throughout the mid-Atlantic and southern New England.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Harmed",
+     "shared": "native-plants"
+    },
+    {
+     "id": "manager",
+     "name": "NYBG forest team",
+     "short": "NYBG forest team",
+     "group": "people",
+     "x": 196,
+     "y": 470,
+     "quote": "Stiltgrass is an early detection and rapid response species that Forest staff monitors for and removes immediately.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "shared": "nybg-forest-team",
+     "step": "Holds it back"
+    }
+   ],
+   "edges": [
+    {
+     "from": "water",
+     "to": "invader",
+     "sign": "help",
+     "label": "carries it downstream",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "mammals",
+     "to": "invader",
+     "sign": "help",
+     "label": "spread it",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "visitors",
+     "to": "invader",
+     "sign": "help",
+     "label": "bring it in",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "invader",
+     "to": "natives",
+     "sign": "harm",
+     "label": "displaces them",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "manager",
+     "to": "invader",
+     "sign": "harm",
+     "label": "removes it",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    }
+   ]
+  },
+  {
+   "id": "lythrum-salicaria",
+   "title": "Purple loosestrife",
+   "generated_from": "content/web-rules.json",
+   "nodes": [
+    {
+     "id": "invader",
+     "name": "Purple loosestrife",
+     "short": "Purple loosestrife",
+     "group": "invader",
+     "x": 196,
+     "y": 300,
+     "quote": "Outcompetes native wetland vegetation by forming dense, impenetrable stands that choke native flora.",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 1",
+     "species": "lythrum-salicaria",
+     "step": "The invader"
+    },
+    {
+     "id": "water",
+     "name": "Water",
+     "short": "Water",
+     "group": "water",
+     "x": 72,
+     "y": 320,
+     "quote": "A single mature plant produces over 2 million seeds annually, spreading rapidly through water systems and severely reducing marsh biodiversity.",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 1",
+     "step": "Helps it spread",
+     "shared": "water"
+    },
+    {
+     "id": "wetland",
+     "name": "Wetland plants",
+     "short": "Wetland plants",
+     "group": "plant",
+     "x": 318,
+     "y": 320,
+     "quote": "Outcompetes native wetland vegetation by forming dense, impenetrable stands that choke native flora.",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 1",
+     "step": "Harmed",
+     "shared": "wetland-plants"
+    },
+    {
+     "id": "biodiversity",
+     "name": "Marsh life",
+     "short": "Marsh life",
+     "group": "insect",
+     "x": 318,
+     "y": 110,
+     "quote": "A single mature plant produces over 2 million seeds annually, spreading rapidly through water systems and severely reducing marsh biodiversity.",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 1",
+     "step": "Harmed"
+    }
+   ],
+   "edges": [
+    {
+     "from": "water",
+     "to": "invader",
+     "sign": "help",
+     "label": "carries it downstream",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 1"
+    },
+    {
+     "from": "invader",
+     "to": "wetland",
+     "sign": "harm",
+     "label": "chokes them out",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 1"
+    },
+    {
+     "from": "invader",
+     "to": "biodiversity",
+     "sign": "harm",
+     "label": "reduces it",
+     "source": "Invasive Species Reference Guide (ENV 221), slide 1"
+    }
+   ]
+  },
+  {
+   "id": "adelges-tsugae",
+   "title": "Hemlock woolly adelgid",
+   "generated_from": "content/web-rules.json",
+   "nodes": [
+    {
+     "id": "invader",
+     "name": "Hemlock woolly adelgid",
+     "short": "Hemlock woolly adelgid",
+     "group": "invader",
+     "x": 196,
+     "y": 300,
+     "quote": "Hemlock wooly adelgid is a small aphidlike insect that is threatening the existence of hemlock in the eastern United States.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "species": "adelges-tsugae",
+     "step": "The invader"
+    },
+    {
+     "id": "wind",
+     "name": "Wind",
+     "short": "Wind",
+     "group": "wind",
+     "x": 72,
+     "y": 110,
+     "quote": "Hemlock woolly adelgid was introduced to the Forest on the winds of Hurricane Gloria in 1985 and has led to the severe decline of hemlocks in the Forest.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Helps it spread"
+    },
+    {
+     "id": "hemlocks",
+     "name": "Hemlocks",
+     "short": "Hemlocks",
+     "group": "tree",
+     "x": 318,
+     "y": 225,
+     "quote": "Hemlock wooly adelgid is a small aphidlike insect that is threatening the existence of hemlock in the eastern United States.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Harmed"
+    },
+    {
+     "id": "manager",
+     "name": "NYBG forest team",
+     "short": "NYBG forest team",
+     "group": "people",
+     "x": 196,
+     "y": 470,
+     "quote": "Hemlocks in the Living Collections are treated with horticultural oil.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "shared": "nybg-forest-team",
+     "step": "Holds it back"
+    },
+    {
+     "id": "x-fiorinia-externa",
+     "name": "Elongate hemlock scale",
+     "short": "Elongate hemlock scale",
+     "group": "invader",
+     "x": 196,
+     "y": 96,
+     "quote": "It feeds on stressed hemlocks and has thrived in the Forest since hemlock woolly adelgid arrived in 1985.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "species": "fiorinia-externa",
+     "step": "Named together in the Forest Plan"
+    }
+   ],
+   "edges": [
+    {
+     "from": "wind",
+     "to": "invader",
+     "sign": "help",
+     "label": "carries it",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "invader",
+     "to": "hemlocks",
+     "sign": "harm",
+     "label": "kills them",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "manager",
+     "to": "invader",
+     "sign": "harm",
+     "label": "removes it",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "x-fiorinia-externa",
+     "to": "invader",
+     "sign": "link",
+     "label": "named together",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    }
+   ]
+  },
+  {
+   "id": "reynoutria-japonica",
+   "title": "Japanese knotweed",
+   "generated_from": "content/web-rules.json",
+   "nodes": [
+    {
+     "id": "invader",
+     "name": "Japanese knotweed",
+     "short": "Japanese knotweed",
+     "group": "invader",
+     "x": 196,
+     "y": 300,
+     "quote": "Knotweed is a wind-or water-dispersed, sun-loving, perennial that grows from nearly impenetrable mats of rhizomes.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "species": "reynoutria-japonica",
+     "step": "The invader"
+    },
+    {
+     "id": "wind",
+     "name": "Wind",
+     "short": "Wind",
+     "group": "wind",
+     "x": 72,
+     "y": 110,
+     "quote": "Knotweed is a wind-or water-dispersed, sun-loving, perennial that grows from nearly impenetrable mats of rhizomes.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Helps it spread"
+    },
+    {
+     "id": "water",
+     "name": "Water",
+     "short": "Water",
+     "group": "water",
+     "x": 72,
+     "y": 320,
+     "quote": "Knotweed is a wind-or water-dispersed, sun-loving, perennial that grows from nearly impenetrable mats of rhizomes.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Helps it spread",
+     "shared": "water"
+    },
+    {
+     "id": "roots",
+     "name": "Spreading roots",
+     "short": "Spreading roots",
+     "group": "seed",
+     "x": 72,
+     "y": 465,
+     "quote": "Knotweed is a wind-or water-dispersed, sun-loving, perennial that grows from nearly impenetrable mats of rhizomes.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Helps it spread"
+    },
+    {
+     "id": "natives",
+     "name": "Native plants",
+     "short": "Native plants",
+     "group": "plant",
+     "x": 318,
+     "y": 320,
+     "quote": "Once established, it forms a monoculture that prevents the growth of native plants.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Harmed",
+     "shared": "native-plants"
+    },
+    {
+     "id": "edges",
+     "name": "Forest edges and gaps",
+     "short": "Forest edges and gaps",
+     "group": "tree",
+     "x": 318,
+     "y": 225,
+     "quote": "Knotweed has colonized large areas of the Bronx River floodplain and is invading the upland forest along edges and in gaps.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "step": "Harmed"
+    },
+    {
+     "id": "manager",
+     "name": "NYBG forest team",
+     "short": "NYBG forest team",
+     "group": "people",
+     "x": 196,
+     "y": 470,
+     "quote": "Small populations can be treated with a 33% Rodeo® mixture, applied with a foam paint brush to all leaves and stem surfaces.",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+     "shared": "nybg-forest-team",
+     "step": "Holds it back"
+    }
+   ],
+   "edges": [
+    {
+     "from": "wind",
+     "to": "invader",
+     "sign": "help",
+     "label": "carries it",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "water",
+     "to": "invader",
+     "sign": "help",
+     "label": "carries it downstream",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "roots",
+     "to": "invader",
+     "sign": "help",
+     "label": "spread it underground",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "invader",
+     "to": "natives",
+     "sign": "harm",
+     "label": "displaces them",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "invader",
+     "to": "edges",
+     "sign": "harm",
+     "label": "invades",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    },
+    {
+     "from": "manager",
+     "to": "invader",
+     "sign": "harm",
+     "label": "removes it",
+     "source": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    }
+   ]
+  }
+ ]
+}

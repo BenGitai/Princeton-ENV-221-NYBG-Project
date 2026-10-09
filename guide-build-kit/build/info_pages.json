@@ -1,0 +1,36 @@
+[
+  {
+    "source": "ENV 221 info page (pptx)",
+    "alternatives": [
+      {
+        "name": "Marsh marigold",
+        "photo": "iris-pseudacorus--marsh-marigold.png"
+      },
+      {
+        "name": "Yellow stargrass",
+        "photo": "iris-pseudacorus--yellow-stargrass.png"
+      },
+      {
+        "name": "Golden star",
+        "photo": "iris-pseudacorus--golden-star.png"
+      },
+      {
+        "name": "Northern blue flag",
+        "photo": "iris-pseudacorus--northern-blue-flag.png"
+      }
+    ],
+    "title": "Iris pseudacorus (Yellow flag, yellow iris)",
+    "scientific_name": "Iris pseudacorus",
+    "common_names": [
+      "Yellow flag",
+      "yellow iris"
+    ],
+    "origin_line": "INVASIVE: native to Europe, Western Asia, and Northeast Africa",
+    "native_range": "Europe, Western Asia, and Northeast Africa",
+    "photo_credit": "Photo: Myrabella / Wikimedia Commons, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=19482170",
+    "impact": "Outcompetes native species by forming dense, impenetrable colonies. Because they grow in wet environments, the seeds are able to spread via water. This plant is toxic to animals.",
+    "impact_source": "https://www.lhprism.org/iris-pseudacorus-yellow-iris/",
+    "photo": "iris-pseudacorus.png",
+    "id": "iris-pseudacorus"
+  }
+]

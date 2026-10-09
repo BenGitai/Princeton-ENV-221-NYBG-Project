@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Navigation (top bar and tab bar)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500&amp;family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.ic{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tn a:hover{background:rgba(244,246,238,.14)}
+</style>
+</helmet>
+<div style="width: 100%; font-family: 'Alegreya Sans', system-ui, sans-serif">
+  <sc-if value="{{isTop}}" hint-placeholder-val="{{ false }}">
+    <header class="tn" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 12px 24px; background: #23402B; color: #F4F6EE; box-sizing: border-box">
+      <a href="Main.dc.html" style="color: #F4F6EE; text-decoration: none; font-family: Alegreya, Georgia, serif; font-weight: 800; font-size: 22px; padding: 4px 6px; border-radius: 8px">Garden Escapes <span style="font-family: 'Alegreya Sans', system-ui, sans-serif; font-weight: 600; font-size: 14px; color: #A9D9A0; margin-left: 8px">NYBG invasive species guide</span></a>
+      <nav aria-label="Main" style="display: flex; gap: 4px; flex-wrap: wrap">
+        <sc-for list="{{items}}" as="it" hint-placeholder-count="5">
+          <a href="{{it.href}}" aria-current="{{it.current}}" style="padding: 8px 14px; border-radius: 999px; text-decoration: none; font-size: 15px; font-weight: {{it.weight}}; background: {{it.topBg}}; color: {{it.topFg}}">{{it.label}}</a>
+        </sc-for>
+      </nav>
+    </header>
+  </sc-if>
+  <sc-if value="{{isBottom}}" hint-placeholder-val="{{ true }}">
+    <nav aria-label="Main" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid #CCD5BE; background: #FBFCF7; padding: 6px 4px 10px">
+      <sc-for list="{{items}}" as="it" hint-placeholder-count="5">
+        <a href="{{it.href}}" aria-current="{{it.current}}" style="display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: 52px; justify-content: center; text-decoration: none; font-size: 13px; font-weight: {{it.weight}}; color: {{it.tabFg}}">
+          <svg class="ic" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="{{it.icon}}"></path></svg>{{it.short}}</a>
+      </sc-for>
+    </nav>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["bottom","top"],"default":"bottom"},"active":{"editor":"enum","options":["home","map","species","quest","hub","layers"],"default":"home"},"$preview":{"width":390,"height":72}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // One list drives both the phone tab bar and the wide-screen top bar.
+    const NAV = [
+      { id: 'home', label: 'Home', short: 'Home', href: 'Main.dc.html', icon: 'M3 11 12 4l9 7M5 10v10h14V10' },
+      { id: 'map', label: 'Map & stops', short: 'Map', href: 'Tour.dc.html', icon: 'M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14' },
+      { id: 'species', label: 'Species lookup', short: 'Species', href: 'Lookup.dc.html', icon: 'M4 5h11M4 10h7M4 15h5M16 19a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM19 18l2.5 2.5' },
+      { id: 'layers', label: 'Forest layers', short: 'Layers', href: 'Layers.dc.html', icon: 'M12 3 2 8l10 5 10-5-10-5zM2 13l10 5 10-5M2 18l10 5 10-5', topOnly: true },
+      { id: 'quest', label: 'Quest', short: 'Quest', href: 'Quest.dc.html', icon: 'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-4-4' },
+      { id: 'hub', label: 'At home', short: 'At home', href: 'HomeHub.dc.html', icon: 'M12 21V9M12 13c-4 0-6-2.5-6-6 4 0 6 2.5 6 6zM12 10c3.5 0 5.5-2 5.5-5.5-3.5 0-5.5 2-5.5 5.5z' }
+    ];
+    const mode = this.props.mode || 'bottom';
+    const active = this.props.active || 'home';
+    return {
+      isTop: mode === 'top',
+      isBottom: mode !== 'top',
+      items: NAV.filter((n) => mode === 'top' || !n.topOnly).map((n) => {
+        const on = n.id === active;
+        return Object.assign({}, n, {
+          current: on ? 'page' : 'false',
+          weight: on ? 800 : 600,
+          topBg: on ? '#F4F6EE' : 'transparent',
+          topFg: on ? '#1F2D1C' : '#E3EAD6',
+          tabFg: on ? '#1F2D1C' : '#4A5942'
+        });
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>
