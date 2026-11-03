@@ -41,7 +41,7 @@
       })));
       if (stop) {
         match = h('a', { class: 'match-btn', href: '#/quest', hidden: true,
-          onClick: function () { NYBG.state.setFound(stop.n, true); } }, 'Looks like a match: add it to my Quest');
+          onClick: function () { NYBG.state.setFound(stop.n, true); } }, 'It’s a match! Add to my Quest');
         body.push(match);
       }
       body.push(C.sourceLine(list.source));
