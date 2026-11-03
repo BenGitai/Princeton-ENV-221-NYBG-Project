@@ -37,12 +37,11 @@
     species: function (id) { return byId[id] || null; },
     allSpecies: function () { return D.species; },
     count: function () { return D.species.length; },
-    /* Only filters that match something (the public edition has no NYBG list categories). */
+    /* Only filters that match something. */
     filters: function () {
       return FILTERS.filter(function (f) { return f.id === 'all' || D.species.some(f.test); })
         .map(function (f) { return { id: f.id, label: f.label }; });
     },
-    edition: function () { return D.edition || 'public'; },
     search: function (q, filter) {
       var needle = (q || '').trim().toLowerCase();
       var f = FILTERS.filter(function (x) { return x.id === filter; })[0] || FILTERS[0];
@@ -102,10 +101,15 @@
     alternatives: function (e) {
       var ip = e.info_page || {}, cs = e.cascade || {};
       if (ip.alternatives && ip.alternatives.length) {
-        return { source: S.source(e, 'info_page'), items: ip.alternatives.map(function (a) { return { name: a.name, sci: '', img: a.photo ? S.photo(a.photo) : '' }; }) };
+        return { source: S.source(e, 'info_page'), items: ip.alternatives.map(function (a) {
+          return { name: a.name, sci: '', img: a.photo ? S.photo(a.photo) : '', credit: a.credit || '' };
+        }) };
       }
       if (cs.plant_instead && cs.plant_instead.length) {
-        return { source: S.source(e, 'cascade'), items: cs.plant_instead.map(function (a) { return { name: a.name, sci: a.sci || '', img: '' }; }) };
+        return { source: S.source(e, 'cascade'), items: cs.plant_instead.map(function (a) {
+          var p = S.plantPhoto(a.name);
+          return { name: a.name, sci: a.sci || '', img: p ? p.src : '', credit: p ? p.credit : '' };
+        }) };
       }
       var pn = (e.public || {}).natives;
       if (pn && pn.text) return { source: pn.source, items: [], text: pn.text };
@@ -123,7 +127,7 @@
     provenance: function (e) {
       var p = e.provenance || {};
       var rows = [];
-      if (e.category != null) rows.push({ label: p.category || 'NYBG invasive species list 2026', fallback: '', on: true }); // staff edition only
+      if (e.category != null) rows.push({ label: p.category || 'NYBG invasive species list 2026', fallback: '', on: true });
       rows = rows.concat([
         { label: p.forest_plan, fallback: 'Forest Plan 2016, Appendix 3', on: !!e.forest_plan },
         { label: p.info_page, fallback: 'ENV 221 info page', on: !!e.info_page },
@@ -177,25 +181,34 @@
       }
       return null;
     },
-    swapCredit: function (name) { var pub = (D.swap_photos || {})[name]; return pub ? pub.credit : ''; },
-    /* Photo for a native-swap name: a public-source photo listed for that name, else the info page
-       whose species or alternative carries that name. */
-    swapPhoto: function (name) {
-      var pub = (D.swap_photos || {})[name];
-      if (pub && S.photo(pub.file)) return S.photo(pub.file);
-      var n = name.toLowerCase(), words = n.split(/\s+/);
+    /* An openly licensed photo of a plant by name (content/public-sources.json, plant_photos). */
+    plantPhoto: function (name) {
+      var n = (name || '').toLowerCase(), pp = D.plant_photos || D.swap_photos || {};
+      for (var k in pp) {
+        if (k.toLowerCase() === n && S.photo(pp[k].file)) return { src: S.photo(pp[k].file), credit: pp[k].credit || '' };
+      }
+      return null;
+    },
+    /* Photo for a native-swap name: a plant photo listed for that name, else the photo of the species
+       whose common name carries that name. Every photo in the site is openly licensed and credited. */
+    swapImage: function (name) {
+      var p = S.plantPhoto(name);
+      if (p) return p;
+      var words = name.toLowerCase().split(/\s+/);
       for (var i = 0; i < D.species.length; i++) {
-        var e = D.species[i], ip = e.info_page;
-        if (!ip) continue;
-        if (ip.photo && (e.common_names || []).some(function (c) {
+        var e = D.species[i];
+        if ((e.common_names || []).some(function (c) {
           var cw = c.toLowerCase().split(/\s+/);
           return words.every(function (w) { return cw.indexOf(w) >= 0; });
-        })) return S.photo(ip.photo);
-        var alt = (ip.alternatives || []).filter(function (a) { return a.name.toLowerCase() === n; })[0];
-        if (alt && alt.photo) return S.photo(alt.photo);
+        })) {
+          var hp = S.heroPhoto(e);
+          if (hp) return hp;
+        }
       }
-      return '';
+      return null;
     },
+    swapPhoto: function (name) { var p = S.swapImage(name); return p ? p.src : ''; },
+    swapCredit: function (name) { var p = S.swapImage(name); return p ? p.credit : ''; },
 
     /* ---------- forest-layer webs ---------- */
     webs: function () { return D.webs; },

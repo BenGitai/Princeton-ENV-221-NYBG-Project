@@ -15,6 +15,11 @@
           h('span', { class: 'native-name', 'data-read': '' }, a.name),
           a.sci ? h('span', { class: 'native-sci', 'data-read': '' }, a.sci) : null);
       })) : null,
-      C.sourceLine(alts.source, 'on-natives'));
+      C.sourceLine(alts.source, 'on-natives'),
+      (function () {
+        var credits = alts.items.filter(function (a) { return a.img && a.credit; })
+          .map(function (a) { return h('li', null, a.name + ': ' + a.credit); });
+        return credits.length ? h('ul', { class: 'source on-natives credits' }, credits) : null;
+      })());
   };
 })();

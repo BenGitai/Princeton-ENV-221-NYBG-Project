@@ -46,18 +46,22 @@ python guide-build-kit/tools/build_data.py
 It should end with `site data: 40 species, 8 webs, … -> nybg-guide/data/guide-data.js`, then
 refresh the browser.
 
-### Public and staff editions
+### What is published
 
-NYBG's 2026 invasive species list (`Appendix5_…_ForStaffHub_2026.xlsx`) is an internal staff document,
-so the published site (`nybg-guide/`, the **public edition**) leaves it out. It has no Category 1/2,
-no list sources, and no list-only species. It holds the 40 species that have published page content
-(Forest Plan Appendix 3, ENV 221 pages, cascade pages, public-domain documents). The list is only used
-during the build to match scientific names and synonyms.
+Everything in `nybg-guide/` and `guide-build-kit/` is public. It holds facts and published text only:
 
-For NYBG's own use, `python guide-build-kit/tools/build_data.py --staff` also builds the **staff edition**
-in `staff-edition/`: all 420 listed species with their categories and sources. Git ignores
-`staff-edition/` and `guide-build-kit/build/*_staff.json`, so it can't be committed by accident. Don't
-copy it into `nybg-guide/` or put it online.
+- **NYBG's 2026 invasive species list:** the facts in its species tab (scientific names, synonyms,
+  common names, Category 1/2, and the public lists that name each species). The workbook itself is not
+  in the repository, and neither is its staff guidance (the Read Me tab on handling specimens in the
+  living collections), the draft invasive species policy, or the methods guide. None of them are quoted
+  anywhere.
+- **Published text:** the Forest Plan (published by NYBG), the ENV 221 student pages, NYBG staff quoted
+  from published web pages, and public-domain U.S. government publications.
+- **Photos:** only openly licensed ones. `build_species.py` drops any info-page photo whose credit
+  doesn't name an open license (or says "credit to confirm"). Native-plant photos are replaced by the
+  Wikimedia Commons photos in `content/public-sources.json` (`plant_photos`), each credited on the page.
+  The original deck and Reference Guide images stay on your computer (`guide-build-kit/photos/` is not
+  committed, except `photos/public/`).
 
 - **New info-page slide** (photo, native range, "Why it matters", "Plant these instead"): add the slide
   to the ENV 221 info-page deck (any `*Info Page*.pptx` in the `NY Botanical Gardens` folder, or a
@@ -145,20 +149,13 @@ on the page. Only the information is marked: names, status, headings, paragraphs
 quotes, natives and swaps. Source lines, photo credits, subtitles, placeholders, links and controls are
 not marked, so they are never read. Speech stops when the page changes.
 
-## Viewing the site
-
-The repository is private and the site is not published publicly. Anyone with access to the repo can view
-it two ways:
-
-- **On your computer (always works):** pull the repo (or GitHub > Code > Download ZIP) and double-click
-  `nybg-guide/index.html`. It runs offline, with no server or install.
-- **Private web preview:** a host that deploys `nybg-guide/` from this private repo behind a login.
-  Don't use GitHub Pages: a Pages site is public even when the repo is private (the old Pages workflow was
-  removed for this reason).
+## Publishing
 
 The repository root (the `NY Botanical Gardens` folder) has a `.gitignore` that only lets `nybg-guide/`,
-`guide-build-kit/` and `claude-code-handoff/` into git, so the raw source files stay local. The site works
-from any static host because it uses no server and no `fetch()` of local files.
+`guide-build-kit/` and `claude-code-handoff/` into git, so the raw source files stay local.
+`.github/workflows/pages.yml` publishes `nybg-guide/` to GitHub Pages on every push to `main`
+(one-time setting: Settings > Pages > Source: GitHub Actions). The site works from any static host
+because it uses no server and no `fetch()` of local files.
 
 ## Open items for Eve (generated)
 
@@ -191,11 +188,11 @@ Sections with no source are left off the page; a missing photo, checklist or nat
 Copied word for word from U.S. government publications in guide-build-kit/sources/public/ (listed in content/public-sources.json); photos from Wikimedia Commons with their licenses.
 
 - yellow flag (`iris-pseudacorus`): What it is, spot-it checklist, "Right now" notes
-- common periwinkle (`vinca-minor`): What it is, spot-it checklist, "Right now" notes
+- common periwinkle (`vinca-minor`): What it is, spot-it checklist, "Right now" notes, photo
 - garlic mustard (`alliaria-petiolata`): Why it matters, photo
 - Amur corktree (`phellodendron-amurense`): Why it matters, spot-it checklist, "Right now" notes, photo
 - Japanese stilt grass (`microstegium-vimineum`): Why it matters, spot-it checklist, "Right now" notes, Plant these instead, photo
-- purple loosestrife (`lythrum-salicaria`): What it is, spot-it checklist, "Right now" notes
+- purple loosestrife (`lythrum-salicaria`): What it is, spot-it checklist, "Right now" notes, photo
 - hemlock woolly adelgid (`adelges-tsugae`): Why it matters, spot-it checklist, "Right now" notes, photo
 - Japanese knotweed (`reynoutria-japonica`): Why it matters, spot-it checklist, "Right now" notes, photo
 - porcelain-berry (`ampelopsis-glandulosa`): spot-it checklist, "Right now" notes
@@ -211,4 +208,14 @@ Copied word for word from U.S. government publications in guide-build-kit/source
 - Home, "Look for it this month": shows a placeholder in any month that no tour species has a seasonal note for
 - Quest, "Visitor impact this week": `[###] sightings` (needs a live count from the NYBG iNaturalist project)
 - Take it home: the nurseries in `nybg-guide/data/nurseries.js` are placeholders ("Nursery data source to decide with NYBG")
+
+### Species with list data only (381 of 421)
+
+Their pages show the "[Only the NYBG list covers this species so far…]" placeholder, no photo and no checklist.
+
+<details><summary>Show all</summary>
+
+*Acer palmatum*, *Acer tataricum*, *Achyranthes bidentata*, *Actinidia arguta*, *Actinidia polygama*, *Aegopodium podagraria*, *Ageratina adenophora*, *Akebia quinata*, *Albizia julibrissin*, *Aldrovanda vesiculosa*, *Allium vineale*, *Alnus glutinosa*, *Alternanthera philoxeroides*, *Amaranthus palmeri*, *Amaranthus tuberculatus*, *Angelica sylvestris*, *Araujia sericifera*, *Arctium minus*, *Arthraxon hispidus*, *Arum italicum*, *Arundo donax*, *Avena sterilis*, *Azolla pinnata*, *Bassia scoparia*, *Berberis bealei*, *Berberis julianae*, *Berberis thunbergii*, *Berberis vulgaris*, *Betula pendula*, *Brachypodium distachyon*, *Brachypodium sylvaticum*, *Bromus tectorum*, *Broussonetia papyrifera*, *Buddleja davidii*, *Buddleja lindleyana*, *Butomus umbellatus*, *Cabomba caroliniana*, *Callicarpa dichotoma*, *Callitriche stagnalis*, *Campanula rapunculoides*, *Capsella bursa-pastoris*, *Caragana arborescens*, *Cardamine impatiens*, *Carduus nutans*, *Carex divulsa*, *Carex flacca*, *Carex kobomugi*, *Carex sylvatica*, *Carthamus lanatus*, *Carthamus oxyacanthus*, *Carum carvi*, *Caulerpa taxifolia*, *Causonis japonica*, *Cenchrus caudatus*, *Cenchrus clandestinus*, *Cenchrus pedicellatus*, *Cenchrus purpurascens*, *Cenchrus setosus*, *Centaurea gabrieljanae*, *Centaurea jacea*, *Centaurea nigra*, *Centaurea nigrescens*, *Centaurea stoebe*, *Cephalotaxus harringtonia*, *Cerastium fontanum*, *Cercidiphyllum japonicum*, *Cestrum diurnum*, *Chrysopogon aciculatus*, *Cichorium intybus*, *Cirsium arvense*, *Cirsium vulgare*, *Clematis terniflora*, *Clematis vitalba*, *Clerodendrum trichotomum*, *Commelina benghalensis*, *Conium maculatum*, *Convolvulus arvensis*, *Cornus kousa*, *Cortaderia selloana*, *Corydalis solida*, *Crassula helmsii*, *Crataegus monogyna*, *Crotalaria spectabilis*, *Crupina vulgaris*, *Cryptotaenia japonica*, *Cyperus difformis*, *Cyperus mutisii*, *Cyperus nipponicus*, *Cytisus scoparius*, *Datura stramonium*, *Daucus carota*, *Deutzia scabra*, *Digitalis grandiflora*, *Digitaria abyssinica*, *Digitaria scalarum*, *Digitaria velutina*, *Dinebra chinensis*, *Dioscorea polystachya*, *Dipsacus fullonum*, *Dipsacus laciniatus*, *Dittrichia graveolens*, *Drymaria arenarioides*, *Echinochloa crus-galli*, *Ehrharta erecta*, *Elaeagnus angustifolia*, *Elaeagnus umbellata*, *Eleutherococcus sieboldianus*, *Elodea densa*, *Elsholtzia ciliata*, *Elymus repens*, *Epilobium hirsutum*, *Epipactis helleborine*, *Eragrostis curvula*, *Eranthis hyemalis*, *Erigeron bonariensis*, *Eucommia ulmoides*, *Euonymus alatus*, *Euonymus fortunei*, *Euonymus hamiltonianus*, *Euphorbia cyparissias*, *Euphorbia esula*, *Euphorbia virgata*, *Fallopia baldschuanica*, *Fatoua villosa*, *Festuca filiformis*, *Filipendula ulmaria*, *Froelichia gracilis*, *Galega officinalis*, *Galinsoga parviflora*, *Galium aparine*, *Galium odoratum*, *Glaucium flavum*, *Glechoma hederacea*, *Glossostigma cleistanthum*, *Glyceria maxima*, *Gomphocarpus physocarpus*, *Gymnocoronis spilanthoides*, *Helleborus x hybridus*, *Hemarthria altissima*, *Hemerocallis fulva*, *Heracleum mantegazzianum*, *Hesperis matronalis*, *Hibiscus tiliaceus*, *Hippophae rhamnoides*, *Hottonia palustris*, *Houttuynia cordata*, *Hyacinthoides hispanica*, *Hydrangea paniculata*, *Hydrilla verticillata*, *Hydrocharis morsus-ranae*, *Hygrophila polysperma*, *Hypericum perforatum*, *Hypochaeris glabra*, *Ilex crenata*, *Impatiens glandulifera*, *Imperata brasiliensis*, *Imperata cylindrica*, *Ipomoea aquatica*, *Iris domestica*, *Ischaemum rugosum*, *Jacobaea vulgaris*, *Kalopanax septemlobus*, *Koelreuteria paniculata*, *Kolkwitzia amabilis*, *Lactuca muralis*, *Lactuca serriola*, *Lagarosiphon major*, *Lagerstroemia indica*, *Lamium amplexicaule*, *Lamium galeobdolon*, *Lamium purpureum*, *Lepidium latifolium*, *Lespedeza cuneata*, *Leucanthemum vulgare*, *Ligustrum japonicum*, *Ligustrum obtusifolium*, *Ligustrum ovalifolium*, *Ligustrum sinense*, *Ligustrum vulgare*, *Limnophila sessiliflora*, *Limonium binervosum*, *Linaria vulgaris*, *Liriope muscari*, *Liriope spicata*, *Lonicera morrowii*, *Lonicera tatarica*, *Lonicera x bella*, *Lonicera xylosteum*, *Ludwigia adscendens*, *Ludwigia hexapetala*, *Ludwigia peploides*, *Lupinus polyphyllus*, *Lycium ferocissimum*, *Lysimachia arvensis*, *Lysimachia nummularia*, *Lysimachia vulgaris*, *Lythrum alatum*, *Lythrum portula*, *Lythrum virgatum*, *Macleaya cordata*, *Malus hupehensis*, *Malus spp.*, *Malus toringo*, *Malva neglecta*, *Marsilea quadrifolia*, *Medicago lupulina*, *Melaleuca quinquenervia*, *Melasma melampyroides*, *Melastoma malabathricum*, *Mikania cordata*, *Mikania micrantha*, *Mimosa diplotricha*, *Mimosa invisa*, *Mimosa pigra*, *Miscanthus sacchariflorus*, *Miscanthus sinensis*, *Morus alba*, *Mosla dianthera*, *Murdannia keisak*, *Myosotis scorpioides*, *Myriophyllum aquaticum*, *Myriophyllum heterophyllum*, *Myriophyllum spicatum*, *Najas minor*, *Nandina domestica*, *Nassella trichotoma*, *Nasturtium microphyllum*, *Nasturtium officinale*, *Neltuma pallida*, *Neltuma velutina*, *Nelumbo lutea*, *Nelumbo nucifera*, *Nitellopsis obtusa*, *Nothoscordum gracile*, *Nymphoides hydrophylla*, *Nymphoides peltata*, *Ocimum x africanum*, *Oenanthe javanica*, *Onopordum acanthium*, *Oplismenus hirtellus*, *Oplismenus undulatifolius*, *Ornithogalum nutans*, *Ornithogalum umbellatum*, *Oryza longistaminata*, *Oryza punctata*, *Oryza rufipogon*, *Osmanthus heterophyllus*, *Ottelia alismoides*, *Pachysandra terminalis*, *Paspalum scrobiculatum*, *Pastinaca sativa*, *Perilla frutescens*, *Persicaria acuminata*, *Persicaria cespitosa*, *Petasites japonicus*, *Phalaris arundinacea*, *Phragmites australis*, *Phyllanthus tenellus*, *Phyllanthus urinaria*, *Phyllostachys aurea*, *Phyllostachys aureosulcata*, *Phyllostachys dulcis*, *Phyllostachys nuda*, *Pilosella caespitosa*, *Pinellia ternata*, *Pinus thunbergii*, *Pistia stratiotes*, *Plantago lanceolata*, *Plantago major*, *Poa compressa*, *Pohlia filum*, *Polypogon viridis*, *Pontederia crassipes*, *Populus alba*, *Portulaca oleracea*, *Potamogeton crispus*, *Potentilla indica*, *Pourthiaea villosa*, *Primula japonica*, *Prunus avium*, *Prunus padus*, *Prunus sargentii*, *Prunus x subhirtella*, *Prunus x yedoensis*, *Pueraria montana*, *Pyrus calleryana*, *Ranunculus lingua*, *Ranunculus repens*, *Reynoutria sachalinensis*, *Reynoutria x bohemica*, *Rhamnus cathartica*, *Rhamnus davurica*, *Rhodotypos scandens*, *Robinia pseudoacacia*, *Rorippa amphibia*, *Rosa multiflora*, *Rosa rugosa*, *Rosa wichuriana*, *Rottboellia cochinchinensis*, *Rubus bifrons*, *Rubus caesius*, *Rubus discolor*, *Rubus fruticosus*, *Rubus moluccanus*, *Rubus nemoralis*, *Rubus parvifolius*, *Rumex acetosella*, *Rumex crispus*, *Rumex hypogaeus*, *Rumex obtusifolius*, *Rumex spinosus*, *Saccharum spontaneum*, *Sagina japonica*, *Sagittaria sagittifolia*, *Salix atrocinerea*, *Salix cinerea*, *Salsola vermiculata*, *Salvia glutinosa*, *Salvia nemorosa*, *Salvinia auriculata*, *Salvinia biloba*, *Salvinia minima*, *Salvinia molesta*, *Schoenoplectiella mucronata*, *Scilla siberica*, *Sesbania punicea*, *Setaria pumila*, *Silene flos-cuculi*, *Silphium perfoliatum*, *Solanum dulcamara*, *Solanum nigrum*, *Solanum tampicense*, *Solanum torvum*, *Solanum viarum*, *Sonchus oleraceus*, *Sorbaria sorbifolia*, *Sorbus aucuparia*, *Sorghum bicolor*, *Sorghum halepense*, *Sparganium erectum*, *Spermacoce alata*, *Spiraea japonica*, *Stellaria media*, *Stratiotes aloides*, *Strombocarpa reptans*, *Strombocarpa strombulifera*, *Styphnolobium japonicum*, *Styrax japonicus*, *Symplocos paniculata*, *Syringa reticulata*, *Tamarix chinensis*, *Taraxacum officinale*, *Tetradium daniellii*, *Torilis japonica*, *Trapa natans*, *Trapeliopsis granulosa*, *Triadica sebifera*, *Tridax procumbens*, *Trifolium repens*, *Tripidium ravennae*, *Tussilago farfara*, *Typha laxmannii*, *Typha minima*, *Ulmus pumila*, *Urochloa panicoides*, *Urtica dioica*, *Valeriana officinalis*, *Verbascum thapsus*, *Viburnum opulus*, *Viburnum plicatum*, *Viburnum sieboldii*, *Vicia cracca*, *Vinca major*, *Vincetoxicum hirundinaria*, *Vincetoxicum nigrum*, *Vincetoxicum rossicum*, *Vitex rotundifolia*, *Wisteria floribunda*, *Wisteria sinensis*, *Zanthoxylum simulans*, *Zelkova serrata*
+
+</details>
 <!-- GAPS:END -->

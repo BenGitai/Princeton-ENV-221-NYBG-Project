@@ -2,7 +2,7 @@
 
 Writes nybg-guide/data/guide-data.js (a classic script, so the site works from file://):
     NYBG.data = {species, webs, shared_nodes, tour, links, landing, assets}
-copies photos and the two SVGs into nybg-guide/assets/, and refreshes the generated
+copies the photos the site uses (all openly licensed) and the two SVGs into nybg-guide/assets/, and refreshes the generated
 "open items" list in nybg-guide/README.md (between the GAPS markers).
 
 Usage: python bundle_site_data.py <guide-build-kit dir> <nybg-guide dir>
@@ -18,19 +18,36 @@ def load(path):
         return json.load(f)
 
 
-def copy_assets(kit, site):
+def used_photos(species, plant_photos):
+    """The photos the site shows. build_species.py has already dropped every photo without an open license."""
+    used = set()
+    for e in species:
+        ip = e.get("info_page") or {}
+        if ip.get("photo"):
+            used.add(ip["photo"])
+        used.update(a["photo"] for a in ip.get("alternatives") or [] if a.get("photo"))
+        if (e.get("public") or {}).get("photo"):
+            used.add(e["public"]["photo"]["file"])
+    used.update(p["file"] for p in plant_photos.values())
+    return used
+
+
+def copy_assets(kit, site, used):
     out = os.path.join(site, "assets")
     photos_out = os.path.join(out, "photos")
+    # Start clean so a photo that is no longer used (or no longer licensed) does not stay in the site.
+    shutil.rmtree(photos_out, ignore_errors=True)
     os.makedirs(photos_out, exist_ok=True)
     photos = {}
     src_root = os.path.join(kit, "photos")
-    for folder, _, names in os.walk(src_root):
-        for name in sorted(names):
-            if name.lower().endswith((".jpg", ".jpeg", ".png", ".webp", ".gif")):
-                rel = os.path.relpath(os.path.join(folder, name), src_root).replace(os.sep, "/")
-                os.makedirs(os.path.dirname(os.path.join(photos_out, rel)), exist_ok=True)
-                shutil.copy2(os.path.join(folder, name), os.path.join(photos_out, rel))
-                photos[rel] = "assets/photos/" + rel
+    for rel in sorted(used):
+        src = os.path.join(src_root, rel)
+        if not os.path.exists(src):
+            print("  missing photo:", rel)
+            continue
+        os.makedirs(os.path.dirname(os.path.join(photos_out, rel)), exist_ok=True)
+        shutil.copy2(src, os.path.join(photos_out, rel))
+        photos[rel] = "assets/photos/" + rel
     # The site draws the dashed tour route from tour.json at runtime, so the copy of the
     # map leaves out the route baked into garden-map.svg (the source file is untouched).
     with open(os.path.join(kit, "garden-map.svg"), encoding="utf-8") as f:
@@ -63,7 +80,7 @@ def gaps(data):
         pub = e.get("public") or {}
         missing = []
         if not (ip.get("photo") or pub.get("photo")):
-            missing.append("photo (add a CC-licensed photo with credit to its info-page slide, guide-build-kit/content/info-pages/*.pptx)")
+            missing.append("photo (add an openly licensed Wikimedia Commons photo under \"photo\" in guide-build-kit/content/public-sources.json)")
         if not (cs.get("id_checklist") or ck.get("items") or (pub.get("checklist") or {}).get("items")):
             missing.append("spot-it checklist (guide-build-kit/content/id-checklists.json)")
         if not (cs.get("seasons") or ck.get("seasons") or pub.get("seasons")):
@@ -100,8 +117,8 @@ def gaps(data):
     if hub:
         for sw in hub.get("swaps", []):
             for side in ("invasive", "native"):
-                if not (find_photo(data, sw[side]) or sw[side] in data.get("swap_photos", {})):
-                    lines.append(f"- Take it home, native swap photo: {sw[side]} (no photo in the info-page data)")
+                if not (find_photo(data, sw[side]) or sw[side].lower() in {k.lower() for k in data.get("plant_photos", {})}):
+                    lines.append(f"- Take it home, native swap photo: {sw[side]} (add it under plant_photos in content/public-sources.json)")
     thin = sorted((e for e in data["species"] if not e.get("completeness") and not e.get("public") and not e.get("voices")),
                   key=lambda e: e["scientific_name"])
     if not thin:
@@ -122,8 +139,9 @@ def find_photo(data, name):
         ip = e.get("info_page")
         if not ip:
             continue
-        if ip.get("photo") and any(all(w in c.lower().split() for w in words) for c in e.get("common_names", [])):
-            return ip["photo"]
+        photo = ip.get("photo") or ((e.get("public") or {}).get("photo") or {}).get("file")
+        if photo and any(all(w in c.lower().split() for w in words) for c in e.get("common_names", [])):
+            return photo
         for a in ip.get("alternatives") or []:
             if a["name"].lower() == n and a.get("photo"):
                 return a["photo"]
@@ -144,17 +162,13 @@ def update_readme(site, text):
         f.write(head + GAPS_START + "\n" + text + "\n" + GAPS_END + tail)
 
 
-def main(kit, site, *flags):
-    staff = "--staff" in flags
-    if staff:
-        # Internal edition: a copy of the site next to nybg-guide/, with the whole NYBG list. Git ignores it.
-        public_site, site = site, os.path.join(os.path.dirname(os.path.abspath(site)), "staff-edition")
-        shutil.copytree(public_site, site, dirs_exist_ok=True,
-                        ignore=shutil.ignore_patterns("guide-data.js", "README.md", "assets"))
-    species = load(os.path.join(kit, "build", "species_staff.json" if staff else "species.json"))
+def main(kit, site):
+    species = load(os.path.join(kit, "build", "species.json"))
     webs = load(os.path.join(kit, "build", "webs.json"))
+    pub_path = os.path.join(kit, "build", "public_sources.json")
+    pub = load(pub_path) if os.path.exists(pub_path) else {}
+    plant_photos = pub.get("plant_photos") or pub.get("swap_photos") or {}
     data = {
-        "edition": species.get("edition", "public"),
         "generated_from": species.get("generated_from"),
         "species": species["species"],
         "webs": webs["webs"],
@@ -163,9 +177,8 @@ def main(kit, site, *flags):
         "links": load(os.path.join(kit, "content", "links.json")),
         "landing": (load(os.path.join(kit, "content", "landing.json"))
                     if os.path.exists(os.path.join(kit, "content", "landing.json")) else {}),
-        "swap_photos": (load(os.path.join(kit, "build", "public_sources.json")).get("swap_photos", {})
-                        if os.path.exists(os.path.join(kit, "build", "public_sources.json")) else {}),
-        "assets": copy_assets(kit, site),
+        "plant_photos": plant_photos,
+        "assets": copy_assets(kit, site, used_photos(species["species"], plant_photos)),
     }
     os.makedirs(os.path.join(site, "data"), exist_ok=True)
     with open(os.path.join(site, "data", "guide-data.js"), "w", encoding="utf-8") as f:
@@ -174,9 +187,8 @@ def main(kit, site, *flags):
         f.write("window.NYBG = window.NYBG || {};\nNYBG.data = ")
         json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
         f.write(";\n")
-    if not staff:
-        update_readme(site, gaps(data))
-    print(f"{'STAFF EDITION (internal) ' if staff else ''}site data: {len(data['species'])} species, {len(data['webs'])} webs, {len(data['assets']['photos'])} photos"
+    update_readme(site, gaps(data))
+    print(f"site data: {len(data['species'])} species, {len(data['webs'])} webs, {len(data['assets']['photos'])} photos"
           " -> nybg-guide/data/guide-data.js")
 
 

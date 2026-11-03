@@ -1,8 +1,7 @@
 """Run the whole content pipeline: source files -> build/*.json -> site data.
 
 Run from the 'NY Botanical Gardens' folder:
-    python guide-build-kit/tools/build_data.py            public edition -> nybg-guide/ (what GitHub publishes)
-    python guide-build-kit/tools/build_data.py --staff    also the internal edition -> staff-edition/ (git ignores it)
+    python guide-build-kit/tools/build_data.py
 
 Steps (each step is its own script, so any one can be rerun or replaced):
   1. extract_forest_plan.py  Forest Plan PDF, Appendix 3  -> build/forest_plan.json
@@ -31,7 +30,6 @@ T = os.path.join(KIT, "tools")
 B = os.path.join(KIT, "build")
 os.makedirs(B, exist_ok=True)
 py = sys.executable
-STAFF = "--staff" in sys.argv   # also build the internal edition with the whole NYBG list (never published)
 
 def run(*cmd):
     print("$", " ".join(os.path.relpath(c, ROOT) if os.path.exists(c) else c for c in cmd))
@@ -60,9 +58,4 @@ XLSX = os.path.join(ROOT, "NYBG Resources", "Appendix5_Categories1&2_ForStaffHub
 run(py, os.path.join(T, "build_species.py"), KIT, XLSX, os.path.join(B, "species.json"))
 run(py, os.path.join(T, "make_webs.py"), KIT)
 run(py, os.path.join(T, "bundle_site_data.py"), KIT, os.path.join(ROOT, "nybg-guide"))
-if STAFF:
-    # Internal edition with the whole NYBG list: build/species_staff.json + staff-edition/ (both ignored by git)
-    run(py, os.path.join(T, "build_species.py"), KIT, XLSX, os.path.join(B, "species_staff.json"), "--staff")
-    run(py, os.path.join(T, "bundle_site_data.py"), KIT, os.path.join(ROOT, "nybg-guide"), "--staff")
-    print("Staff edition (internal, do not publish): staff-edition/index.html")
 print("Done. Outputs in guide-build-kit/build/ and nybg-guide/data/")

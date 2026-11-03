@@ -50,7 +50,11 @@
      "look": "Flowers, fruits and seeds: flower blue, lavender or white, about 1 in. across, five petals blunt at tip, arranged in spiral; springtime; no fruits or seeds typically.",
      "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 104 (U.S. government work, public domain)"
     }
-   ]
+   ],
+   "photo": {
+    "file": "public/vinca-minor.jpg",
+    "credit": "Photo: George Chernilevsky, Public domain, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Vinca_minor_2011_G2.jpg)"
+   }
   },
   "alliaria-petiolata": {
    "impact": {
@@ -171,7 +175,11 @@
      "look": "The flowering season extends from June to September; flowers require pollination by insects, for which they supply an abundant source of nectar.",
      "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 51-52 (U.S. government work, public domain)"
     }
-   ]
+   ],
+   "photo": {
+    "file": "public/lythrum-salicaria.jpg",
+    "credit": "Photo: Ivar Leidus, CC BY-SA 4.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Lythrum_salicaria_flowers_-_Kulna.jpg)"
+   }
   },
   "adelges-tsugae": {
    "impact": {
@@ -403,7 +411,7 @@
    ]
   }
  },
- "swap_photos": {
+ "plant_photos": {
   "Japanese Barberry": {
    "file": "public/berberis-thunbergii.jpg",
    "credit": "Photo: Dominicus Johannes Bergsma, CC BY-SA 3.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Bes_Berberis_thunbergii.JPG)"
@@ -411,6 +419,50 @@
   "Winterberry": {
    "file": "public/ilex-verticillata.jpg",
    "credit": "Photo: Iurieph, CC0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Ilex_verticillata.jpg)"
+  },
+  "Marsh marigold": {
+   "file": "public/caltha-palustris.jpg",
+   "credit": "Photo: GT1976, CC BY-SA 4.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:2018-04-09_(120)_Caltha_palustris_(marsh-marigold)_at_Bichlh%C3%A4usl_at_Haltgraben_in_Frankenfels.jpg)"
+  },
+  "Yellow stargrass": {
+   "file": "public/hypoxis-hirsuta.jpg",
+   "credit": "Photo: Patrick Alexander from Las Cruces, NM, CC0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Hypoxis_hirsuta_-_Flickr_-_aspidoscelis_(1).jpg)"
+  },
+  "Golden star": {
+   "file": "public/chrysogonum-virginianum.jpg",
+   "credit": "Photo: Krzysztof Ziarnek, Kenraiz, CC BY-SA 4.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Chrysogonum_virginianum_kz01.jpg)"
+  },
+  "Northern blue flag": {
+   "file": "public/iris-versicolor.jpg",
+   "credit": "Photo: Cbaile19, CC0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Iris_versicolor,_Bird_Park,_2026-05-18.jpg)"
+  },
+  "Wild blue phlox": {
+   "file": "public/phlox-divaricata.jpg",
+   "credit": "Photo: Cbaile19, CC0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Phlox_divaricata,_Trillium_Trail,_2025-04-27.jpg)"
+  },
+  "Partridgeberry": {
+   "file": "public/mitchella-repens.jpg",
+   "credit": "Photo: WXchaser, CC0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:A_single_Partridgeberry_(Mitchella_repens).jpg)"
+  },
+  "Allegheny pachysandra": {
+   "file": "public/pachysandra-procumbens.jpg",
+   "credit": "Photo: Salicyna, CC BY-SA 4.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Pachysandra_procumbens_2017-04-17_7308.jpg)"
+  },
+  "Blue vervain": {
+   "file": "public/verbena-hastata.jpg",
+   "credit": "Photo: Cbaile19, CC0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Verbena_hastata,_Robin_Hill_Park,_2024-08-01.jpg)"
+  },
+  "Dense blazing star": {
+   "file": "public/liatris-spicata.jpg",
+   "credit": "Photo: Drew Avery, CC BY 2.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Dense_Blazing_Star_-_liatris_spicata_(4347689892).jpg)"
+  },
+  "Obedient plant": {
+   "file": "public/physostegia-virginiana.jpg",
+   "credit": "Photo: Agnieszka Kwiecień, Nova, CC BY-SA 4.0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Physostegia_virginiana_Od%C4%99tka_wirginijska_2023-07-30_01.jpg)"
+  },
+  "Swamp milkweed": {
+   "file": "public/asclepias-incarnata.jpg",
+   "credit": "Photo: Jasper Shide, CC0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Asclepias_incarnata_-_Swamp_Milkweed_(7-15-24)_01.jpg)"
   }
  }
 }

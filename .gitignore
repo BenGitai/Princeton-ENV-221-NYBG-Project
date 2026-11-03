@@ -16,6 +16,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# internal staff edition (whole NYBG list): never commit
-/guide-build-kit/build/*_staff.json
-/staff-edition/
+# Photos extracted from the decks and the Reference Guide stay local: their licenses are unknown, so the
+# site never uses them (build_species.py keeps only openly licensed photos; those are in photos/public/).
+/guide-build-kit/photos/*
+!/guide-build-kit/photos/public/

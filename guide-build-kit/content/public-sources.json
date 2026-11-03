@@ -1,5 +1,5 @@
 {
-  "_about": "Gap-filling from public sources. Only U.S. government works (public domain) are used for text; photos come from Wikimedia Commons with their own licenses and credits. Text is never typed here: each field names a source, its PDF pages, and a short 'from' and 'to' phrase, and tools/extract_public_sources.py copies the span between them word for word. Season 'months' are the one editorial choice: they map the source's own timing words (e.g. 'springtime', 'June to September') to calendar months for the 'Right now' note. The source files live in guide-build-kit/sources/public/.",
+  "_about": "Gap-filling from public sources. Only U.S. government works (public domain) are used for text; photos come from Wikimedia Commons with their own licenses and credits. Text is never typed here: each field names a source, its PDF pages, and a short 'from' and 'to' phrase, and tools/extract_public_sources.py copies the span between them word for word. Season 'months' are the one editorial choice: they map the source's own timing words (e.g. 'springtime', 'June to September') to calendar months for the 'Right now' note. The source files live in guide-build-kit/sources/public/. Photos: only openly licensed photos are published. 'photo' on a species gives it a Commons hero photo (used when its info-page photo has no confirmed open license); 'plant_photos' gives Commons photos by plant name, used for native alternatives and the Take-it-home swaps.",
   "sources": {
     "plant-invaders": {
       "type": "pdf",
@@ -160,7 +160,11 @@
             5
           ]
         }
-      ]
+      ],
+      "photo": {
+        "commons": "File:Vinca minor 2011 G2.jpg",
+        "file": "vinca-minor.jpg"
+      }
     },
     "alliaria-petiolata": {
       "impact": {
@@ -379,7 +383,11 @@
             9
           ]
         }
-      ]
+      ],
+      "photo": {
+        "commons": "File:Lythrum salicaria flowers - Kulna.jpg",
+        "file": "lythrum-salicaria.jpg"
+      }
     },
     "adelges-tsugae": {
       "impact": {
@@ -771,7 +779,7 @@
       ]
     }
   },
-  "swap_photos": {
+  "plant_photos": {
     "Japanese Barberry": {
       "commons": "File:Bes Berberis thunbergii.JPG",
       "file": "berberis-thunbergii.jpg"
@@ -779,6 +787,50 @@
     "Winterberry": {
       "commons": "File:Ilex verticillata.jpg",
       "file": "ilex-verticillata.jpg"
+    },
+    "Marsh marigold": {
+      "commons": "File:2018-04-09 (120) Caltha palustris (marsh-marigold) at Bichlhäusl at Haltgraben in Frankenfels.jpg",
+      "file": "caltha-palustris.jpg"
+    },
+    "Yellow stargrass": {
+      "commons": "File:Hypoxis hirsuta - Flickr - aspidoscelis (1).jpg",
+      "file": "hypoxis-hirsuta.jpg"
+    },
+    "Golden star": {
+      "commons": "File:Chrysogonum virginianum kz01.jpg",
+      "file": "chrysogonum-virginianum.jpg"
+    },
+    "Northern blue flag": {
+      "commons": "File:Iris versicolor, Bird Park, 2026-05-18.jpg",
+      "file": "iris-versicolor.jpg"
+    },
+    "Wild blue phlox": {
+      "commons": "File:Phlox divaricata, Trillium Trail, 2025-04-27.jpg",
+      "file": "phlox-divaricata.jpg"
+    },
+    "Partridgeberry": {
+      "commons": "File:A single Partridgeberry (Mitchella repens).jpg",
+      "file": "mitchella-repens.jpg"
+    },
+    "Allegheny pachysandra": {
+      "commons": "File:Pachysandra procumbens 2017-04-17 7308.jpg",
+      "file": "pachysandra-procumbens.jpg"
+    },
+    "Blue vervain": {
+      "commons": "File:Verbena hastata, Robin Hill Park, 2024-08-01.jpg",
+      "file": "verbena-hastata.jpg"
+    },
+    "Dense blazing star": {
+      "commons": "File:Dense Blazing Star - liatris spicata (4347689892).jpg",
+      "file": "liatris-spicata.jpg"
+    },
+    "Obedient plant": {
+      "commons": "File:Physostegia virginiana Odętka wirginijska 2023-07-30 01.jpg",
+      "file": "physostegia-virginiana.jpg"
+    },
+    "Swamp milkweed": {
+      "commons": "File:Asclepias incarnata - Swamp Milkweed (7-15-24) 01.jpg",
+      "file": "asclepias-incarnata.jpg"
     }
   }
 }

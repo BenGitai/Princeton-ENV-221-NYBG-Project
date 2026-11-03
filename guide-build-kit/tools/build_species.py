@@ -10,14 +10,16 @@ Inputs (paths relative to the build kit):
   Voices      content/nybg-voices.json                                         -> NYBG staff on how the Garden manages it
   Tour        content/tour.json                                                -> which species are on the map
 
-Editions:
-  public (default)  only species with page content from published sources (Forest Plan, ENV 221 pages,
-                    cascade pages, public-domain documents). The NYBG list is used only to match names;
-                    its internal assessment (which species are listed, Category 1/2, list sources) is left out.
-  --staff           every species on the NYBG list with its category and list sources. Internal: written to
-                    a *_staff.json file that git ignores; never publish it.
+What is published from the NYBG list: the facts in its species tab (names, synonyms, common names,
+Category 1/2 and the public lists that name each species). The workbook itself and its staff guidance
+(Read Me tab) are not copied anywhere.
 
-Usage: python build_species.py <kit_dir> <xlsx_path> <out.json> [--staff]
+Photos: only openly licensed photos reach the site. An info-page photo is kept only when its credit names
+an open license (CC0, public domain, CC BY, CC BY-SA) and is not marked "[credit to confirm]"; native-
+alternative photos are replaced by the Wikimedia Commons photos listed in content/public-sources.json
+(plant_photos), or dropped.
+
+Usage: python build_species.py <kit_dir> <xlsx_path> <out.json>
 """
 import glob, html, json, os, re, sys
 import openpyxl
@@ -52,6 +54,12 @@ def load_list(xlsx):
         e["provenance"] = {"names": "NYBG invasive species list 2026", "category": "NYBG invasive species list 2026"}
     return out
 
+OPEN_LICENSE = re.compile(r"\b(CC0|CC BY(?:-SA)?|public domain)\b", re.I)
+
+def openly_licensed(credit):
+    """True when a printed photo credit names an open license and is not flagged as unconfirmed."""
+    return bool(credit and OPEN_LICENSE.search(credit) and "credit to confirm" not in credit.lower())
+
 def match(species, name):
     """Find the list entry for a scientific name used in another source."""
     b = slug(binomial(name))
@@ -72,7 +80,6 @@ def match(species, name):
     return None
 
 def main(kit, xlsx, out, *flags):
-    staff = "--staff" in flags
     sp = load_list(xlsx)
     # Forest Plan Appendix 3
     for fp in json.load(open(os.path.join(kit, "build/forest_plan.json"))):
@@ -151,6 +158,22 @@ def main(kit, xlsx, out, *flags):
                                         "list_sources": [], "kind": rec.get("kind", "plant"), "provenance": {}})
             e["voices"] = [dict(v, source=vsrc[v["source"]]["cite"], url=vsrc[v["source"]]["url"]) for v in rec["voices"]]
             e["provenance"]["voices"] = list(dict.fromkeys(v["source"] for v in e["voices"]))
+    # Photo licensing: keep only openly licensed photos (see the module docstring)
+    pub_path = os.path.join(kit, "build/public_sources.json")
+    plant_photos = {}
+    if os.path.exists(pub_path):
+        pp = json.load(open(pub_path, encoding="utf-8"))
+        plant_photos = {k.lower(): v for k, v in (pp.get("plant_photos") or pp.get("swap_photos") or {}).items()}
+    for e in sp.values():
+        ip = e.get("info_page")
+        if not ip:
+            continue
+        if ip.get("photo") and not openly_licensed(ip.get("photo_credit")):
+            ip["photo"], ip["photo_credit"] = None, None
+        for a in ip.get("alternatives") or []:
+            lic = plant_photos.get(a["name"].lower())
+            a.pop("image_source", None)
+            a["photo"], a["credit"] = (lic["file"], lic["credit"]) if lic else (None, None)
     # Tour membership
     tour = json.load(open(os.path.join(kit, "content/tour.json")))
     for st in tour["stops"]:
@@ -160,22 +183,11 @@ def main(kit, xlsx, out, *flags):
     for e in sp.values():
         e["completeness"] = sum(k in e for k in ("forest_plan", "info_page", "cascade"))
     data = sorted(sp.values(), key=lambda e: (e.get("tour_stop") or 99, -e["completeness"], e["scientific_name"]))
-    sources = ["Thain Family Forest Plan 2016, Appendix 3", "ENV 221 info pages", "garlic-mustard-cascade.html",
+    sources = ["NYBG invasive species list 2026 (species facts)", "Thain Family Forest Plan 2016, Appendix 3",
+               "ENV 221 info pages", "garlic-mustard-cascade.html",
                "public-domain U.S. government publications", "NYBG staff quoted on published pages"]
-    if staff:
-        sources.insert(0, "NYBG invasive species list 2026 (internal)")
-    else:
-        # Public edition: keep species that have published page content, drop the internal list's assessment.
-        data = [e for e in data if e["completeness"] or e.get("tour_stop") or e.get("public") or e.get("voices")]
-        for e in data:
-            e.pop("category", None)
-            e.pop("list_sources", None)
-            e["provenance"].pop("names", None)
-            e["provenance"].pop("category", None)
-    json.dump({"edition": "staff" if staff else "public", "generated_from": sources, "species": data},
-              open(out, "w"), indent=1, ensure_ascii=False)
-    print(len(data), "species (" + ("staff edition, internal" if staff else "public edition") + ");",
-          sum(1 for e in data if e["completeness"]), "with page content;",
+    json.dump({"generated_from": sources, "species": data}, open(out, "w"), indent=1, ensure_ascii=False)
+    print(len(data), "species;", sum(1 for e in data if e["completeness"]), "with page content;",
           sum(1 for e in data if "tour_stop" in e), "on the tour")
 
 if __name__ == "__main__":

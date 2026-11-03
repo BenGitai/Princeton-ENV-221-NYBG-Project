@@ -141,7 +141,7 @@ def main(kit, *args):
             print("  photo not downloaded yet (run fetch_public_photos.py):", spec["file"]); return None
         return {"file": "public/" + spec["file"], "credit": c["credit"]}
 
-    out = {"species": {}, "swap_photos": {}}
+    out = {"species": {}, "plant_photos": {}}
     for sid, entry in cfg["species"].items():
         rec = {}
         if "add" in entry:
@@ -164,13 +164,14 @@ def main(kit, *args):
             p = photo(entry["photo"])
             if p: rec["photo"] = p
         out["species"][sid] = rec
-    for name, spec in cfg.get("swap_photos", {}).items():
+    # Photos of plants by name: native alternatives and the Take-it-home swaps
+    for name, spec in cfg.get("plant_photos", {}).items():
         p = photo(spec)
-        if p: out["swap_photos"][name] = p
+        if p: out["plant_photos"][name] = p
     dst = os.path.join(kit, "build", "public_sources.json")
     json.dump(out, open(dst, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
     n = sum(len(v) for v in out["species"].values())
-    print(f"public sources: {n} fields for {len(out['species'])} species, {len(out['swap_photos'])} swap photos")
+    print(f"public sources: {n} fields for {len(out['species'])} species, {len(out['plant_photos'])} plant photos")
 
 if __name__ == "__main__":
     main(*sys.argv[1:])
