@@ -1,0 +1,21 @@
+# Transcription of passages from: USDA Forest Service, Eastern Region State Private and Tribal Forestry,
+# Pest Alert: Beech Leaf Disease, R9-PR-001-21, revised May 2024. Authors: Danielle K. Martin and
+# Cameron McIntire, USDA Forest Service. U.S. government work, public domain.
+# The PDF could not be downloaded into the build environment, so the passages below were copied from it
+# word for word (line-break hyphens rejoined). "[...]" marks text left out. Lines starting with # are
+# not part of the source. If the PDF is added here, switch "bld-pest-alert" in content/public-sources.json
+# to type "pdf" and the same from/to phrases should still match.
+
+Beech Leaf Disease
+
+Beech leaf disease (BLD) is a novel disease affecting American beech (Fagus grandifolia) in North America. Symptoms of BLD have also been observed on European (F. sylvatica), Oriental (F. orientalis), and Chinese (F. engleriana) beech species, which are occasionally planted as ornamentals. [...] BLD symptoms have been shown to be caused by a newly recognized subspecies of the anguinid nematode Litylenchus crenatae mccannii. [...]
+
+Symptoms
+
+Early symptoms of BLD include discolored stripes or bands between lateral veins of leaves that are visible immediately upon bud break in the spring (figure 1). Affected leaves may be unevenly distributed in the lower canopy. Banding is most apparent when viewed from below, looking upward into the canopy. Leaves with severe symptoms are heavily banded, shrunken, and crinkled with a thickened, leathery texture (figure 2) that often leads to chlorotic banding later in the season (figure 3). Aborted bud development and premature leaf drop result in a thinning of canopy cover over time. Tree mortality within 2 to 7 years has been observed in all age classes but appears to be more common for smaller trees (less than 5 inches diameter at breast height).
+
+[...]
+
+Management
+
+No treatments are currently available for trees affected by BLD; however, several methods are being studied. Common mitigation strategies are likely to be effective at reducing the incidence of BLD and decreasing the likelihood it is moved to new areas. These strategies include destroying infected plant material after removal and avoiding transport of plant material (including branches, twigs, soil, leaves, and whole seedlings) from affected areas. Chemical treatments are currently being evaluated, please contact a local certified arborist to inquire about application recommendations.

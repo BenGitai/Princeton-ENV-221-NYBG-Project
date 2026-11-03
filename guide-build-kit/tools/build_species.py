@@ -121,6 +121,14 @@ def main(kit, xlsx, out, *flags):
     pub_path = os.path.join(kit, "build/public_sources.json")
     if os.path.exists(pub_path):
         for sid, rec in json.load(open(pub_path, encoding="utf-8"))["species"].items():
+            rec = dict(rec)
+            add = rec.pop("add", None)
+            if add and sid not in sp:
+                # Not on the NYBG list or in the Forest Plan (e.g. beech leaf disease, found after 2016):
+                # public-sources.json names it, and its page comes from public sources only.
+                sp[sid] = {"id": sid, "scientific_name": add["scientific_name"], "names": [add["scientific_name"]],
+                           "synonyms": [], "common_names": add.get("common_names", []), "category": None,
+                           "list_sources": [], "kind": add.get("kind", "plant"), "provenance": {}}
             if sid in sp and rec:
                 sp[sid]["public"] = rec
                 cites = []

@@ -43,14 +43,14 @@ Change a source or a `guide-build-kit/content/` file, then rerun the pipeline fr
 python guide-build-kit/tools/build_data.py
 ```
 
-It should end with `site data: 38 species, 8 webs, … -> nybg-guide/data/guide-data.js`, then
+It should end with `site data: 39 species, 8 webs, … -> nybg-guide/data/guide-data.js`, then
 refresh the browser.
 
 ### Public and staff editions
 
 NYBG's 2026 invasive species list (`Appendix5_…_ForStaffHub_2026.xlsx`) is an internal staff document,
 so the published site (`nybg-guide/`, the **public edition**) leaves it out. It has no Category 1/2,
-no list sources, and no list-only species. It holds the 38 species that have published page content
+no list sources, and no list-only species. It holds the 39 species that have published page content
 (Forest Plan Appendix 3, ENV 221 pages, cascade pages, public-domain documents). The list is only used
 during the build to match scientific names and synonyms.
 
@@ -83,7 +83,13 @@ copy it into `nybg-guide/` or put it online.
   - Swearingen et al. 2010, *Plant Invaders of Mid-Atlantic Natural Areas*, 4th ed. (National Park
     Service & U.S. Fish and Wildlife Service)
   - USDA Forest Service 2005, *Pest Alert: Hemlock Woolly Adelgid* (NA-PR-09-05)
+  - Martin & McIntire, USDA Forest Service 2024, *Pest Alert: Beech Leaf Disease* (R9-PR-001-21, revised
+    May 2024). Its file is a `.txt` transcription of the passages used, because the PDF could not be
+    downloaded where the entry was built; dropping the PDF in and setting the source `type` to `pdf` replaces it.
   - Stone 2009, *Iris pseudacorus*, Fire Effects Information System (USDA Forest Service)
+- **Species no project source covers** (for example beech leaf disease, found after the 2016 Forest Plan):
+  give its entry in `public-sources.json` an `add` block (`scientific_name`, `common_names`, `kind`) and it
+  gets a page built from public sources only.
 - **Nurseries** ("Take it home" ZIP search): still placeholders in `nybg-guide/data/nurseries.js`.
 - **iNaturalist links**: `guide-build-kit/content/links.json` (one place id, one species URL template,
   one project link).
@@ -176,6 +182,7 @@ Copied word for word from U.S. government publications in guide-build-kit/source
 - purple loosestrife (`lythrum-salicaria`): What it is, spot-it checklist, "Right now" notes
 - hemlock woolly adelgid (`adelges-tsugae`): Why it matters, spot-it checklist, "Right now" notes, photo
 - Japanese knotweed (`reynoutria-japonica`): Why it matters, spot-it checklist, "Right now" notes, photo
+- beech leaf disease (`litylenchus-crenatae`): What it is, Why it matters, spot-it checklist, "Right now" notes
 
 ### Placeholders elsewhere on the site
 
