@@ -115,6 +115,23 @@
       source: function (sp) { return S.source(sp, 'forest_plan'); }
     },
     {
+      /* NYBG staff in their own words (content/nybg-voices.json): one block per passage, each with its own linked source. */
+      id: 'voices', slot: 'main', title: 'From NYBG staff',
+      when: function (sp) { return !!(sp.voices && sp.voices.length); },
+      render: function (sp) {
+        return sp.voices.map(function (v) {
+          return h('div', { class: 'voice' },
+            v.title ? h('h4', { class: 'voice-title', 'data-read': '' }, v.title) : null,
+            paras(v.text || []),
+            v.quote ? h('figure', { class: 'voice-quote' },
+              h('blockquote', { 'data-read': '' }, '\u201C' + v.quote + '\u201D'),
+              v.speaker ? h('figcaption', { 'data-read': '' }, v.speaker) : null) : null,
+            !v.quote && v.speaker ? h('p', { class: 'voice-by' }, v.speaker) : null,
+            h('span', { class: 'source' }, 'Source: ', h('a', { href: v.url, target: '_blank', rel: 'noopener' }, v.source)));
+        });
+      }
+    },
+    {
       id: 'about', slot: 'main', title: 'About this species', readTitle: false,
       when: function (sp) { return !S.hasPageText(sp); },
       render: function () {

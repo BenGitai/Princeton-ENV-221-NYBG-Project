@@ -236,6 +236,11 @@
 .sp-col { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
 .sp-text { display: flex; flex-direction: column; gap: 8px; }
 .sp-text p { font-size: 18px; line-height: 1.55; }
+.voice { display: flex; flex-direction: column; gap: 8px; padding: 14px 16px; border-radius: var(--r-lg); background: var(--white); border: 1px solid var(--rule); }
+.voice-title { margin: 0; font-family: var(--font-display); font-size: 19px; font-weight: 700; }
+.voice-quote { display: flex; flex-direction: column; gap: 4px; padding-left: 12px; border-left: 4px solid var(--moss); }
+.voice-quote blockquote { font-family: var(--font-display); font-size: 21px; line-height: 1.35; }
+.voice-quote figcaption, .voice-by { font-size: 15px; color: var(--ink-soft); font-weight: 600; }
 .sp-end { height: 20px; }
 .layers-card { display: flex; align-items: center; gap: 14px; padding: 14px; border-radius: var(--r-2xl); background: var(--forest); color: var(--on-forest); text-decoration: none; }
 .layers-card:hover { color: var(--on-forest); background: #2A4C33; }
