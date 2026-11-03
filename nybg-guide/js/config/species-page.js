@@ -31,7 +31,8 @@
         return h('div', { class: 'ph-photo' },
           NYBG.icon('photo', 30),
           h('span', { class: 'ph-photo-title' }, '[No photo in our sources yet]'),
-          h('span', { class: 'ph-photo-sub' }, 'Add a CC-licensed photo with credit to this species’ info-page slide (guide-build-kit/content/info-pages/*.pptx) and rerun build_data.py'));
+          // To add one: a CC-licensed photo with credit on the info-page slide (content/info-pages/*.pptx), then rerun build_data.py.
+          null);
       }
     },
     {
@@ -154,7 +155,8 @@
         if (!onTour(sp) || sp.kind !== 'plant') return null; // natives only make sense for plants
         return h('section', { class: 'natives', 'aria-label': 'Plant these instead' },
           h('h3', { class: 'h3', 'data-read': '' }, 'Plant these instead'),
-          C.placeholder('No native alternatives in our sources yet. Add them to this species’ info-page slide (guide-build-kit/content/info-pages/*.pptx) and rerun build_data.py.'));
+          // To add them: the info-page slide (content/info-pages/*.pptx), then rerun build_data.py.
+          C.placeholder('No native alternatives in our sources yet.'));
       }
     },
     {
