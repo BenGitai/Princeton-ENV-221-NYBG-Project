@@ -57,7 +57,7 @@
             h('div', { class: 'q-impact' },
               h('span', { class: 'eyebrow' }, 'Visitor impact this week'),
               h('span', { class: 'q-impact-n' }, '[###] sightings'),
-              h('span', { class: 'q-impact-s' }, 'logged by Garden visitors. [Live count from the NYBG iNaturalist project: not connected yet]'))))));
+              h('span', { class: 'q-impact-s' }, 'by Garden visitors [Live count not connected yet]'))))));
       refresh();
       root.nybgTitle = function () { return 'Garden Escape Quest'; };
       return root;
