@@ -98,7 +98,7 @@
     },
     {
       id: 'threat', slot: 'main', title: 'Threat to the Thain Forest',
-      when: function (sp) { return !!fp(sp).threat; },
+      when: function (sp) { return !!fp(sp).threat && !cs(sp).nybg; }, // "At the Garden" already quotes it
       render: function (sp) { return paras([fp(sp).threat]); },
       source: function (sp) { return S.source(sp, 'forest_plan'); }
     },
