@@ -121,7 +121,7 @@
       return {
         url: t.replace('{scientific_name}', encodeURIComponent(e.scientific_name)),
         placeId: ((D.links || {}).inaturalist || {}).place_id,
-        staticText: cs.inat_count ? cs.inat_count + ' records inside the Garden (as of ' + cs.inat_as_of + ')' : 'Sightings inside the Garden'
+        staticText: cs.inat_count ? cs.inat_count + ' sightings in the Garden' : 'Sightings in the Garden'
       };
     },
     provenance: function (e) {
