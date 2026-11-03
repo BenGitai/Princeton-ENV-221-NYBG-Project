@@ -23,7 +23,11 @@
     /* Quest: found[stopNumber] = true */
     found: function () { return read('quest', {}); },
     isFound: function (n) { return !!read('quest', {})[n]; },
-    setFound: function (n, on) { var q = read('quest', {}); if (on) q[n] = true; else delete q[n]; write('quest', q); },
+    setFound: function (n, on) {
+      var q = read('quest', {}); if (on) q[n] = true; else delete q[n]; write('quest', q);
+      /* Every view that shows found stops (map pins, home hunt, quest) listens for this. */
+      try { window.dispatchEvent(new CustomEvent('nybg:found', { detail: { n: n, on: !!on } })); } catch (e) { /* old browsers */ }
+    },
 
     /* Spot-it checklist ticks: ticks[speciesId][itemIndex] = true */
     ticks: function (id) { return read('ticks', {})[id] || {}; },

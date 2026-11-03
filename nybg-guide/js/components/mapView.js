@@ -1,6 +1,9 @@
 /* mapView: the illustrated garden map with the dashed route and numbered pins, all placed from
    content/tour.json. Pinch-zoom and pan on phones (wheel / buttons on desktop); pins keep a constant
-   size at any zoom. Also a "List view" of the same stops, and a static figure for thumbnails. */
+   size at any zoom. Also a "List view" of the same stops, and a static figure for thumbnails.
+   Scavenger hunt: species pins that the visitor marked found (NYBG.state) turn green with a tick,
+   and repaint when the 'nybg:found' event fires. opts.zoom === false makes a map with no zoom or
+   pan (used on Home, so the page still scrolls). */
 (function () {
   'use strict';
   var NYBG = window.NYBG, h = NYBG.h, s = NYBG.s, S = NYBG.store;
@@ -25,7 +28,8 @@
         var p = S.mapPos(st);
         var b = h('button', { type: 'button', class: 'pin' + (st.species ? '' : ' is-place'),
           style: { left: p.left.toFixed(2) + '%', top: p.top.toFixed(2) + '%' },
-          'aria-label': 'Stop ' + st.n + ': ' + S.stopName(st) }, String(st.n));
+          'aria-label': 'Stop ' + st.n + ': ' + S.stopName(st) }, String(st.n),
+          st.species ? h('span', { class: 'pin-tick', 'aria-hidden': 'true' }, NYBG.icon('check', 12)) : null);
         b.addEventListener('click', function () { opts.onPick(st.n, b); });
         pins[st.n] = b;
         return b;
@@ -34,13 +38,14 @@
     var zin = h('button', { type: 'button', 'aria-label': 'Zoom in' }, NYBG.icon('plus', 20));
     var zout = h('button', { type: 'button', 'aria-label': 'Zoom out' }, NYBG.icon('minus', 20));
     var zreset = h('button', { type: 'button', 'aria-label': 'Reset zoom' }, NYBG.icon('reset', 20));
-    var area = h('div', { class: 'maparea' }, box, h('div', { class: 'zoomctl' }, zin, zout, zreset));
+    var zoomable = opts.zoom !== false;
+    var area = h('div', { class: 'maparea' + (zoomable ? '' : ' is-static') }, box, zoomable ? h('div', { class: 'zoomctl' }, zin, zout, zreset) : null);
 
     var list = h('div', { class: 'maplist', hidden: true },
       h('ul', { 'aria-label': 'Tour stops' }, stops.map(function (st) {
         var g = S.stage(st.stage);
         return h('li', null, h('a', { class: 'maplist-row', href: '#/stop/' + st.n, 'data-stage': st.stage },
-          h('span', { class: 'maplist-num' + (st.species ? '' : ' is-place'), 'aria-hidden': 'true' }, String(st.n)),
+          h('span', { class: 'maplist-num' + (st.species ? '' : ' is-place'), 'aria-hidden': 'true', 'data-n': st.n }, String(st.n)),
           h('span', { class: 'maplist-text' },
             h('span', { class: 'maplist-name' }, h('span', { class: 'sr-only' }, 'Stop ' + st.n + ': '), S.stopName(st)),
             h('span', { class: 'maplist-place' }, st.place + ' · ' + g.name)),
@@ -75,6 +80,7 @@
     zreset.addEventListener('click', function () { z = { s: 1, fx: 0, fy: 0 }; apply(); });
 
     var pts = {}, gesture = null, dragged = false;
+    if (zoomable) {
     function local(e) { var r = box.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top, w: r.width, h: r.height }; }
     function two() { var k = Object.keys(pts); return k.length >= 2 ? [pts[k[0]], pts[k[1]]] : null; }
     area.addEventListener('pointerdown', function (e) {
@@ -126,23 +132,32 @@
       var p = local(e);
       zoomAt(z.s * Math.exp(-e.deltaY * (e.ctrlKey ? 0.01 : 0.0025)), p.x, p.y);
     }, { passive: false });
+    }
 
     function paint() {
       stops.forEach(function (st) {
-        var b = pins[st.n];
+        var b = pins[st.n], found = !!st.species && NYBG.state.isFound(st.n);
         b.classList.toggle('is-active', st.n === sel);
         b.classList.toggle('is-dim', !!stage && st.stage !== stage);
+        b.classList.toggle('is-found', found);
+        b.setAttribute('aria-label', 'Stop ' + st.n + ': ' + S.stopName(st) + (found ? ' (found)' : ''));
       });
       list.querySelectorAll('.maplist-row').forEach(function (a) {
         a.classList.toggle('is-dim', !!stage && Number(a.getAttribute('data-stage')) !== stage);
       });
+      list.querySelectorAll('.maplist-num').forEach(function (m) {
+        m.classList.toggle('is-found', NYBG.state.isFound(Number(m.getAttribute('data-n'))) && !m.classList.contains('is-place'));
+      });
     }
+    function onFound() { if (!el.isConnected) window.removeEventListener('nybg:found', onFound); else paint(); }
+    window.addEventListener('nybg:found', onFound);
     apply();
     paint();
 
     return {
       el: el,
       select: function (n) { sel = n; paint(); },
+      refresh: paint,
       setStage: function (g) { stage = g; paint(); },
       setList: function (on) { area.hidden = !!on; list.hidden = !on; },
       pin: function (n) { return pins[n]; }

@@ -1,6 +1,8 @@
 /* Map screen (#/map, #/map/N, #/stop/N). Phones: the map, or the stop page full screen.
    900px and up: map on the left, stop page in a 480px panel on the right; tapping a pin
-   updates the panel in place. Stage chips dim other stages' pins. */
+   updates the panel in place. Stage chips dim other stages' pins.
+   Scavenger hunt: a progress card on the map ("3 of 8 found", "Next to find") and a
+   "Found it" button in the stop preview; both use the Quest progress in NYBG.state. */
 (function () {
   'use strict';
   var NYBG = window.NYBG, h = NYBG.h, S = NYBG.store, C = NYBG.components;
@@ -31,6 +33,27 @@
         map.setList(st.list);
         if (st.list) sheet.close(false);
       });
+      /* ----- hunt progress card ----- */
+      var huntN = h('span', { class: 'hunt-n', 'aria-live': 'polite' });
+      var huntBar = h('span', { class: 'hunt-bar' }, h('span'));
+      var nextBtn = h('button', { type: 'button', class: 'hunt-next' }, NYBG.icon('target', 16), h('span', null, 'Next to find'));
+      nextBtn.addEventListener('click', function () {
+        var nx = S.nextToFind(st.sel || st.cur);
+        if (nx) { pickedFrom = nextBtn; NYBG.router.go('#/map/' + nx.n); }
+        else NYBG.router.go('#/quest');
+      });
+      var hud = h('div', { class: 'hunt-hud' },
+        h('a', { class: 'hunt-score', href: '#/quest', 'aria-label': 'Open the Quest' }, NYBG.icon('flag', 16), huntN, huntBar),
+        nextBtn);
+      function paintHud() {
+        var total = S.speciesStops().length, n = S.foundCount();
+        huntN.textContent = n + ' of ' + total + ' found';
+        huntBar.firstChild.style.width = Math.round(n / (total || 1) * 100) + '%';
+        nextBtn.lastChild.textContent = n >= total ? 'All found!' : 'Next to find';
+        hud.classList.toggle('is-done', n >= total);
+      }
+      paintHud();
+
       var paneMap = h('section', { class: 'pane-map', 'aria-label': 'Garden map' },
         h('div', { class: 'screen-head' },
           h('div', { class: 'head-row' },
@@ -38,7 +61,7 @@
             h('span', { class: 'head-hint' }, 'Tap a number')),
           h('div', { style: 'display: flex; gap: 6px; align-items: center' },
             h('div', { style: 'flex: 1; min-width: 0' }, stageRow.el), listBtn)),
-        map.el,
+        h('div', { class: 'mapstack' }, map.el, hud),
         sheet.el);
 
       function fillSheet(n) {
@@ -56,11 +79,24 @@
               h('div', { class: 'sheet-place' }, s.place)),
             h('button', { type: 'button', class: 'sheet-close', 'aria-label': 'Close preview', onClick: function () { sheet.close(true); } }, NYBG.icon('close', 20))),
           teaser ? h('p', { class: 'sheet-teaser' }, teaser) : null,
+          s.species ? foundBtn(n) : null,
           h('div', { class: 'sheet-actions' },
             h('a', { class: 'sqbtn navbtn', href: '#/map/' + wrap(n - 1), 'aria-label': 'Previous stop' }, NYBG.icon('chevLeft', 20)),
             h('a', { class: 'sheet-open', href: '#/stop/' + n }, 'Open stop ' + n),
             h('a', { class: 'sqbtn navbtn', href: '#/map/' + wrap(n + 1), 'aria-label': 'Next stop' }, NYBG.icon('chevRight', 20)))
         ]);
+      }
+
+      function foundBtn(n) {
+        var b = h('button', { type: 'button', class: 'found-btn' }, NYBG.icon('check', 20), h('span'));
+        function paint() {
+          var f = NYBG.state.isFound(n);
+          b.setAttribute('aria-pressed', f ? 'true' : 'false');
+          b.lastChild.textContent = f ? 'Found it!' : 'I found it';
+        }
+        b.addEventListener('click', function () { NYBG.state.setFound(n, !NYBG.state.isFound(n)); paint(); });
+        paint();
+        return b;
       }
 
       /* ----- stop pane ----- */
@@ -97,6 +133,9 @@
       }
 
       var root = h('div', { class: 'scr tour', 'data-screen': st.view }, h('div', { class: 'cols' }, paneMap, paneStop));
+      function onFound() { paintHud(); }
+      window.addEventListener('nybg:found', onFound);
+      root.nybgDestroy = function () { window.removeEventListener('nybg:found', onFound); };
 
       function apply(params, first) {
         var view = params.view, n = params.n;

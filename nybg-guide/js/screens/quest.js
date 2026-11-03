@@ -18,6 +18,7 @@
 
       var rows = stops.map(function (s) {
         var sp = S.species(s.species), name = sp ? S.name(sp) : s.species;
+        var photo = sp ? S.heroPhoto(sp) : null;
         var btn = h('button', { type: 'button', class: 'q-toggle', 'aria-label': 'Mark ' + name + ' as found' },
           NYBG.icon('check', 18), h('span'));
         function paint() {
@@ -28,7 +29,8 @@
         btn.addEventListener('click', function () { NYBG.state.setFound(s.n, !NYBG.state.isFound(s.n)); paint(); refresh(); });
         paint();
         return h('li', { class: 'q-row' },
-          h('span', { class: 'q-num', 'aria-hidden': 'true' }, String(s.n)),
+          photo ? h('span', { class: 'q-pic', 'aria-hidden': 'true' }, h('img', { src: photo.src, alt: '', loading: 'lazy' }), h('span', { class: 'q-pic-n' }, String(s.n)))
+            : h('span', { class: 'q-num', 'aria-hidden': 'true' }, String(s.n)),
           h('span', { class: 'q-text' },
             h('a', { class: 'q-name', href: '#/stop/' + s.n }, h('span', { class: 'sr-only' }, 'Stop ' + s.n + ': '), name),
             h('span', { class: 'q-place' }, s.place)),
