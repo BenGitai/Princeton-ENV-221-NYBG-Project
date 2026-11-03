@@ -54,7 +54,7 @@
     },
     name: function (e) { return cap((e.common_names || [])[0] || (e.forest_plan || {}).common_name || e.scientific_name); },
     family: function (e) { return (e.forest_plan || {}).family || ''; },
-    aka: function (e) { return (e.common_names || []).slice(1, 4); },
+    aka: function (e) { return (e.common_names || []).slice(1, 3); },
     status: function (e) { return e.kind === 'plant' ? 'INVASIVE' : e.kind === 'disease' ? 'INVASIVE DISEASE' : 'INVASIVE PEST'; },
     range: function (e) { return (e.info_page || {}).native_range || (e.forest_plan || {}).native_range || ''; },
     badges: function (e) {
