@@ -1,0 +1,21 @@
+{
+  "_about": "Home page 'Why it matters'. Every 'text' is copied word for word from the NYBG page or guide named in 'source' (checked 2026-11-03); do not shorten or reword it here. 'label' is a short UI heading, not a fact. Order = order on the page.",
+  "why": [
+    {"label": "The forest", "icon": "tree",
+     "text": "Today this is the largest uncut expanse of New York's original wooded landscape.",
+     "source": "NYBG, “Forest” (nybg.org/garden/forest)",
+     "url": "https://www.nybg.org/garden/forest/"},
+    {"label": "The problem", "icon": "invader",
+     "text": "Escaping cultivated boundaries, these species outcompete native flora in the 50-acre Thain Family Forest.",
+     "source": "NYBG Invasive Species Immersive Experience Guide, slide 3"},
+    {"label": "The work", "icon": "hands",
+     "text": "Management of invasive plant species is carried out by staff with the help of thousands of volunteers including corporate and community groups.",
+     "source": "NYBG, “Restoring the Thain Family Forest” (nybg.org)",
+     "url": "https://www.nybg.org/about/sustainability/protect-restore/restoring-the-tff/"},
+    {"label": "The result", "icon": "seedling",
+     "text": "Areas managed are then planted with native plants grown from seed collected in the Forest.",
+     "source": "NYBG, “Restoring the Thain Family Forest” (nybg.org)",
+     "url": "https://www.nybg.org/about/sustainability/protect-restore/restoring-the-tff/"}
+  ],
+  "more": {"label": "How NYBG restores the Forest", "url": "https://www.nybg.org/about/sustainability/protect-restore/restoring-the-tff/"}
+}

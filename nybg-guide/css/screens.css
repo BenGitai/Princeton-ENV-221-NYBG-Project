@@ -20,7 +20,6 @@
 
 /* =================== Home =================== */
 .home-hero { position: relative; background: var(--forest); color: var(--on-forest); overflow: hidden; }
-.home-watermark { position: absolute; right: -90px; top: -40px; width: 300px; height: 381px; opacity: .22; }
 .home-hero-in { position: relative; padding: 28px 24px 26px; }
 .home-hero-text { display: flex; flex-direction: column; gap: 12px; }
 .home-hero .eyebrow { color: var(--moss-light); letter-spacing: .08em; font-weight: 700; }
@@ -38,22 +37,12 @@
 }
 .ghost:hover { background: rgba(244, 246, 238, .14); color: var(--on-forest); }
 .home-hero :focus-visible { outline-color: var(--moss-light); }
-.hero-map { display: none; border-radius: var(--r-3xl); overflow: hidden; background: var(--map-card); box-shadow: var(--shadow-hero-map); height: 360px; }
-.hero-map { position: relative; container-type: size; }
-.hero-map .mapfig.is-cover { position: absolute; left: 0; width: 100cqw; height: calc(100cqw * 560 / 440); top: calc((100cqh - 100cqw * 560 / 440) * .45); }
 .pad { padding-left: 20px; padding-right: 20px; }
 .searchlink {
   display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 16px; border-radius: var(--r-lg); background: var(--white);
   border: 1.5px solid var(--rule-strong); color: var(--ink-soft); text-decoration: none; font-size: 17px; font-weight: 600;
 }
 .searchlink:hover { color: var(--ink); background: var(--hover); }
-.walk { padding-top: 22px; padding-bottom: 6px; display: flex; flex-direction: column; gap: 12px; }
-.walk ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
-.walk li { display: flex; flex-direction: column; gap: 6px; }
-.walk-bar { height: 5px; border-radius: 3px; }
-.walk-stage { font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--moss); }
-.walk-name { font-size: 15px; font-weight: 700; line-height: 1.15; }
-.walk-stops { font-size: 13px; color: var(--ink-soft); }
 .tiles { padding-top: 16px; padding-bottom: 4px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .lower { padding-top: 16px; padding-bottom: 22px; display: flex; flex-direction: column; gap: 10px; }
 .month { padding: 16px; border-radius: var(--r-xl); background: var(--paper-2); display: flex; flex-direction: column; gap: 6px; }
@@ -75,12 +64,90 @@
 .switch::before { content: ""; position: absolute; inset: -6px -2px; }
 .switch[aria-pressed="true"] { background: var(--moss); justify-content: flex-end; }
 .switch span { width: 26px; height: 26px; border-radius: 50%; background: var(--white); display: block; }
+
+/* hero photo strip: the invaders to find */
+.hero-strip { display: flex; gap: 8px; margin-top: 20px; overflow-x: auto; padding: 2px 2px 4px; scrollbar-width: none; }
+.hero-strip-pic { position: relative; flex: none; width: 64px; height: 64px; }
+.hero-strip-pic img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; border: 2.5px solid var(--on-forest-3); box-sizing: border-box; }
+.hero-strip-pic span {
+  position: absolute; right: 0; bottom: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--invader); color: var(--white);
+  font: 800 12px/22px var(--font-body); text-align: center;
+}
+
+/* The hunt: progress ring, wanted cards, live map */
+.hunt { padding-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+.hunt-head { display: flex; align-items: center; gap: 14px; }
+.hunt-head-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.hunt-msg { font-size: 16px; font-weight: 700; color: var(--invader); }
+.hunt-head .head-hint { align-self: flex-start; padding-top: 6px; }
+.ring { position: relative; flex: none; width: 64px; height: 64px; }
+.ring svg { transform: rotate(-90deg); display: block; }
+.ring-bg { fill: none; stroke: var(--paper-2); stroke-width: 7; }
+.ring-arc { fill: none; stroke: var(--moss); stroke-width: 7; stroke-linecap: round; transition: stroke-dashoffset .4s; }
+.ring-num { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font: 800 16px var(--font-body); }
+.hunt-grid { display: flex; flex-direction: column; gap: 14px; }
+.wanted-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.wanted {
+  display: flex; flex-direction: column; gap: 2px; padding: 6px 6px 10px; border-radius: var(--r-xl); background: var(--white);
+  box-shadow: var(--shadow-card); color: var(--ink); text-decoration: none; height: 100%;
+}
+.wanted:hover { background: var(--hover); color: var(--ink); }
+.wanted-pic { position: relative; display: block; aspect-ratio: 4 / 3; border-radius: var(--r-md); overflow: hidden; background: var(--paper-2); margin-bottom: 6px; }
+.wanted-pic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: filter .3s; }
+.wanted-nopic { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--ink-soft); }
+.wanted-num {
+  position: absolute; left: 6px; top: 6px; width: 28px; height: 28px; border-radius: 50%; background: var(--invader); color: var(--white);
+  border: 2px solid var(--white); font: 800 14px/24px var(--font-body); text-align: center; box-shadow: var(--shadow-pin);
+}
+.wanted-stamp {
+  position: absolute; right: 6px; bottom: 6px; display: none; align-items: center; gap: 4px; padding: 3px 9px 3px 7px;
+  border-radius: var(--r-pill); background: var(--moss); color: var(--white); font: 800 13px var(--font-body); text-transform: uppercase; letter-spacing: .04em;
+}
+.wanted-name { padding: 0 4px; font-weight: 800; font-size: 16px; line-height: 1.15; }
+.wanted-place { padding: 0 4px; font-size: 13px; color: var(--ink-soft); line-height: 1.25; }
+.wanted.is-found .wanted-num { background: var(--moss); }
+.wanted.is-found .wanted-stamp { display: inline-flex; }
+.wanted:not(.is-found) .wanted-pic img { filter: saturate(.85); }
+.hunt-map {
+  position: relative; display: flex; flex-direction: column; height: 460px; border-radius: var(--r-3xl); overflow: hidden;
+  background: var(--map-card); box-shadow: var(--shadow-card);
+}
+.hunt-map .maparea { align-items: center; }
+.hunt-map-open {
+  position: absolute; right: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px;
+  border-radius: var(--r-pill); background: var(--ink); color: var(--paper); font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: var(--shadow-pin);
+}
+.hunt-map-open:hover { color: var(--paper); background: #2C3E28; }
+
+/* Why it matters: four quote cards */
+.why { padding-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+.why-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; counter-reset: why; }
+.why-card { display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: var(--r-xl); background: var(--paper-2); }
+.why-card:nth-child(2) { background: var(--banner); }
+.why-top { display: flex; align-items: center; justify-content: space-between; }
+.why-ic { width: 46px; height: 46px; border-radius: 50%; background: var(--forest); color: var(--moss-light); display: flex; align-items: center; justify-content: center; }
+.why-card:nth-child(2) .why-ic { background: var(--invader); color: var(--white); }
+.why-step { font-family: var(--font-display); font-size: 30px; font-weight: 800; color: var(--rule-strong); line-height: 1; }
+.why-label { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--moss); }
+.why-card:nth-child(2) .why-label { color: var(--banner-ink); }
+.why-text { font-family: var(--font-display); font-size: 19px; line-height: 1.3; font-weight: 500; }
+.why-card a.source { text-decoration: underline; text-underline-offset: 2px; }
+.why-more { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-weight: 800; font-size: 16px; }
+
 @container (min-width: 900px) {
-  .home-hero-in { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding: 48px 40px; }
+  .home-hero-in { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: center; padding: 48px 40px; }
   .home-title { font-size: 72px; }
-  .home-watermark { display: none; }
-  .hero-map { display: block; }
+  .home-lede { font-size: 22px; }
+  .hero-strip { margin-top: 0; display: grid; grid-template-columns: repeat(4, 96px); gap: 14px; }
+  .hero-strip-pic { width: 96px; height: 96px; }
+  .hero-strip-pic img { border-width: 3px; }
+  .hero-strip-pic span { width: 28px; height: 28px; font-size: 14px; line-height: 28px; }
   .pad { padding-left: 40px; padding-right: 40px; }
+  .hunt { padding-top: 32px; }
+  .hunt-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
+  .wanted-list { grid-template-columns: repeat(4, minmax(0, 1fr)); align-content: start; }
+  .hunt-map { height: auto; min-height: 520px; }
+  .why-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .lower { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; align-items: start; }
 }
@@ -295,6 +362,12 @@
 .q-row:last-child { border-bottom: 0; }
 .q-row:hover { background: var(--hover); }
 .q-num { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--invader); color: var(--white); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.q-pic { position: relative; flex: none; width: 52px; height: 52px; border-radius: var(--r-md); overflow: hidden; }
+.q-pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.q-pic-n {
+  position: absolute; left: 2px; top: 2px; width: 22px; height: 22px; border-radius: 50%; background: var(--invader); color: var(--white);
+  font: 800 12px/22px var(--font-body); text-align: center;
+}
 .q-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .q-name { font-weight: 800; font-size: 16px; color: var(--ink); text-decoration: none; }
 .q-name:hover { color: var(--moss); text-decoration: underline; }

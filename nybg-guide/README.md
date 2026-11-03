@@ -22,7 +22,7 @@ Pages you can link to directly (add these after `index.html`):
 
 | Link | Page |
 |---|---|
-| `#/` | Home |
+| `#/` | Home (landing page: the hunt, a live map, "Why it matters") |
 | `#/map`, `#/map/4` | Garden map (with stop 4 previewed) |
 | `#/stop/4` | Stop 4 (phones: the stop page; wide screens: map + stop side by side) |
 | `#/species/alliaria-petiolata` | Any species page (ids are in `guide-build-kit/build/species.json`) |
@@ -95,6 +95,11 @@ copy it into `nybg-guide/` or put it online.
   give its entry in `public-sources.json` an `add` block (`scientific_name`, `common_names`, `kind`) and it
   gets a page built from public sources only.
 - **Nurseries** ("Take it home" ZIP search): still placeholders in `nybg-guide/data/nurseries.js`.
+- **"Why it matters" on Home**: `guide-build-kit/content/landing.json`. Each card is a quote copied word for
+  word from an NYBG page or guide, with its source and link. Change the file and rerun.
+- **Scavenger hunt**: there is nothing to edit. Every species stop in `tour.json` becomes a "wanted" card on
+  Home and a pin to find on the map. "I found it" on the map, "Found" on the Quest and the cards on Home
+  share one saved list in the visitor's browser.
 - **iNaturalist links**: `guide-build-kit/content/links.json` (one place id, one species URL template,
   one project link).
 
@@ -195,7 +200,7 @@ Copied word for word from U.S. government publications in guide-build-kit/source
 
 ### Placeholders elsewhere on the site
 
-- Home, "Your walk": walk time `[~75 min]` (to measure on the ground)
+- Home, "The hunt": walk time `[~75 min]` (to measure on the ground)
 - Home, "Look for it this month": shows a placeholder in any month that no tour species has a seasonal note for
 - Quest, "Visitor impact this week": `[###] sightings` (needs a live count from the NYBG iNaturalist project)
 - Take it home: the nurseries in `nybg-guide/data/nurseries.js` are placeholders ("Nursery data source to decide with NYBG")

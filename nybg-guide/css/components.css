@@ -214,6 +214,40 @@
 .pin.is-place { background: var(--moss); }
 .pin.is-active { transform: translate(-50%, -50%) scale(calc(var(--inv) * 1.28)); box-shadow: 0 0 0 3px var(--ink), 0 6px 14px -4px rgba(20, 30, 16, .7); z-index: 2; }
 .pin.is-dim { opacity: .35; }
+.pin.is-found { background: var(--moss); }
+.pin-tick {
+  position: absolute; right: -6px; top: -6px; width: 17px; height: 17px; border-radius: 50%; background: var(--white); color: var(--moss);
+  display: none; align-items: center; justify-content: center; box-shadow: 0 0 0 1.5px var(--moss);
+}
+.pin-tick .ic { stroke-width: 3.2; }
+.pin.is-found .pin-tick { display: flex; }
+.maparea.is-static { touch-action: auto; }
+.maplist-num.is-found { background: var(--moss); }
+
+/* scavenger hunt card over the map, and the "Found it" button in the preview */
+.mapstack { flex: 1; min-height: 0; position: relative; display: flex; flex-direction: column; }
+.hunt-hud {
+  position: absolute; left: 10px; top: 10px; z-index: 4; display: flex; flex-direction: column; gap: 6px; padding: 8px;
+  border-radius: var(--r-lg); background: rgba(255, 255, 255, .94); box-shadow: var(--shadow-pin); width: 172px;
+}
+.hunt-score { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; color: var(--ink); text-decoration: none; font-weight: 800; font-size: 15px; padding: 2px 4px; }
+.hunt-score .ic { color: var(--invader); }
+.hunt-score:hover { color: var(--moss); }
+.hunt-bar { flex-basis: 100%; height: 6px; border-radius: 3px; background: var(--paper-2); overflow: hidden; }
+.hunt-bar span { display: block; height: 100%; width: 0; background: var(--moss); transition: width .3s; }
+.hunt-next {
+  display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; border: 0; border-radius: var(--r-md);
+  background: var(--invader); color: var(--white); font: 800 15px var(--font-body); cursor: pointer;
+}
+.hunt-next:hover { background: var(--banner-ink); }
+.hunt-hud.is-done .hunt-next { background: var(--moss); }
+.found-btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border-radius: var(--r-md);
+  border: 2px dashed var(--invader); background: var(--banner); color: var(--banner-ink); font: 800 17px var(--font-body); cursor: pointer;
+}
+.found-btn .ic { display: none; }
+.found-btn[aria-pressed="true"] { border: 2px solid var(--moss); background: var(--moss); color: var(--white); }
+.found-btn[aria-pressed="true"] .ic { display: block; }
 .pin:hover { transform: translate(-50%, -50%) scale(calc(var(--inv) * 1.12)); }
 .pin.is-active:hover { transform: translate(-50%, -50%) scale(calc(var(--inv) * 1.28)); }
 .zoomctl { position: absolute; right: 10px; top: 10px; z-index: 4; display: flex; flex-direction: column; gap: 6px; }
