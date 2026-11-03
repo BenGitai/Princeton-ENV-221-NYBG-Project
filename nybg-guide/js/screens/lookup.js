@@ -56,7 +56,6 @@
         if (e.tour_stop) tags.push(h('span', { class: 'tag tag-stop' }, 'Stop ' + e.tour_stop));
         if (e.category) tags.push(h('span', { class: 'tag tag-cat' }, 'Category ' + e.category));
         if (e.kind !== 'plant') tags.push(h('span', { class: 'tag tag-pest' }, e.kind === 'pest' ? 'Pest' : 'Disease'));
-        if (webIds[e.id]) tags.push(h('span', { class: 'tag tag-web' }, 'Forest layers'));
         var parts = [!!e.forest_plan, !!e.info_page, !!e.cascade, !!e.public];
         var n = parts.filter(Boolean).length;
         return h('li', null, h('a', { class: 'row', href: '#/species/' + encodeURIComponent(e.id), 'data-id': e.id },
