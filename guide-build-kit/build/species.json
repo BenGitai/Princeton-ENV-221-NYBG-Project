@@ -1476,6 +1476,64 @@
     "control": "Mechanically removing linden viburnum is an effective method of control. It can resprout from roots, so thorough removal of all root fragments and follow-up treatments may be necessary."
    },
    "completeness": 1
+  },
+  {
+   "id": "litylenchus-crenatae",
+   "scientific_name": "Litylenchus crenatae mccannii",
+   "names": [
+    "Litylenchus crenatae mccannii"
+   ],
+   "synonyms": [],
+   "common_names": [
+    "beech leaf disease"
+   ],
+   "kind": "disease",
+   "provenance": {
+    "public": [
+     "Martin & McIntire, USDA Forest Service, Eastern Region State Private and Tribal Forestry 2024, Pest Alert: Beech Leaf Disease (R9-PR-001-21, revised May 2024) (U.S. government work, public domain)"
+    ]
+   },
+   "public": {
+    "summary": {
+     "text": "Beech leaf disease (BLD) is a novel disease affecting American beech (Fagus grandifolia) in North America. Symptoms of BLD have also been observed on European (F. sylvatica), Oriental (F. orientalis), and Chinese (F. engleriana) beech species, which are occasionally planted as ornamentals.",
+     "source": "Martin & McIntire, USDA Forest Service, Eastern Region State Private and Tribal Forestry 2024, Pest Alert: Beech Leaf Disease (R9-PR-001-21, revised May 2024) (U.S. government work, public domain)"
+    },
+    "impact": {
+     "text": "Aborted bud development and premature leaf drop result in a thinning of canopy cover over time. Tree mortality within 2 to 7 years has been observed in all age classes but appears to be more common for smaller trees (less than 5 inches diameter at breast height).",
+     "source": "Martin & McIntire, USDA Forest Service, Eastern Region State Private and Tribal Forestry 2024, Pest Alert: Beech Leaf Disease (R9-PR-001-21, revised May 2024) (U.S. government work, public domain)"
+    },
+    "checklist": {
+     "items": [
+      "Early symptoms of BLD include discolored stripes or bands between lateral veins of leaves that are visible immediately upon bud break in the spring.",
+      "Banding is most apparent when viewed from below, looking upward into the canopy.",
+      "Leaves with severe symptoms are heavily banded, shrunken, and crinkled with a thickened, leathery texture that often leads to chlorotic banding later in the season.",
+      "Affected leaves may be unevenly distributed in the lower canopy."
+     ],
+     "source": "Martin & McIntire, USDA Forest Service, Eastern Region State Private and Tribal Forestry 2024, Pest Alert: Beech Leaf Disease (R9-PR-001-21, revised May 2024) (U.S. government work, public domain)"
+    },
+    "seasons": [
+     {
+      "months": [
+       4,
+       5
+      ],
+      "look": "Early symptoms of BLD include discolored stripes or bands between lateral veins of leaves that are visible immediately upon bud break in the spring.",
+      "source": "Martin & McIntire, USDA Forest Service, Eastern Region State Private and Tribal Forestry 2024, Pest Alert: Beech Leaf Disease (R9-PR-001-21, revised May 2024) (U.S. government work, public domain)"
+     },
+     {
+      "months": [
+       6,
+       7,
+       8,
+       9,
+       10
+      ],
+      "look": "Leaves with severe symptoms are heavily banded, shrunken, and crinkled with a thickened, leathery texture that often leads to chlorotic banding later in the season.",
+      "source": "Martin & McIntire, USDA Forest Service, Eastern Region State Private and Tribal Forestry 2024, Pest Alert: Beech Leaf Disease (R9-PR-001-21, revised May 2024) (U.S. government work, public domain)"
+     }
+    ]
+   },
+   "completeness": 0
   }
  ]
 }
