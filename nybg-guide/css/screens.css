@@ -236,6 +236,8 @@
 .sp-col { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
 .sp-text { display: flex; flex-direction: column; gap: 8px; }
 .sp-text p { font-size: 18px; line-height: 1.55; }
+.sp-more summary { cursor: pointer; font-weight: 700; color: var(--moss); padding: 4px 0; }
+.sp-more[open] summary { margin-bottom: 8px; }
 .voice { display: flex; flex-direction: column; gap: 8px; padding: 14px 16px; border-radius: var(--r-lg); background: var(--white); border: 1px solid var(--rule); }
 .voice-title { margin: 0; font-family: var(--font-display); font-size: 19px; font-weight: 700; }
 .voice-quote { display: flex; flex-direction: column; gap: 4px; padding-left: 12px; border-left: 4px solid var(--moss); }
