@@ -93,7 +93,7 @@
     {
       id: 'below', slot: 'main', title: 'Below the surface',
       when: function (sp) { return !!(cs(sp).body && cs(sp).body.length); },
-      render: function (sp) { return paras(cs(sp).body); },
+      render: function (sp) { return h('details', { class: 'sp-more' }, h('summary', null, 'Read more'), paras(cs(sp).body)); },
       source: function (sp) { return S.source(sp, 'cascade'); }
     },
     {
