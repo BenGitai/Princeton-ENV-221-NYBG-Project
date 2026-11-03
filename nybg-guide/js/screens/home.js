@@ -126,7 +126,6 @@
         h('header', { class: 'home-hero' },
           h('div', { class: 'wrap home-hero-in' },
             h('div', { class: 'home-hero-text' },
-              h('div', { class: 'eyebrow' }, 'NYBG · Invasive species hunt'),
               h('h1', { class: 'home-title' }, 'Garden Escapes'),
               h('p', { class: 'home-lede' }, 'Find ' + total + ' invaders hiding in the Garden.'),
               h('div', { class: 'home-ctas' }, startBtn,
