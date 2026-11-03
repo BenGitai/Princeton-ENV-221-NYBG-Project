@@ -36,7 +36,7 @@
       h('div', { class: 'setting-text' },
         h('label', { for: 'autoplay' }, 'Read each stop aloud when I arrive'),
         h('span', { class: 'setting-sub', id: 'autoplay-sub' }, NYBG.speech && NYBG.speech.supported
-          ? 'Reads the stop’s page, word for word' : 'Read-aloud is not supported in this browser')),
+          ? '' : 'Read-aloud is not supported in this browser')),
       sw);
   }
 
