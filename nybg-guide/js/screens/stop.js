@@ -24,10 +24,8 @@
             h('blockquote', { 'data-read': '' }, '“' + q.text + '”'),
             h('figcaption', { class: 'source' }, 'Source: ' + q.source));
         }),
-        C.card.link({ href: '#/quest', invader: true, title: 'Join the Garden Escape Quest',
-          sub: 'Spot the ' + S.speciesStops().length + ' invaders on the way and log them' }),
-        C.card.link({ href: '#/lookup', icon: 'search', title: 'Look up any invasive species',
-          sub: 'All ' + S.count() + ' species in this guide, on the tour or not' }));
+        C.card.link({ href: '#/quest', invader: true, title: 'Join the Garden Escape Quest' }),
+        C.card.link({ href: '#/lookup', icon: 'search', title: 'Look up any invasive species' }));
     } else {
       body = h('div', { class: 'place-body tight' },
         h('h3', { class: 'h3', 'data-read': '' }, 'Native swaps for home gardeners'),
