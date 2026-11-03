@@ -41,7 +41,7 @@
         h('header', { class: 'q-head' }, h('div', { class: 'wrap q-head-in' },
           h('div', { class: 'eyebrow' }, 'Community science'),
           h('h1', { class: 'q-title' }, 'Garden Escape Quest'),
-          h('p', { class: 'q-lede' }, 'Find all ' + stops.length + ' invaders on the tour. Every sighting you log goes to NYBG scientists through iNaturalist.'),
+          h('p', { class: 'q-lede' }, 'Find all ' + stops.length + ' invaders on the tour.'),
           h('div', { class: 'q-progress' }, h('div', { class: 'q-bar', 'aria-hidden': 'true' }, bar), countEl))),
         h('div', { class: 'wrap q-grid' },
           h('div', null,
