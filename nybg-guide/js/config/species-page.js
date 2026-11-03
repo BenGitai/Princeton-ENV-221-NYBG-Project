@@ -166,7 +166,7 @@
           C.webView.thumb(S.web(sp.id)),
           h('span', { class: 'layers-card-text' },
             h('span', { class: 'layers-card-title' }, S.name(sp) + ': forest layers'),
-            h('span', { class: 'layers-card-sub' }, 'What it affects from canopy to soil, and what helps it spread.')));
+            h('span', { class: 'layers-card-sub' }, 'Canopy to soil')));
       }
     },
     {
