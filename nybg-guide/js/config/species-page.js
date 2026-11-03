@@ -86,7 +86,8 @@
     },
     {
       id: 'why', slot: 'main', title: 'Why it matters',
-      when: function (sp) { return !!S.impact(sp); },
+      // A public-source impact paragraph is skipped when the "Threat to the Thain Forest" section shows below it.
+      when: function (sp) { return !!S.impact(sp) && !(fp(sp).threat && !cs(sp).nybg && !(sp.info_page || {}).impact); },
       render: function (sp) { return paras([S.impact(sp).text]); },
       source: function (sp) { return S.impact(sp).source; }
     },
