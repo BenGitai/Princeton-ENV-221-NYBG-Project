@@ -120,7 +120,7 @@
 
   /* ---------- the player ---------- */
   NYBG.components.readAloud = function () {
-    var IDLE = 'Reads everything on this page, word for word';
+    var IDLE = '';
     var bar = h('div');
     var status = h('span', { class: 'player-status', 'aria-live': 'polite' }, supported ? IDLE : 'Read-aloud is not supported in this browser');
     var play = h('button', { type: 'button', class: 'player-play', 'aria-label': 'Read this page aloud', disabled: !supported },
