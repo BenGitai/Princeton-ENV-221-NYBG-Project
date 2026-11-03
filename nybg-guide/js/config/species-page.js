@@ -135,7 +135,8 @@
       id: 'about', slot: 'main', title: 'About this species', readTitle: false,
       when: function (sp) { return !S.hasPageText(sp); },
       render: function () {
-        return C.placeholder('Only the NYBG list covers this species so far. Its page fills in automatically when a Forest Plan entry, an info-page slide (guide-build-kit/content/info-pages/*.pptx) or a <name>-cascade.html page is added for it.');
+        // Fills in when a Forest Plan entry, an info-page slide (content/info-pages/*.pptx) or a <name>-cascade.html page is added.
+        return C.placeholder('Only the NYBG list covers this species so far.');
       },
       source: function (sp) { return S.source(sp, 'names') || 'NYBG invasive species list 2026'; }
     },
