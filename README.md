@@ -3,10 +3,11 @@
 A mobile-first guide to the New York Botanical Garden's invasive species. ENV 221 (Princeton) capstone
 prototype, with Dr. Evelyn Beaury, NYBG Center for Conservation & Restoration Ecology.
 
-**Live site:** https://bengitai.github.io/Princeton-ENV-221-NYBG-Project/
+**This repository is private** so the project can use NYBG's internal species list. The site is not
+public; see "Viewing the site" in [`nybg-guide/README.md`](nybg-guide/README.md).
 
 - **The website:** [`nybg-guide/`](nybg-guide/). Open `nybg-guide/index.html` in a browser (it works
-  offline), or use the live site. [`nybg-guide/README.md`](nybg-guide/README.md) explains how it works,
+  offline, no install). [`nybg-guide/README.md`](nybg-guide/README.md) explains how it works,
   how to update the content, and lists the open items for NYBG.
 - **The content pipeline:** [`guide-build-kit/`](guide-build-kit/). Scripts that copy species text word for
   word from the sources and tag where each piece came from (`python guide-build-kit/tools/build_data.py`).
@@ -17,7 +18,6 @@ Regenerating the data needs them next to these folders. The site itself only nee
 NYBG's 2026 species list is an internal staff document, so the published site leaves it out (see
 "Public and staff editions" in [`nybg-guide/README.md`](nybg-guide/README.md)).
 
-Every push to `main` that changes `nybg-guide/` republishes the site (`.github/workflows/pages.yml`).
 
 ## Content and credits
 

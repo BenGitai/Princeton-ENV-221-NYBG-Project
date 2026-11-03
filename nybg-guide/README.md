@@ -145,13 +145,20 @@ on the page. Only the information is marked: names, status, headings, paragraphs
 quotes, natives and swaps. Source lines, photo credits, subtitles, placeholders, links and controls are
 not marked, so they are never read. Speech stops when the page changes.
 
-## Publishing
+## Viewing the site
+
+The repository is private and the site is not published publicly. Anyone with access to the repo can view
+it two ways:
+
+- **On your computer (always works):** pull the repo (or GitHub > Code > Download ZIP) and double-click
+  `nybg-guide/index.html`. It runs offline, with no server or install.
+- **Private web preview:** a host that deploys `nybg-guide/` from this private repo behind a login.
+  Don't use GitHub Pages: a Pages site is public even when the repo is private (the old Pages workflow was
+  removed for this reason).
 
 The repository root (the `NY Botanical Gardens` folder) has a `.gitignore` that only lets `nybg-guide/`,
-`guide-build-kit/` and `claude-code-handoff/` into git, so the raw source files stay local.
-`.github/workflows/pages.yml` publishes `nybg-guide/` to GitHub Pages on every push to `main`
-(one-time setting: Settings > Pages > Source: GitHub Actions). The site works from any static host
-because it uses no server and no `fetch()` of local files.
+`guide-build-kit/` and `claude-code-handoff/` into git, so the raw source files stay local. The site works
+from any static host because it uses no server and no `fetch()` of local files.
 
 ## Open items for Eve (generated)
 
