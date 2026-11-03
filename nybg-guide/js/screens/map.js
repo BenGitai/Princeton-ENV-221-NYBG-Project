@@ -8,6 +8,15 @@
   var NYBG = window.NYBG, h = NYBG.h, S = NYBG.store, C = NYBG.components;
   var lastCur = 1;
 
+  /* Link to NYBG's own garden map (links.json "official_map"). The site's map is an illustration
+     made for this project; the official one is linked, not copied. */
+  function officialMap() {
+    var m = (S.links() || {}).official_map;
+    if (!m) return h('span', { class: 'head-hint' }, 'Tap a number');
+    return h('a', { class: 'head-hint official-map', href: m.url, target: '_blank', rel: 'noopener' },
+      'Official map (PDF)', NYBG.icon('external', 14), h('span', { class: 'sr-only' }, ' (opens in a new tab)'));
+  }
+
   NYBG.screens.map = {
     render: function (params) {
       var stops = S.stops(), total = stops.length;
@@ -58,7 +67,7 @@
         h('div', { class: 'screen-head' },
           h('div', { class: 'head-row' },
             h('h1', { class: 'h1' }, 'Garden map'),
-            h('span', { class: 'head-hint' }, 'Tap a number')),
+            officialMap()),
           h('div', { style: 'display: flex; gap: 6px; align-items: center' },
             h('div', { style: 'flex: 1; min-width: 0' }, stageRow.el), listBtn)),
         h('div', { class: 'mapstack' }, map.el, hud),

@@ -323,3 +323,4 @@
 .legend-link { width: 16px; height: 16px; border-radius: 50%; background: var(--ink); color: var(--paper); display: flex; align-items: center; justify-content: center; }
 .natives-text { font-size: 16px; line-height: 1.45; color: var(--natives-ink); }
 .credits { display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
+.official-map { display: inline-flex; align-items: center; gap: 4px; min-height: 32px; font-weight: 700; color: var(--moss); }
