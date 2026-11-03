@@ -28,8 +28,8 @@ its source, and the site cites the source under each section.
 - **Princeton ENV 221 students:** the info pages, the Invasive Species Reference Guide and the garlic mustard cascade page.
 - **U.S. government works (public domain):** Swearingen et al. 2010, *Plant Invaders of Mid-Atlantic
   Natural Areas* (National Park Service & U.S. Fish and Wildlife Service); USDA Forest Service 2005,
-  *Pest Alert: Hemlock Woolly Adelgid*; Stone 2009, *Iris pseudacorus*, Fire Effects Information System
-  (USDA Forest Service). Copies are in `guide-build-kit/sources/public/`.
+  *Pest Alert: Hemlock Woolly Adelgid*; USDA Forest Service 2024, *Pest Alert: Beech Leaf Disease*;
+  Stone 2009, *Iris pseudacorus*, Fire Effects Information System (USDA Forest Service). Copies are in `guide-build-kit/sources/public/`.
 - **NYBG staff quoted on published pages:** short passages, each linked to its page, in
   `guide-build-kit/content/nybg-voices.json` (for example, Michael Hagen on steaming mugwort in the Native Plant Garden).
 - **Photos:** the info-page photos carry the credits printed on their slides. Wikimedia Commons photos

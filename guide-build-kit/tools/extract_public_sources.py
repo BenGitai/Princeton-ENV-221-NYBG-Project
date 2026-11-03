@@ -1,6 +1,9 @@
 """Fill gaps from public sources: copies spans word for word out of the public-domain documents in
 guide-build-kit/sources/public/, as listed in content/public-sources.json, and tags each with its citation.
 
+Source types: "pdf" (read with poppler's pdftotext), "html", and "text" (a plain-text transcription of a
+document that could not be parsed or downloaded; its lines starting with # are notes, not source text).
+
 Each text field in public-sources.json names a source, its pages (PDF) and a short `from` phrase and `to`
 phrase; this script copies everything from the start of `from` to the end of `to`. If a phrase is not found
 the build stops, so nothing is ever retyped or paraphrased.
@@ -75,6 +78,9 @@ class Source:
     def html_text(self):
         with open(self.path, "rb") as f:
             raw = f.read().decode(self.cfg.get("encoding", "utf-8"), errors="replace")
+        if self.cfg["type"] == "text":
+            # a plain-text transcription: lines starting with # are notes about the file, not source text
+            return "\n".join(ln for ln in raw.splitlines() if not ln.startswith("#"))
         raw = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", raw)
         raw = re.sub(r"<[^>]+>", " ", raw)
         return html.unescape(raw)
@@ -138,6 +144,10 @@ def main(kit, *args):
     out = {"species": {}, "swap_photos": {}}
     for sid, entry in cfg["species"].items():
         rec = {}
+        if "add" in entry:
+            # a species no project source covers (e.g. a disease newer than the Forest Plan): names and kind
+            # come from this entry, so build_species.py can give it a page of its own
+            rec["add"] = entry["add"]
         for key in ("summary", "impact"):
             if key in entry:
                 rec[key] = text_field(entry[key])

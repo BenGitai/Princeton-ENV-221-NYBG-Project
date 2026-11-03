@@ -102,7 +102,8 @@ def gaps(data):
             for side in ("invasive", "native"):
                 if not (find_photo(data, sw[side]) or sw[side] in data.get("swap_photos", {})):
                     lines.append(f"- Take it home, native swap photo: {sw[side]} (no photo in the info-page data)")
-    thin = sorted((e for e in data["species"] if not e.get("completeness") and not e.get("voices")), key=lambda e: e["scientific_name"])
+    thin = sorted((e for e in data["species"] if not e.get("completeness") and not e.get("public") and not e.get("voices")),
+                  key=lambda e: e["scientific_name"])
     if not thin:
         return "\n".join(lines)
     lines.append(f"\n### Species with list data only ({len(thin)} of {len(data['species'])})\n")

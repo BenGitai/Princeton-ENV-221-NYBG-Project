@@ -60,6 +60,16 @@
         "\\s*\\((?:[^()]*?\\[\\s*\\d[\\d,\\s]*\\]\\s*,?\\s*)+[^()]*?\\)",
         "\\s*\\[\\s*\\d[\\d,\\s]*\\]"
       ]
+    },
+    "bld-pest-alert": {
+      "type": "text",
+      "file": "sources/public/usfs-pest-alert-beech-leaf-disease-2024.txt",
+      "cite": "Martin & McIntire, USDA Forest Service, Eastern Region State Private and Tribal Forestry 2024, Pest Alert: Beech Leaf Disease (R9-PR-001-21, revised May 2024)",
+      "url": "https://www.fs.usda.gov/r9",
+      "rights": "U.S. government work, public domain",
+      "drop_regex": [
+        "\\s*\\(figures? \\d+(?:\\s*(?:and|,)\\s*\\d+)*\\)"
+      ]
     }
   },
   "species": {
@@ -433,6 +443,69 @@
         "commons": "File:Adelges tsugae 1276001.jpg",
         "file": "adelges-tsugae.jpg"
       }
+    },
+    "litylenchus-crenatae": {
+      "add": {
+        "scientific_name": "Litylenchus crenatae mccannii",
+        "common_names": [
+          "beech leaf disease"
+        ],
+        "kind": "disease"
+      },
+      "summary": {
+        "source": "bld-pest-alert",
+        "from": "Beech leaf disease (BLD) is a novel disease",
+        "to": "occasionally planted as ornamentals."
+      },
+      "impact": {
+        "source": "bld-pest-alert",
+        "from": "Aborted bud development",
+        "to": "(less than 5 inches diameter at breast height)."
+      },
+      "checklist": {
+        "source": "bld-pest-alert",
+        "items": [
+          {
+            "from": "Early symptoms of BLD include",
+            "to": "upon bud break in the spring."
+          },
+          {
+            "from": "Banding is most apparent",
+            "to": "upward into the canopy."
+          },
+          {
+            "from": "Leaves with severe symptoms",
+            "to": "later in the season."
+          },
+          {
+            "from": "Affected leaves may be unevenly",
+            "to": "in the lower canopy."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "bld-pest-alert",
+          "from": "Early symptoms of BLD include",
+          "to": "upon bud break in the spring.",
+          "months": [
+            4,
+            5
+          ]
+        },
+        {
+          "source": "bld-pest-alert",
+          "from": "Leaves with severe symptoms",
+          "to": "later in the season.",
+          "months": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ]
     },
     "reynoutria-japonica": {
       "impact": {
