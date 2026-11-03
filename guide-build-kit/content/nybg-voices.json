@@ -1,0 +1,44 @@
+{
+  "_about": "NYBG staff in their own words: short passages about how the Garden manages a species, copied word for word from a published web page, with the page, its author and date. Typed by hand like content/id-checklists.json, so check each passage against its page before adding it. Keep each one short (a few sentences) and always link the page. build_species.py attaches these to the species record as `voices`; a species that is only here (not in the Forest Plan or another source) still gets a page, named from `scientific_name` and `common_names`.",
+  "sources": {
+    "perfect-earth-2025": {
+      "cite": "Melissa Ozawa, \"Ask the Experts: How Do You Reduce Invasive Plants Without Using Herbicides?\", Perfect Earth Project, May 16, 2025",
+      "url": "https://perfectearthproject.org/managing-invasive-plants/"
+    },
+    "nybg-faq-mugwort": {
+      "cite": "Leslie Coleman, NYBG Plant Information Service, \"How can I get rid of mugwort?\", NYBG LibAnswers (updated Oct 7, 2026)",
+      "url": "https://libanswers.nybg.org/faq/433380"
+    }
+  },
+  "species": {
+    "artemisia-vulgaris": {
+      "scientific_name": "Artemisia vulgaris",
+      "common_names": ["mugwort"],
+      "kind": "plant",
+      "voices": [
+        {
+          "title": "Steaming the Native Plant Garden",
+          "source": "perfect-earth-2025",
+          "speaker": "Michael Hagen, curator of the Rock Garden and Native Plant Garden",
+          "text": [
+            "The beautiful Native Plant Garden opened in 2013, but by 2021 the meadow had succumbed to mugwort pressures.",
+            "They decided to try to steam away the mugwort in the fall.",
+            "They then seeded with a native Virginia wild rye cover crop to prevent any seeds setting in over the winter.",
+            "In the spring, they replanted with native perennial plugs like Monarda fistulosa, Heliopsis, and a mix of native asters."
+          ],
+          "quote": "It's an ongoing process, but one that is exciting"
+        },
+        {
+          "title": "In your own garden",
+          "source": "nybg-faq-mugwort",
+          "speaker": "Leslie Coleman, NYBG Plant Information Service",
+          "text": [
+            "Mugwort (Artemisia vulgaris) is a terribly difficult to manage weed and there is no technique or control that has been developed yet that will eradicate it in your yard.",
+            "It is considered a prohibited invasive species in the states of New York, New Jersey and Connecticut.",
+            "Sticking with the repeated treatments is important for maximum impact."
+          ]
+        }
+      ]
+    }
+  }
+}

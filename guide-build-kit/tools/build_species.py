@@ -7,6 +7,7 @@ Inputs (paths relative to the build kit):
   Info pages  build/info_pages.json   (extract_info_pages.py) + content/transcribed/*.json -> impact, native alternatives, photos
   Cascades    build/cascade_*.json    (extract_cascade.js)                     -> ID checklist, seasons, plant-instead list
   Checklists  content/id-checklists.json                                       -> spot-it checklists for other species
+  Voices      content/nybg-voices.json                                         -> NYBG staff on how the Garden manages it
   Tour        content/tour.json                                                -> which species are on the map
 
 Editions:
@@ -129,6 +130,19 @@ def main(kit, xlsx, out, *flags):
                         if isinstance(item, dict) and item.get("source") and item["source"] not in cites:
                             cites.append(item["source"])
                 sp[sid]["provenance"]["public"] = cites
+    # NYBG staff in their own words (verbatim passages from published pages, typed in content/nybg-voices.json)
+    vpath = os.path.join(kit, "content/nybg-voices.json")
+    if os.path.exists(vpath):
+        vcfg = json.load(open(vpath, encoding="utf-8"))
+        vsrc = vcfg.get("sources", {})
+        for sid, rec in vcfg.get("species", {}).items():
+            e = sp.get(sid) or match(sp, rec["scientific_name"])
+            if e is None:
+                e = sp.setdefault(sid, {"id": sid, "scientific_name": rec["scientific_name"], "names": [rec["scientific_name"]],
+                                        "synonyms": [], "common_names": rec.get("common_names", []), "category": None,
+                                        "list_sources": [], "kind": rec.get("kind", "plant"), "provenance": {}})
+            e["voices"] = [dict(v, source=vsrc[v["source"]]["cite"], url=vsrc[v["source"]]["url"]) for v in rec["voices"]]
+            e["provenance"]["voices"] = list(dict.fromkeys(v["source"] for v in e["voices"]))
     # Tour membership
     tour = json.load(open(os.path.join(kit, "content/tour.json")))
     for st in tour["stops"]:
@@ -139,12 +153,12 @@ def main(kit, xlsx, out, *flags):
         e["completeness"] = sum(k in e for k in ("forest_plan", "info_page", "cascade"))
     data = sorted(sp.values(), key=lambda e: (e.get("tour_stop") or 99, -e["completeness"], e["scientific_name"]))
     sources = ["Thain Family Forest Plan 2016, Appendix 3", "ENV 221 info pages", "garlic-mustard-cascade.html",
-               "public-domain U.S. government publications"]
+               "public-domain U.S. government publications", "NYBG staff quoted on published pages"]
     if staff:
         sources.insert(0, "NYBG invasive species list 2026 (internal)")
     else:
         # Public edition: keep species that have published page content, drop the internal list's assessment.
-        data = [e for e in data if e["completeness"] or e.get("tour_stop") or e.get("public")]
+        data = [e for e in data if e["completeness"] or e.get("tour_stop") or e.get("public") or e.get("voices")]
         for e in data:
             e.pop("category", None)
             e.pop("list_sources", None)

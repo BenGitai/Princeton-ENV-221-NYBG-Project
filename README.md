@@ -30,6 +30,8 @@ its source, and the site cites the source under each section.
   Natural Areas* (National Park Service & U.S. Fish and Wildlife Service); USDA Forest Service 2005,
   *Pest Alert: Hemlock Woolly Adelgid*; Stone 2009, *Iris pseudacorus*, Fire Effects Information System
   (USDA Forest Service). Copies are in `guide-build-kit/sources/public/`.
+- **NYBG staff quoted on published pages:** short passages, each linked to its page, in
+  `guide-build-kit/content/nybg-voices.json` (for example, Michael Hagen on steaming mugwort in the Native Plant Garden).
 - **Photos:** the info-page photos carry the credits printed on their slides. Wikimedia Commons photos
   carry their author and license (CC0, public domain, CC BY or CC BY-SA), listed in
   `guide-build-kit/photos/public/credits.json` and shown on the site.

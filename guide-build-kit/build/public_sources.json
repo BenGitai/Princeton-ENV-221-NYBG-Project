@@ -252,6 +252,108 @@
     "file": "public/reynoutria-japonica.jpg",
     "credit": "Photo: W.carter, CC0, via Wikimedia Commons (https://commons.wikimedia.org/wiki/File:Reynoutria_japonica_in_Brastad_1.jpg)"
    }
+  },
+  "aralia-elata": {
+   "checklist": {
+    "items": [
+     "It can grow to 30 ft. in height.",
+     "It has prickly stems and large compound leaves that are 2 or 3 times pinnate.",
+     "Flowers are small and white and emerge from tips of stems in broad umbels 1-2 ft. across that lack a central stalk.",
+     "Fruits are black and about 1/10 in. across."
+    ],
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 137-138 (U.S. government work, public domain)"
+   },
+   "seasons": [
+    {
+     "months": [
+      7,
+      8,
+      9
+     ],
+     "look": "Flowering occurs late July through August and fruits mature in August and September.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 137-138 (U.S. government work, public domain)"
+    }
+   ]
+  },
+  "celastrus-orbiculatus": {
+   "checklist": {
+    "items": [
+     "Plant: deciduous, woody, twining vine, sometimes occurring as a trailing shrub; stems of older plants can reach 4 in. in diameter.",
+     "Leaves: alternate, glossy and rounded with finely toothed margins.",
+     "Flowers, fruits and seeds: abundant clusters of small greenish flowers emerge from most leaf axils; globular, green to yellow fruits split open at maturity to reveal fleshy red-orange arils that cover the seeds;",
+     "Look-alikes: is easily confused with the native American bittersweet (Celastrus scandens), which produces flowers just at the terminal ends (stem tips) rather than from multiple leaf axils as in the exotic invasive."
+    ],
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 115-116 (U.S. government work, public domain)"
+   }
+  },
+  "ampelopsis-glandulosa": {
+   "checklist": {
+    "items": [
+     "Plant: deciduous, woody, perennial vine that resembles grape and climbs by non-adhesive tendrils at the base of each leaf;",
+     "Leaves: alternate, simple, 3-5 lobed to highly dissected with heart-shaped base and coarsely toothed margins, shiny underneath with hairs on veins.",
+     "Flowers, fruits and seeds: tiny, greenish-white flowers with petals separate at their tips occur in flat-topped clusters opposite the leaves; appear in summer (June through August); fruit is a speckled berry in colors ranging from aqua to pink to purple; each berry carries 2-4 seeds.",
+     "Look-alikes: native species of grape (Vitis) and peppervine (Ampelopsis) including heartleaf peppervine (Ampelopsis cordata) which is native to the Southeast and has unlobed leaves and smooth (hairless) stems; other native Ampelopsis have compound leaves."
+    ],
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 118-119 (U.S. government work, public domain)"
+   },
+   "seasons": [
+    {
+     "months": [
+      6,
+      7,
+      8
+     ],
+     "look": "Flowers, fruits and seeds: tiny, greenish-white flowers with petals separate at their tips occur in flat-topped clusters opposite the leaves; appear in summer (June through August); fruit is a speckled berry in colors ranging from aqua to pink to purple; each berry carries 2-4 seeds.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 118-119 (U.S. government work, public domain)"
+    }
+   ]
+  },
+  "ficaria-verna": {
+   "checklist": {
+    "items": [
+     "Plant: perennial herbaceous spring ephemeral plant with thick tuberous roots and bulblets.",
+     "Leaves: shiny, dark green, kidney-shaped, and stalked.",
+     "Flowers, fruits and seeds: glossy, butter-yellow flowers appear in March and April supported on delicate stalks above the leaves. Aboveground portions of lesser celandine die back by early June.",
+     "Look-alikes: marsh marigold (Caltha palustris), a native relative in the buttercup family, wood or celandine poppy (Stylophorum diphyllum) and greater celandine (Chelidonium majus), native and non-native members of the poppy family, respectively."
+    ],
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 44-45 (U.S. government work, public domain)"
+   },
+   "seasons": [
+    {
+     "months": [
+      3,
+      4
+     ],
+     "look": "Flowers, fruits and seeds: glossy, butter-yellow flowers appear in March and April supported on delicate stalks above the leaves. Aboveground portions of lesser celandine die back by early June.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 44-45 (U.S. government work, public domain)"
+    }
+   ],
+   "natives": {
+    "text": "Wood poppy (Stylophorum canadense) and marsh marigold (Caltha palustris) are two good native alternatives available depending on the conditions of the planting site.",
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 44-45 (U.S. government work, public domain)"
+   }
+  },
+  "hedera-helix": {
+   "checklist": {
+    "items": [
+     "Plant: evergreen perennial climbing vine that attaches to bark of trees, brickwork and other surfaces by root-like structures that exude a glue-like substance to aid in adherence.",
+     "Leaves: alternate, dark green, waxy, somewhat leathery; extremely variable leaf forms, from unlobed to 3-5 lobed; typically green with whitish veins.",
+     "Flowers, fruits and seeds: flowering occurs in late summer to early fall, typically under full sun conditions; flowers are small, greenish-yellow and occur in globular starburst type inflorescences at tips of flowering stems; fruits are black with a fleshy outer layer and stone-like seeds.",
+     "Poison ivy (Toxicodendron radicans) may sometimes be confused with English ivy because of its hairy stems but because it is deciduous, it will lack leaves in the winter."
+    ],
+    "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 105-106 (U.S. government work, public domain)"
+   },
+   "seasons": [
+    {
+     "months": [
+      8,
+      9,
+      10
+     ],
+     "look": "Flowers, fruits and seeds: flowering occurs in late summer to early fall, typically under full sun conditions; flowers are small, greenish-yellow and occur in globular starburst type inflorescences at tips of flowering stems; fruits are black with a fleshy outer layer and stone-like seeds.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 105-106 (U.S. government work, public domain)"
+    }
+   ]
   }
  },
  "swap_photos": {

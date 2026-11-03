@@ -4,7 +4,8 @@
   "Thain Family Forest Plan 2016, Appendix 3",
   "ENV 221 info pages",
   "garlic-mustard-cascade.html",
-  "public-domain U.S. government publications"
+  "public-domain U.S. government publications",
+  "NYBG staff quoted on published pages"
  ],
  "species": [
   {
@@ -780,7 +781,10 @@
    ],
    "kind": "plant",
    "provenance": {
-    "forest_plan": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    "forest_plan": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+    "public": [
+     "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 118-119 (U.S. government work, public domain)"
+    ]
    },
    "forest_plan": {
     "common_name": "porcelain-berry",
@@ -791,6 +795,28 @@
     "first_record": "unknown, has spread substantially since 1999",
     "threat": "Porcelain-berry engulfs seedlings and saplings of native trees, damages crowns of mature plants, and shades out herbaceous plants.",
     "control": "Physical removal of mature plants is potentially damaging to surrounding native plants. Cut climbing vines, remove from native vegetation, if possible, and grub roots or apply herbicide to cut stump. Most porcelain-berry present in the Forest are seedlings and young saplings that can be mechanically removed."
+   },
+   "public": {
+    "checklist": {
+     "items": [
+      "Plant: deciduous, woody, perennial vine that resembles grape and climbs by non-adhesive tendrils at the base of each leaf;",
+      "Leaves: alternate, simple, 3-5 lobed to highly dissected with heart-shaped base and coarsely toothed margins, shiny underneath with hairs on veins.",
+      "Flowers, fruits and seeds: tiny, greenish-white flowers with petals separate at their tips occur in flat-topped clusters opposite the leaves; appear in summer (June through August); fruit is a speckled berry in colors ranging from aqua to pink to purple; each berry carries 2-4 seeds.",
+      "Look-alikes: native species of grape (Vitis) and peppervine (Ampelopsis) including heartleaf peppervine (Ampelopsis cordata) which is native to the Southeast and has unlobed leaves and smooth (hairless) stems; other native Ampelopsis have compound leaves."
+     ],
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 118-119 (U.S. government work, public domain)"
+    },
+    "seasons": [
+     {
+      "months": [
+       6,
+       7,
+       8
+      ],
+      "look": "Flowers, fruits and seeds: tiny, greenish-white flowers with petals separate at their tips occur in flat-topped clusters opposite the leaves; appear in summer (June through August); fruit is a speckled berry in colors ranging from aqua to pink to purple; each berry carries 2-4 seeds.",
+      "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 118-119 (U.S. government work, public domain)"
+     }
+    ]
    },
    "completeness": 1
   },
@@ -861,7 +887,10 @@
    ],
    "kind": "plant",
    "provenance": {
-    "forest_plan": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    "forest_plan": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+    "public": [
+     "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 137-138 (U.S. government work, public domain)"
+    ]
    },
    "forest_plan": {
     "common_name": "Japanese angelica tree",
@@ -872,6 +901,28 @@
     "first_record": "1901 accession record",
     "threat": "A vigorous grower that outcompetes native trees and shrubs. This is by far the most threatening woody invasive plant species currently growing in the Forest. Its seeds are more abundant in the Forest soil seedbank than any other species. Previous mechanical management and recent natural disturbances have resulted in an exponential spread of this species over the past five years.",
     "control": "First- and second-year seedlings are carefully weeded using a weed fork to remove all parts of the root system. Saplings less than one meter tall are treated with a 50% Rodeo® mixture applied with a foam brush to leaves and stems. Young trees larger than one meter tall are cut with a handsaw by 1/3 diameter and the fresh cut is treated with 50% Rodeo® mixture. Wounding the trees but not felling them results in greater uptake and better control. Based on inventory data, Forest staff target priority areas throughout the growing season and remove all flowering individuals in July to reduce additional seed production in August. All treated areas are monitored for three to four weeks after an application. Follow-up treatments are necessary for at least two years."
+   },
+   "public": {
+    "checklist": {
+     "items": [
+      "It can grow to 30 ft. in height.",
+      "It has prickly stems and large compound leaves that are 2 or 3 times pinnate.",
+      "Flowers are small and white and emerge from tips of stems in broad umbels 1-2 ft. across that lack a central stalk.",
+      "Fruits are black and about 1/10 in. across."
+     ],
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 137-138 (U.S. government work, public domain)"
+    },
+    "seasons": [
+     {
+      "months": [
+       7,
+       8,
+       9
+      ],
+      "look": "Flowering occurs late July through August and fruits mature in August and September.",
+      "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 137-138 (U.S. government work, public domain)"
+     }
+    ]
    },
    "completeness": 1
   },
@@ -889,7 +940,10 @@
    ],
    "kind": "plant",
    "provenance": {
-    "forest_plan": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    "forest_plan": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+    "public": [
+     "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 115-116 (U.S. government work, public domain)"
+    ]
    },
    "forest_plan": {
     "common_name": "Asian bittersweet",
@@ -900,6 +954,17 @@
     "first_record": "unknown",
     "threat": "Bittersweet can choke out native trees, shrubs, and herbs. Aggressive climbing stems pull down saplings and damage tree crowns. Bittersweet is a problem in disturbed areas along edges and in canopy gaps.",
     "control": "Physical removal of mature plants is difficult and often damages surrounding native plants. Seedlings and young plants should be pulled as soon as they are seen."
+   },
+   "public": {
+    "checklist": {
+     "items": [
+      "Plant: deciduous, woody, twining vine, sometimes occurring as a trailing shrub; stems of older plants can reach 4 in. in diameter.",
+      "Leaves: alternate, glossy and rounded with finely toothed margins.",
+      "Flowers, fruits and seeds: abundant clusters of small greenish flowers emerge from most leaf axils; globular, green to yellow fruits split open at maturity to reveal fleshy red-orange arils that cover the seeds;",
+      "Look-alikes: is easily confused with the native American bittersweet (Celastrus scandens), which produces flowers just at the terminal ends (stem tips) rather than from multiple leaf axils as in the exotic invasive."
+     ],
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 115-116 (U.S. government work, public domain)"
+    }
    },
    "completeness": 1
   },
@@ -998,7 +1063,10 @@
    ],
    "kind": "plant",
    "provenance": {
-    "forest_plan": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    "forest_plan": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+    "public": [
+     "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 44-45 (U.S. government work, public domain)"
+    ]
    },
    "forest_plan": {
     "common_name": "lesser celandine",
@@ -1009,6 +1077,31 @@
     "first_record": "1900 accession record",
     "threat": "Lesser celandine has spread across the Garden landscape and region in the past decade, primarily invading river banks, streams, and roadsides, but also invading upland forests. Water plays a role in spreading this species’ seeds and bulbils. Lawn mowers, string trimmers, and other garden tools also spread lesser celandine across the landscape.",
     "control": "This species is extremely difficult to control. Hand weeding smaller upland patches in the Forest has been successful with 80% control per season. All bulbils and tubers must be removed completely and discarded plant material kept separate from regular compost and monitored closely. Herbicide treatment with a 33% Rodeo® mixture before the plants flower can be effective if the conditions for uptake are perfect."
+   },
+   "public": {
+    "checklist": {
+     "items": [
+      "Plant: perennial herbaceous spring ephemeral plant with thick tuberous roots and bulblets.",
+      "Leaves: shiny, dark green, kidney-shaped, and stalked.",
+      "Flowers, fruits and seeds: glossy, butter-yellow flowers appear in March and April supported on delicate stalks above the leaves. Aboveground portions of lesser celandine die back by early June.",
+      "Look-alikes: marsh marigold (Caltha palustris), a native relative in the buttercup family, wood or celandine poppy (Stylophorum diphyllum) and greater celandine (Chelidonium majus), native and non-native members of the poppy family, respectively."
+     ],
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 44-45 (U.S. government work, public domain)"
+    },
+    "seasons": [
+     {
+      "months": [
+       3,
+       4
+      ],
+      "look": "Flowers, fruits and seeds: glossy, butter-yellow flowers appear in March and April supported on delicate stalks above the leaves. Aboveground portions of lesser celandine die back by early June.",
+      "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 44-45 (U.S. government work, public domain)"
+     }
+    ],
+    "natives": {
+     "text": "Wood poppy (Stylophorum canadense) and marsh marigold (Caltha palustris) are two good native alternatives available depending on the conditions of the planting site.",
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 44-45 (U.S. government work, public domain)"
+    }
    },
    "completeness": 1
   },
@@ -1081,7 +1174,10 @@
    ],
    "kind": "plant",
    "provenance": {
-    "forest_plan": "Thain Family Forest Plan (NYBG, 2016), Appendix 3"
+    "forest_plan": "Thain Family Forest Plan (NYBG, 2016), Appendix 3",
+    "public": [
+     "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 105-106 (U.S. government work, public domain)"
+    ]
    },
    "forest_plan": {
     "common_name": "English ivy",
@@ -1092,6 +1188,28 @@
     "first_record": "unknown",
     "threat": "English ivy forms a dense groundcover that overwhelms native species. Forest staff have been removing all fruiting specimens across the grounds over the past decade, reducing the amount of propagule pressure within the landscape and Forest.",
     "control": "English ivy is effectively managed by mechanical removal in late fall or early winter when native plants are dormant."
+   },
+   "public": {
+    "checklist": {
+     "items": [
+      "Plant: evergreen perennial climbing vine that attaches to bark of trees, brickwork and other surfaces by root-like structures that exude a glue-like substance to aid in adherence.",
+      "Leaves: alternate, dark green, waxy, somewhat leathery; extremely variable leaf forms, from unlobed to 3-5 lobed; typically green with whitish veins.",
+      "Flowers, fruits and seeds: flowering occurs in late summer to early fall, typically under full sun conditions; flowers are small, greenish-yellow and occur in globular starburst type inflorescences at tips of flowering stems; fruits are black with a fleshy outer layer and stone-like seeds.",
+      "Poison ivy (Toxicodendron radicans) may sometimes be confused with English ivy because of its hairy stems but because it is deciduous, it will lack leaves in the winter."
+     ],
+     "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 105-106 (U.S. government work, public domain)"
+    },
+    "seasons": [
+     {
+      "months": [
+       8,
+       9,
+       10
+      ],
+      "look": "Flowers, fruits and seeds: flowering occurs in late summer to early fall, typically under full sun conditions; flowers are small, greenish-yellow and occur in globular starburst type inflorescences at tips of flowering stems; fruits are black with a fleshy outer layer and stone-like seeds.",
+      "source": "Swearingen, Slattery, Reshetiloff & Zwicker 2010, Plant Invaders of Mid-Atlantic Natural Areas, 4th ed., National Park Service & U.S. Fish and Wildlife Service, p. 105-106 (U.S. government work, public domain)"
+     }
+    ]
    },
    "completeness": 1
   },
@@ -1476,6 +1594,51 @@
     "control": "Mechanically removing linden viburnum is an effective method of control. It can resprout from roots, so thorough removal of all root fragments and follow-up treatments may be necessary."
    },
    "completeness": 1
+  },
+  {
+   "id": "artemisia-vulgaris",
+   "scientific_name": "Artemisia vulgaris",
+   "names": [
+    "Artemisia vulgaris"
+   ],
+   "synonyms": [],
+   "common_names": [
+    "mugwort"
+   ],
+   "kind": "plant",
+   "provenance": {
+    "voices": [
+     "Melissa Ozawa, \"Ask the Experts: How Do You Reduce Invasive Plants Without Using Herbicides?\", Perfect Earth Project, May 16, 2025",
+     "Leslie Coleman, NYBG Plant Information Service, \"How can I get rid of mugwort?\", NYBG LibAnswers (updated Oct 7, 2026)"
+    ]
+   },
+   "voices": [
+    {
+     "title": "Steaming the Native Plant Garden",
+     "source": "Melissa Ozawa, \"Ask the Experts: How Do You Reduce Invasive Plants Without Using Herbicides?\", Perfect Earth Project, May 16, 2025",
+     "speaker": "Michael Hagen, curator of the Rock Garden and Native Plant Garden",
+     "text": [
+      "The beautiful Native Plant Garden opened in 2013, but by 2021 the meadow had succumbed to mugwort pressures.",
+      "They decided to try to steam away the mugwort in the fall.",
+      "They then seeded with a native Virginia wild rye cover crop to prevent any seeds setting in over the winter.",
+      "In the spring, they replanted with native perennial plugs like Monarda fistulosa, Heliopsis, and a mix of native asters."
+     ],
+     "quote": "It's an ongoing process, but one that is exciting",
+     "url": "https://perfectearthproject.org/managing-invasive-plants/"
+    },
+    {
+     "title": "In your own garden",
+     "source": "Leslie Coleman, NYBG Plant Information Service, \"How can I get rid of mugwort?\", NYBG LibAnswers (updated Oct 7, 2026)",
+     "speaker": "Leslie Coleman, NYBG Plant Information Service",
+     "text": [
+      "Mugwort (Artemisia vulgaris) is a terribly difficult to manage weed and there is no technique or control that has been developed yet that will eradicate it in your yard.",
+      "It is considered a prohibited invasive species in the states of New York, New Jersey and Connecticut.",
+      "Sticking with the repeated treatments is important for maximum impact."
+     ],
+     "url": "https://libanswers.nybg.org/faq/433380"
+    }
+   ],
+   "completeness": 0
   }
  ]
 }

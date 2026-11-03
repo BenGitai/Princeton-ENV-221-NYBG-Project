@@ -21,7 +21,8 @@
         "Robert Vidéki, Doronicum Kft.",
         "GRASSES & SEDGES",
         "HERBACEOUS FORBS",
-        "_____"
+        "_____",
+        "John M. Randall, TNC"
       ],
       "drop_regex": [
         "\\s{4,}[A-Z]\\s*$"
@@ -488,6 +489,213 @@
         "commons": "File:Reynoutria japonica in Brastad 1.jpg",
         "file": "reynoutria-japonica.jpg"
       }
+    },
+    "aralia-elata": {
+      "checklist": {
+        "source": "plant-invaders",
+        "pages": [
+          139,
+          140
+        ],
+        "items": [
+          {
+            "from": "It can grow to 30 ft.",
+            "to": "in height."
+          },
+          {
+            "from": "It has prickly stems",
+            "to": "2 or 3 times pinnate."
+          },
+          {
+            "from": "Flowers are small and white",
+            "to": "lack a central stalk."
+          },
+          {
+            "from": "Fruits are black and about",
+            "to": "1/10 in. across."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "plant-invaders",
+          "from": "Flowering occurs late July",
+          "to": "August and September.",
+          "pages": [
+            139,
+            140
+          ],
+          "months": [
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    "celastrus-orbiculatus": {
+      "checklist": {
+        "source": "plant-invaders",
+        "pages": [
+          117,
+          118
+        ],
+        "items": [
+          {
+            "from": "Plant: deciduous, woody, twining vine",
+            "to": "4 in. in diameter."
+          },
+          {
+            "from": "Leaves: alternate, glossy",
+            "to": "finely toothed margins."
+          },
+          {
+            "from": "Flowers, fruits and seeds: abundant clusters",
+            "to": "cover the seeds"
+          },
+          {
+            "from": "Look-alikes: is easily confused",
+            "to": "as in the exotic invasive."
+          }
+        ]
+      }
+    },
+    "ampelopsis-glandulosa": {
+      "checklist": {
+        "source": "plant-invaders",
+        "pages": [
+          120,
+          121
+        ],
+        "items": [
+          {
+            "from": "Plant: deciduous, woody, perennial vine that resembles grape",
+            "to": "at the base of each leaf"
+          },
+          {
+            "from": "Leaves: alternate, simple, 3-5 lobed",
+            "to": "hairs on veins."
+          },
+          {
+            "from": "Flowers, fruits and seeds: tiny, greenish-white",
+            "to": "each berry carries 2-4 seeds."
+          },
+          {
+            "from": "Look-alikes: native species of grape",
+            "to": "compound leaves."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "plant-invaders",
+          "from": "Flowers, fruits and seeds: tiny, greenish-white",
+          "to": "each berry carries 2-4 seeds.",
+          "pages": [
+            120,
+            121
+          ],
+          "months": [
+            6,
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    "ficaria-verna": {
+      "checklist": {
+        "source": "plant-invaders",
+        "pages": [
+          46,
+          47
+        ],
+        "items": [
+          {
+            "from": "Plant: perennial herbaceous spring ephemeral",
+            "to": "tuberous roots and bulblets."
+          },
+          {
+            "from": "Leaves: shiny, dark green, kidney-shaped",
+            "to": "and stalked."
+          },
+          {
+            "from": "Flowers, fruits and seeds: glossy, butter-yellow",
+            "to": "die back by early June."
+          },
+          {
+            "from": "Look-alikes: marsh marigold",
+            "to": "members of the poppy family, respectively."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "plant-invaders",
+          "from": "Flowers, fruits and seeds: glossy, butter-yellow",
+          "to": "die back by early June.",
+          "pages": [
+            46,
+            47
+          ],
+          "months": [
+            3,
+            4
+          ]
+        }
+      ],
+      "natives": {
+        "source": "plant-invaders",
+        "pages": [
+          46,
+          47
+        ],
+        "from": "Wood poppy (Stylophorum canadense)",
+        "to": "conditions of the planting site."
+      }
+    },
+    "hedera-helix": {
+      "checklist": {
+        "source": "plant-invaders",
+        "pages": [
+          107,
+          108
+        ],
+        "items": [
+          {
+            "from": "Plant: evergreen perennial climbing vine",
+            "to": "aid in adherence."
+          },
+          {
+            "from": "Leaves: alternate, dark green, waxy",
+            "to": "green with whitish veins."
+          },
+          {
+            "from": "Flowers, fruits and seeds: flowering occurs in late summer",
+            "to": "stone-like seeds."
+          },
+          {
+            "from": "Poison ivy (Toxicodendron radicans) may sometimes",
+            "to": "lack leaves in the winter."
+          }
+        ]
+      },
+      "seasons": [
+        {
+          "source": "plant-invaders",
+          "from": "Flowers, fruits and seeds: flowering occurs in late summer",
+          "to": "stone-like seeds.",
+          "pages": [
+            107,
+            108
+          ],
+          "months": [
+            8,
+            9,
+            10
+          ]
+        }
+      ]
     }
   },
   "swap_photos": {
