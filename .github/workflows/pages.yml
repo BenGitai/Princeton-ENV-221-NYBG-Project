@@ -5,7 +5,6 @@ name: Publish site
 on:
   push:
     branches: [main]
-    paths: ["nybg-guide/**", ".github/workflows/pages.yml"]
   workflow_dispatch:
 
 permissions:

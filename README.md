@@ -16,7 +16,7 @@ The raw source files (NYBG species list workbook, Forest Plan PDF, info-page dec
 repository. Regenerating the data needs them next to these folders. The site itself only needs
 `nybg-guide/`. See "What is published" in [`nybg-guide/README.md`](nybg-guide/README.md).
 
-Every push to `main` that changes `nybg-guide/` republishes the site (`.github/workflows/pages.yml`).
+Every push to `main` republishes the site (`.github/workflows/pages.yml`).
 
 
 ## Content and credits
