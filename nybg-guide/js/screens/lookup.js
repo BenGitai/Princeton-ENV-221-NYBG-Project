@@ -33,7 +33,7 @@
       var empty = C.placeholder('No species match. Try a common name, a scientific name or a synonym.', { read: false, class: 'lk-empty' });
       moreBtn.addEventListener('click', function () { st.limit += PAGE; refreshList(); });
       var listScroll = h('div', { class: 'scroll' }, rows, empty, more,
-        h('p', { class: 'lk-note' }, 'Dots show which sources feed each page: Forest Plan · ENV 221 info page · cascade page · public sources. Pages are assembled from those files by a script.'));
+        h('p', { class: 'lk-note' }, 'Dots: how many of our 4 sources cover each species.'));
       var list = h('section', { class: 'lk-list', 'aria-label': 'Species list' },
         h('div', { class: 'screen-head', style: 'padding-bottom: 8px' },
           h('div', { class: 'head-row' }, h('h1', { class: 'h1' }, 'Species lookup'), countEl),
