@@ -81,7 +81,7 @@
         links = S.webLinks(id);
         chips.set(id);
         var sp = S.species(id), stop = S.stopForSpecies(id);
-        sub.textContent = web.title + ' · tap a species, follow the links';
+        sub.textContent = 'Tap a species';
         back.setAttribute('href', stop ? '#/stop/' + stop.n : '#/species/' + id);
         back.setAttribute('aria-label', 'Back to the ' + (sp ? S.name(sp) : web.title) + ' page');
         view = C.webView.create(web, { onPick: function (i) { select(i, false); } });
