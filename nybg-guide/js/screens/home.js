@@ -1,7 +1,7 @@
 /* Home (#/), the landing page. Built to be looked at more than read:
      hero         title, two buttons, a photo strip of the invaders to find
-     The hunt     "wanted" cards (one per species stop, photo + found stamp) next to a live map
-     Most wanted  key species cards (landing.json key_species) with the months to look for each
+     The hunt     "wanted" cards (one per species stop, photo + found stamp), then one card per other key species
+                  (landing.json key_species: photo + months to look), next to a live map
      Why it matters  four short quotes from NYBG pages (guide-build-kit/content/landing.json), each sourced
      Explore      lookup link, tiles (js/config/home.js), "Look for it this month", read-aloud setting
    Found state comes from the Quest (NYBG.state) and repaints on the 'nybg:found' event. */
@@ -79,29 +79,23 @@
     return a;
   }
 
-  /* "Most wanted": one card per key species (landing.json), with a 12-month strip of when to look. */
-  function keySpecies() {
-    var K = S.landing().key_species || {}, items = S.keySpecies();
-    if (!items.length) return null;
+  /* A key species that is not a tour stop (landing.json key_species): same card, no stop number,
+     opens the species page and shows a 12-month strip of when to look. */
+  function wantedExtra(it) {
     var now = new Date().getMonth() + 1;
-    return h('section', { class: 'pad most', 'aria-labelledby': 'most-h' },
-      h('div', { class: 'head-row' }, h('h2', { class: 'h2', id: 'most-h' }, K.title || 'Most wanted')),
-      K.sub ? h('p', { class: 'most-sub' }, K.sub) : null,
-      h('ul', { class: 'wanted-list most-list' }, items.map(function (it) {
-        var label = it.months.length ? 'Look in ' + it.months.map(NYBG.monthName).join(', ') : '';
-        return h('li', null, h('a', { class: 'wanted', href: '#/species/' + it.species.id },
-          h('span', { class: 'wanted-pic' },
-            it.photo ? h('img', { src: it.photo.src, alt: '', loading: 'lazy' }) : h('span', { class: 'wanted-nopic' }, NYBG.icon('photo', 28)),
-            it.months.indexOf(now) >= 0 ? h('span', { class: 'most-now' }, 'Look now') : null),
-          h('span', { class: 'wanted-name' }, it.name),
-          h('span', { class: 'wanted-place most-sci' }, it.species.scientific_name),
-          it.months.length ? h('span', { class: 'most-months', title: label },
-            h('span', { class: 'sr-only' }, label),
-            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function (m) {
-              return h('span', { class: 'most-m' + (it.months.indexOf(m) >= 0 ? ' on' : '') + (m === now ? ' now' : ''), 'aria-hidden': 'true' },
-                NYBG.monthName(m).charAt(0));
-            })) : null));
-      })));
+    var label = it.months.length ? 'Look in ' + it.months.map(NYBG.monthName).join(', ') : '';
+    return h('a', { class: 'wanted is-extra', href: '#/species/' + it.species.id },
+      h('span', { class: 'wanted-pic' },
+        it.photo ? h('img', { src: it.photo.src, alt: '', loading: 'lazy' }) : h('span', { class: 'wanted-nopic' }, NYBG.icon('photo', 28)),
+        it.months.indexOf(now) >= 0 ? h('span', { class: 'wanted-now' }, 'Look now') : null),
+      h('span', { class: 'wanted-name' }, it.name),
+      h('span', { class: 'wanted-place wanted-sci' }, it.species.scientific_name),
+      it.months.length ? h('span', { class: 'wanted-months', title: label },
+        h('span', { class: 'sr-only' }, label),
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function (m) {
+          return h('span', { class: 'wanted-m' + (it.months.indexOf(m) >= 0 ? ' on' : '') + (m === now ? ' now' : ''), 'aria-hidden': 'true' },
+            NYBG.monthName(m).charAt(0));
+        })) : null);
   }
 
   function why() {
@@ -129,6 +123,8 @@
       var hunt = S.hunt(), total = hunt.length;
       var pr = ring();
       var cards = hunt.map(wanted);
+      var onTour = hunt.map(function (i) { return i.species && i.species.id; });
+      var extras = S.keySpecies().filter(function (it) { return onTour.indexOf(it.species.id) < 0; }).map(wantedExtra);
       var huntMsg = h('p', { class: 'hunt-msg', 'aria-live': 'polite' });
       var startBtn = h('a', { class: 'cta', href: '#/map' }, h('span'), NYBG.icon('arrowRight', 18));
 
@@ -166,11 +162,10 @@
                 huntMsg),
               h('span', { class: 'head-hint' }, S.stops().length + ' stops · ' + cfg.walkTime)),
             h('div', { class: 'hunt-grid' },
-              h('ul', { class: 'wanted-list', 'aria-label': 'Invaders to find' }, cards.map(function (c) { return h('li', null, c); })),
+              h('ul', { class: 'wanted-list', 'aria-label': 'Invaders to find' }, cards.concat(extras).map(function (c) { return h('li', null, c); })),
               h('div', { class: 'hunt-map' },
                 liveMap.el,
                 h('a', { class: 'hunt-map-open', href: '#/map' }, NYBG.icon('map', 18), 'Open the full map')))),
-          keySpecies(),
           why(),
           h('div', { class: 'pad', style: 'padding-top: 20px' },
             h('a', { class: 'searchlink', href: '#/lookup' }, NYBG.icon('search', 20), 'Look up any invasive species')),
