@@ -5,9 +5,7 @@
 
   NYBG.components.nativeGrid = function (alts) {
     return h('section', { class: 'natives', 'aria-label': 'Plant these instead' },
-      h('div', null,
-        h('h3', { class: 'h3', 'data-read': '' }, 'Plant these instead'),
-        h('p', { class: 'natives-sub' }, 'Native plants with similar ornamental value')),
+      h('h3', { class: 'h3', 'data-read': '' }, 'Plant these instead'),
       alts.text ? h('p', { class: 'natives-text', 'data-read': '' }, alts.text) : null,
       alts.items.length ? h('ul', { class: 'natives-grid' }, alts.items.map(function (a) {
         return h('li', { class: 'native' },
