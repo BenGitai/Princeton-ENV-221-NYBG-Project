@@ -7,7 +7,7 @@
 
   var cache = {}; // scientific name -> live count, so revisiting a page does not ask again
 
-  function show(sub, n) { sub.textContent = n + ' verifiable records inside the Garden (live from iNaturalist)'; }
+  function show(sub, n) { sub.textContent = n + ' sightings in the Garden'; }
 
   function liveCount(sp, placeId, sub) {
     if (sp.scientific_name in cache) { if (cache[sp.scientific_name] != null) show(sub, cache[sp.scientific_name]); return; }
