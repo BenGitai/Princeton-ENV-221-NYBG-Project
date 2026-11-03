@@ -201,7 +201,7 @@
   flex: 1; min-height: 0; position: relative; overflow: hidden; touch-action: none;
   container-type: size; display: flex; align-items: flex-start; justify-content: center;
 }
-.mapbox { position: relative; width: min(100cqw, calc(100cqh * 0.7857)); aspect-ratio: 440 / 560; }
+.mapbox { position: relative; width: min(100cqw, calc(100cqh * var(--map-ar, 0.7857))); aspect-ratio: var(--map-ar, 0.7857); }
 .mapworld { position: absolute; inset: 0; transform-origin: 0 0; --inv: 1; }
 .mapworld > img, .mapworld > svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .map-route { fill: none; stroke: var(--ink); stroke-width: 2; stroke-dasharray: 5 5; stroke-linecap: round; stroke-linejoin: round; opacity: .55; }
@@ -277,7 +277,14 @@
 
 /* static map figure (home hero, "You are here") */
 .mapfig { position: relative; overflow: hidden; }
-.mapfig > img, .mapfig > svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.mapfig-world { position: absolute; inset: 0; }
+.mapfig-world > img, .mapfig-world > svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: fill; }
+.mapfig-world.is-zoom { inset: auto; left: 50%; top: 50%; width: 500%; aspect-ratio: var(--map-ar); }
+.map-credit {
+  position: absolute; left: 8px; bottom: 6px; z-index: 3; padding: 2px 8px; border-radius: var(--r-pill); background: rgba(255, 255, 255, .85);
+  font-size: 12px; color: var(--muted); text-decoration: none;
+}
+.map-credit:hover { color: var(--ink); text-decoration: underline; }
 .mapfig-dot {
   position: absolute; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; border: 2px solid var(--white);
   box-shadow: 0 0 0 2px var(--ink);
@@ -323,3 +330,4 @@
 .legend-link { width: 16px; height: 16px; border-radius: 50%; background: var(--ink); color: var(--paper); display: flex; align-items: center; justify-content: center; }
 .natives-text { font-size: 16px; line-height: 1.45; color: var(--natives-ink); }
 .credits { display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
+.official-map { display: inline-flex; align-items: center; gap: 4px; min-height: 32px; font-weight: 700; color: var(--moss); }

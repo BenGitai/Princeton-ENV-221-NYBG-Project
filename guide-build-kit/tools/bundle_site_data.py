@@ -48,15 +48,12 @@ def copy_assets(kit, site, used):
         os.makedirs(os.path.dirname(os.path.join(photos_out, rel)), exist_ok=True)
         shutil.copy2(src, os.path.join(photos_out, rel))
         photos[rel] = "assets/photos/" + rel
-    # The site draws the dashed tour route from tour.json at runtime, so the copy of the
-    # map leaves out the route baked into garden-map.svg (the source file is untouched).
-    with open(os.path.join(kit, "garden-map.svg"), encoding="utf-8") as f:
-        svg = f.read()
-    svg = re.sub(r"\s*<!-- tour route -->\s*<path[^>]*/>", "", svg)
-    with open(os.path.join(out, "garden-map.svg"), "w", encoding="utf-8") as f:
-        f.write(svg)
+    # Base map: NYBG's own Garden Map (tour.json "map"), rendered from the PDF in sources/nybg/.
+    # The site draws the dashed route and the pins on top of it at runtime.
+    map_file = load(os.path.join(kit, "content", "tour.json")).get("map", {}).get("file", "garden-map-2025.png")
+    shutil.copy2(os.path.join(kit, map_file), os.path.join(out, map_file))
     shutil.copy2(os.path.join(kit, "forest-layers-bg.svg"), os.path.join(out, "forest-layers-bg.svg"))
-    return {"photos": photos, "map": "assets/garden-map.svg", "layers_bg": "assets/forest-layers-bg.svg"}
+    return {"photos": photos, "map": "assets/" + map_file, "layers_bg": "assets/forest-layers-bg.svg"}
 
 
 def gaps(data):
@@ -68,7 +65,7 @@ def gaps(data):
     for st in data["tour"]["stops"]:
         if st.get("verify"):
             e = sp.get(st.get("species"), {})
-            name = (e.get("common_names") or [e.get("scientific_name", "")])[0]
+            name = (e.get("common_names") or [e.get("scientific_name", "")])[0] or ("Take it home" if st.get("kind") == "hub" else "Welcome")
             lines.append(f"- Stop {st['n']}: {name}, {st['place']} (map position x={st['x']}, y={st['y']})")
     lines.append("\n### Tour species: what is still missing from their pages\n")
     lines.append("Sections with no source are left off the page; a missing photo, checklist or natives list shows a dashed placeholder.\n")

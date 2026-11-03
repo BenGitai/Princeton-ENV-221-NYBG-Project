@@ -109,12 +109,14 @@
 .wanted.is-found .wanted-stamp { display: inline-flex; }
 .wanted:not(.is-found) .wanted-pic img { filter: saturate(.85); }
 .hunt-map {
-  position: relative; display: flex; flex-direction: column; height: 460px; border-radius: var(--r-3xl); overflow: hidden;
+  position: relative; display: flex; flex-direction: column; aspect-ratio: 846 / 576; border-radius: var(--r-3xl); overflow: hidden;
   background: var(--map-card); box-shadow: var(--shadow-card);
 }
 .hunt-map .maparea { align-items: center; }
+.hunt-credit { margin-top: -6px; text-align: right; }
+.hunt-credit .map-credit { position: static; background: none; padding: 0; }
 .hunt-map-open {
-  position: absolute; right: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px;
+  position: absolute; left: 10px; top: 10px; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px;
   border-radius: var(--r-pill); background: var(--ink); color: var(--paper); font-weight: 800; font-size: 15px; text-decoration: none; box-shadow: var(--shadow-pin);
 }
 .hunt-map-open:hover { color: var(--paper); background: #2C3E28; }
@@ -144,9 +146,8 @@
   .hero-strip-pic span { width: 28px; height: 28px; font-size: 14px; line-height: 28px; }
   .pad { padding-left: 40px; padding-right: 40px; }
   .hunt { padding-top: 32px; }
-  .hunt-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
+  .hunt-grid { gap: 20px; }
   .wanted-list { grid-template-columns: repeat(4, minmax(0, 1fr)); align-content: start; }
-  .hunt-map { height: auto; min-height: 520px; }
   .why-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .lower { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 16px; align-items: start; }
