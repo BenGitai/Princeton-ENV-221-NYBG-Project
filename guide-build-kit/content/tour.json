@@ -6,8 +6,7 @@
   "stops": [
     {"n": 1, "stage": 1, "place": "Leon Levy Visitor Center", "x": 165, "y": 355, "kind": "intro",
      "quotes": [
-       {"text": "Many priority invasives entered North America as prized ornamental plants valued for vivid colors and rapid growth.", "source": "NYBG Invasive Species Immersive Experience Guide, slide 3"},
-       {"text": "Escaping cultivated boundaries, these species outcompete native flora in the 50-acre Thain Family Forest.", "source": "NYBG Invasive Species Immersive Experience Guide, slide 3"}
+       {"text": "Many priority invasives entered North America as prized ornamental plants valued for vivid colors and rapid growth.", "source": "NYBG Invasive Species Immersive Experience Guide, slide 3"}
      ]},
     {"n": 2, "stage": 2, "place": "Twin Lakes", "x": 210, "y": 392, "species": "iris-pseudacorus", "verify": true},
     {"n": 3, "stage": 2, "place": "Native Plant Garden", "x": 226, "y": 322, "species": "vinca-minor", "verify": true},
