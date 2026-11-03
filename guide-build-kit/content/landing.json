@@ -1,5 +1,5 @@
 {
-  "_about": "Home page 'Why it matters'. Every 'text' is copied word for word from the NYBG page or guide named in 'source' (checked 2026-11-03); do not shorten or reword it here. 'label' is a short UI heading, not a fact. Order = order on the page.",
+  "_about": "Home page 'Why it matters'. Every 'text' is copied word for word from the NYBG page or guide named in 'source' (checked 2026-11-03); do not shorten or reword it here. 'label' is a short UI heading, not a fact. 'key_species' lists the species shown as cards under 'Most wanted' (ids from guide-build-kit/build/species.json), in page order. Order = order on the page.",
   "why": [
     {"label": "The forest", "icon": "tree",
      "text": "Today this is the largest uncut expanse of New York's original wooded landscape.",
@@ -17,5 +17,11 @@
      "source": "NYBG, “Restoring the Thain Family Forest” (nybg.org)",
      "url": "https://www.nybg.org/about/sustainability/protect-restore/restoring-the-tff/"}
   ],
+  "key_species": {
+    "title": "Most wanted on NYBG's grounds",
+    "sub": "Some of the most common, highest-impact invaders here.",
+    "ids": ["aralia-elata", "celastrus-orbiculatus", "ampelopsis-glandulosa", "ficaria-verna",
+            "artemisia-vulgaris", "hedera-helix", "reynoutria-japonica"]
+  },
   "more": {"label": "How NYBG restores the Forest", "url": "https://www.nybg.org/about/sustainability/protect-restore/restoring-the-tff/"}
 }

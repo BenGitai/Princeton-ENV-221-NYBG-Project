@@ -119,6 +119,20 @@
 }
 .hunt-map-open:hover { color: var(--paper); background: #2C3E28; }
 
+/* Most wanted: key species cards with a month strip */
+.most { padding-top: 28px; display: flex; flex-direction: column; gap: 10px; }
+.most-sub { font-size: 16px; color: var(--ink-soft); }
+.most-sci { font-style: italic; }
+.most-now {
+  position: absolute; left: 6px; top: 6px; padding: 3px 9px; border-radius: var(--r-pill); background: var(--invader); color: var(--white);
+  font: 800 12px var(--font-body); text-transform: uppercase; letter-spacing: .04em; box-shadow: var(--shadow-pin);
+}
+.most-months { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2px; padding: 6px 4px 0; }
+.most-m { font: 700 10px/16px var(--font-body); text-align: center; border-radius: 3px; background: var(--paper-2); color: var(--ink-soft); }
+.most-m.on { background: var(--moss); color: var(--white); }
+.most-m.now { outline: 2px solid var(--invader); outline-offset: -1px; }
+@media (min-width: 700px) { .most-list { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
 /* Why it matters: four quote cards */
 .why { padding-top: 28px; display: flex; flex-direction: column; gap: 12px; }
 .why-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; counter-reset: why; }

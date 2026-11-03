@@ -240,6 +240,14 @@
         return { stop: st, species: sp, name: sp ? S.name(sp) : st.species, photo: sp ? S.heroPhoto(sp) : null };
       });
     },
+    /* Home "Most wanted": the species named in landing.json key_species, with photo and the months to look. */
+    keySpecies: function () {
+      return ((S.landing().key_species || {}).ids || []).map(S.species).filter(Boolean).map(function (sp) {
+        var months = [];
+        S.checklist(sp).seasons.forEach(function (x) { x.months.forEach(function (m) { if (months.indexOf(m) < 0) months.push(m); }); });
+        return { species: sp, name: S.name(sp), photo: S.heroPhoto(sp), months: months.sort(function (a, b) { return a - b; }) };
+      });
+    },
     foundCount: function () {
       return S.speciesStops().filter(function (st) { return NYBG.state.isFound(st.n); }).length;
     },
