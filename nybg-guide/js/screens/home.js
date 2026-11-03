@@ -116,7 +116,7 @@
         startBtn.firstChild.textContent = n >= total ? 'See the map' : n ? 'Keep hunting' : 'Start the hunt';
       }
 
-      var liveMap = C.mapView.create({ zoom: false, onPick: function (n) { NYBG.router.go('#/map/' + n); } });
+      var liveMap = C.mapView.create({ zoom: false, credit: false, onPick: function (n) { NYBG.router.go('#/map/' + n); } });
 
       var strip = h('div', { class: 'hero-strip', 'aria-hidden': 'true' }, hunt.filter(function (i) { return i.photo; }).map(function (i) {
         return h('span', { class: 'hero-strip-pic' }, h('img', { src: i.photo.src, alt: '' }), h('span', null, String(i.stop.n)));
@@ -141,9 +141,10 @@
               h('span', { class: 'head-hint' }, S.stops().length + ' stops · ' + cfg.walkTime)),
             h('div', { class: 'hunt-grid' },
               h('ul', { class: 'wanted-list', 'aria-label': 'Invaders to find' }, cards.map(function (c) { return h('li', null, c); })),
-              h('div', { class: 'hunt-map' },
+              h('div', { class: 'hunt-map', style: { 'aspect-ratio': String(S.mapRatio()) } },
                 liveMap.el,
-                h('a', { class: 'hunt-map-open', href: '#/map' }, NYBG.icon('map', 18), 'Open the full map')))),
+                h('a', { class: 'hunt-map-open', href: '#/map' }, NYBG.icon('map', 18), 'Open the full map'))),
+            h('div', { class: 'hunt-credit' }, C.mapView.credit())),
           why(),
           h('div', { class: 'pad', style: 'padding-top: 20px' },
             h('a', { class: 'searchlink', href: '#/lookup' }, NYBG.icon('search', 20), 'Look up any invasive species')),
