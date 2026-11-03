@@ -1,7 +1,7 @@
 """Bundle the pipeline outputs into the website (last step of build_data.py).
 
 Writes nybg-guide/data/guide-data.js (a classic script, so the site works from file://):
-    NYBG.data = {species, webs, shared_nodes, tour, links, assets}
+    NYBG.data = {species, webs, shared_nodes, tour, links, landing, assets}
 copies photos and the two SVGs into nybg-guide/assets/, and refreshes the generated
 "open items" list in nybg-guide/README.md (between the GAPS markers).
 
@@ -92,7 +92,7 @@ def gaps(data):
                      "seasons": "\"Right now\" notes", "natives": "Plant these instead", "photo": "photo"}
             lines.append(f"- {name} (`{e['id']}`): " + ", ".join(label.get(k, k) for k in e["public"]))
     lines.append("\n### Placeholders elsewhere on the site\n")
-    lines.append("- Home, \"Your walk\": walk time `[~75 min]` (to measure on the ground)")
+    lines.append("- Home, \"The hunt\": walk time `[~75 min]` (to measure on the ground)")
     lines.append("- Home, \"Look for it this month\": shows a placeholder in any month that no tour species has a seasonal note for")
     lines.append("- Quest, \"Visitor impact this week\": `[###] sightings` (needs a live count from the NYBG iNaturalist project)")
     lines.append("- Take it home: the nurseries in `nybg-guide/data/nurseries.js` are placeholders (\"Nursery data source to decide with NYBG\")")
@@ -161,6 +161,8 @@ def main(kit, site, *flags):
         "shared_nodes": webs["shared_nodes"],
         "tour": load(os.path.join(kit, "content", "tour.json")),
         "links": load(os.path.join(kit, "content", "links.json")),
+        "landing": (load(os.path.join(kit, "content", "landing.json"))
+                    if os.path.exists(os.path.join(kit, "content", "landing.json")) else {}),
         "swap_photos": (load(os.path.join(kit, "build", "public_sources.json")).get("swap_photos", {})
                         if os.path.exists(os.path.join(kit, "build", "public_sources.json")) else {}),
         "assets": copy_assets(kit, site),

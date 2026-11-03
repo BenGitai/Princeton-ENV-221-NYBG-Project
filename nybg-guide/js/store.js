@@ -217,7 +217,24 @@
     photo: function (file) { return (D.assets.photos || {})[file] || ''; },
     mapSrc: function () { return D.assets.map; },
     layersBg: function () { return D.assets.layers_bg; },
-    links: function () { return D.links || {}; }
+    links: function () { return D.links || {}; },
+    landing: function () { return D.landing || {}; },
+    /* Scavenger hunt: the species stops, with a photo when there is one. */
+    hunt: function () {
+      return S.speciesStops().map(function (st) {
+        var sp = S.species(st.species);
+        return { stop: st, species: sp, name: sp ? S.name(sp) : st.species, photo: sp ? S.heroPhoto(sp) : null };
+      });
+    },
+    foundCount: function () {
+      return S.speciesStops().filter(function (st) { return NYBG.state.isFound(st.n); }).length;
+    },
+    /* The first species stop after stop n (in tour order, wrapping) that is not found yet. */
+    nextToFind: function (n) {
+      var list = S.speciesStops(), open = list.filter(function (st) { return !NYBG.state.isFound(st.n); });
+      if (!open.length) return null;
+      return open.filter(function (st) { return st.n > (n || 0); })[0] || open[0];
+    }
   };
 
   NYBG.store = S;
