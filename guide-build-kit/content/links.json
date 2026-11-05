@@ -7,6 +7,7 @@
     "species_url_template": "https://www.inaturalist.org/observations?place_id=66109&taxon_name={scientific_name}&verifiable=true"
   },
   "plant_tracker": "https://planttracker.nybg.org/map",
+  "official_map": {"label": "NYBG Garden Map 2025 (PDF)", "url": "https://www.nybg.org/content/uploads/2025/10/Garden-Map-2025.pdf"},
   "regional": [
     {"label": "Lower Hudson PRISM", "url": "https://www.lhprism.org/"},
     {"label": "RISCC Network (Northeast)", "url": "https://www.risccnetwork.org/northeast"},

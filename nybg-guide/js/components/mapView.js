@@ -7,13 +7,19 @@
 (function () {
   'use strict';
   var NYBG = window.NYBG, h = NYBG.h, s = NYBG.s, S = NYBG.store;
-  var MAX = 4;
 
   function routeSvg() {
-    return s('svg', { viewBox: '40 95 440 560', preserveAspectRatio: 'none', 'aria-hidden': 'true', focusable: 'false' },
+    return s('svg', { viewBox: S.mapBox().join(' '), preserveAspectRatio: 'none', 'aria-hidden': 'true', focusable: 'false' },
       s('path', { class: 'map-route', d: S.routePath(), 'vector-effect': 'non-scaling-stroke' }));
   }
-  var MAP_ALT = 'Illustrated map of the New York Botanical Garden: the Thain Family Forest in the center with the Bronx River along its east side, the Conservatory and Visitor Center to the west.';
+  var MAP_ALT = 'NYBG Garden Map 2025, with north to the left: the Thain Forest and the Bronx River across the middle, the Haupt Conservatory and the Leon Levy Visitor Center at the bottom.';
+  var MAX = 6;
+  function credit() {
+    var m = S.mapInfo();
+    if (!m.credit) return null;
+    return m.url ? h('a', { class: 'map-credit', href: m.url, target: '_blank', rel: 'noopener' }, m.credit, h('span', { class: 'sr-only' }, ' (opens in a new tab)'))
+      : h('span', { class: 'map-credit' }, m.credit);
+  }
 
   function create(opts) {
     var stops = S.stops();
@@ -34,12 +40,12 @@
         pins[st.n] = b;
         return b;
       }));
-    var box = h('div', { class: 'mapbox' }, world);
+    var box = h('div', { class: 'mapbox', style: { '--map-ar': String(S.mapRatio()) } }, world);
     var zin = h('button', { type: 'button', 'aria-label': 'Zoom in' }, NYBG.icon('plus', 20));
     var zout = h('button', { type: 'button', 'aria-label': 'Zoom out' }, NYBG.icon('minus', 20));
     var zreset = h('button', { type: 'button', 'aria-label': 'Reset zoom' }, NYBG.icon('reset', 20));
     var zoomable = opts.zoom !== false;
-    var area = h('div', { class: 'maparea' + (zoomable ? '' : ' is-static') }, box, zoomable ? h('div', { class: 'zoomctl' }, zin, zout, zreset) : null);
+    var area = h('div', { class: 'maparea' + (zoomable ? '' : ' is-static') }, box, zoomable ? h('div', { class: 'zoomctl' }, zin, zout, zreset) : null, opts.credit === false ? null : credit());
 
     var list = h('div', { class: 'maplist', hidden: true },
       h('ul', { 'aria-label': 'Tour stops' }, stops.map(function (st) {
@@ -54,10 +60,20 @@
     var el = h('div', { class: 'mapview' }, area, list);
 
     /* ----- zoom and pan ----- */
+    /* Keep the map on screen. Translation is a fraction of the box; the visible window is the
+       whole map area, so a zoomed map can fill a tall phone screen even though the box is short. */
+    function clampAxis(f, boxSize, boxOff, areaSize) {
+      var w = z.s * boxSize;
+      if (!boxSize) return f;
+      if (w <= areaSize) return Math.min(Math.max(f, -boxOff / boxSize), (areaSize - boxOff - w) / boxSize);
+      return Math.min(-boxOff / boxSize, Math.max((areaSize - boxOff - w) / boxSize, f));
+    }
     function clamp() {
       z.s = Math.min(MAX, Math.max(1, z.s));
-      z.fx = Math.min(0, Math.max(1 - z.s, z.fx));
-      z.fy = Math.min(0, Math.max(1 - z.s, z.fy));
+      if (z.s <= 1) { z.fx = 0; z.fy = 0; return; }
+      var a = area.getBoundingClientRect(), b = box.getBoundingClientRect();
+      z.fx = clampAxis(z.fx, b.width, b.left - a.left, a.width);
+      z.fy = clampAxis(z.fy, b.height, b.top - a.top, a.height);
     }
     function apply() {
       clamp();
@@ -153,6 +169,17 @@
     window.addEventListener('nybg:found', onFound);
     apply();
     paint();
+    /* Phones (a tall area and a wide map): start zoomed in so the map fills the screen height,
+       centred on the tour route. */
+    if (zoomable) requestAnimationFrame(function () {
+      var a = area.getBoundingClientRect(), b = box.getBoundingClientRect();
+      if (!b.height || a.height < b.height * 1.3) return;
+      var ns = Math.min(MAX, a.height / b.height), cx = 0;
+      stops.forEach(function (st) { cx += S.mapPos(st).left / 100; });
+      cx /= stops.length || 1;
+      z.s = ns; z.fx = 0.5 * a.width / b.width - cx * ns; z.fy = 0;
+      apply();
+    });
 
     return {
       el: el,
@@ -167,13 +194,18 @@
   /* Static map: route always; optional dot at one stop. */
   function figure(o) {
     o = o || {};
-    var kids = [h('img', { src: S.mapSrc(), alt: o.alt || '' }), routeSvg()];
+    var inner = h('div', { class: 'mapfig-world', style: { '--map-ar': String(S.mapRatio()) } },
+      h('img', { src: S.mapSrc(), alt: o.alt || '' }), routeSvg());
+    var kids = [inner];
     if (o.stop) {
+      /* A close-up: the map at 5x, moved so the stop sits in the middle of the figure. */
       var p = S.mapPos(o.stop);
-      kids.push(h('span', { class: 'mapfig-dot', style: { left: p.left.toFixed(2) + '%', top: p.top.toFixed(2) + '%', background: o.stop.species ? 'var(--invader)' : 'var(--moss)' } }));
+      inner.classList.add('is-zoom');
+      inner.style.transform = 'translate(-' + p.left.toFixed(2) + '%, -' + p.top.toFixed(2) + '%)';
+      kids.push(h('span', { class: 'mapfig-dot', style: { left: '50%', top: '50%', background: o.stop.species ? 'var(--invader)' : 'var(--moss)' } }));
     }
     return h('div', { class: 'mapfig' + (o.class ? ' ' + o.class : '') }, kids);
   }
 
-  NYBG.components.mapView = { create: create, figure: figure };
+  NYBG.components.mapView = { create: create, figure: figure, credit: credit };
 })();

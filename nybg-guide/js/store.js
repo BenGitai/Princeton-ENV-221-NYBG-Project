@@ -163,8 +163,12 @@
       if (s.species && byId[s.species]) return S.name(byId[s.species]);
       return s.kind === 'intro' ? 'Welcome: garden escapes' : s.kind === 'hub' ? 'Take it home' : s.place;
     },
-    /* Map position as % of garden-map.svg (viewBox 40 95 440 560). */
-    mapPos: function (s) { return { left: (s.x - 40) / 440 * 100, top: (s.y - 95) / 560 * 100 }; },
+    /* The base map (tour.json "map"): its viewBox [x, y, width, height], credit and link. */
+    mapInfo: function () { return D.tour.map || {}; },
+    mapBox: function () { return (D.tour.map || {}).viewBox || [40, 95, 440, 560]; },
+    mapRatio: function () { var b = S.mapBox(); return b[2] / b[3]; },
+    /* Map position as % of the base map. */
+    mapPos: function (s) { var b = S.mapBox(); return { left: (s.x - b[0]) / b[2] * 100, top: (s.y - b[1]) / b[3] * 100 }; },
     routePath: function () {
       return (D.tour.stops || []).map(function (s, i) {
         if (i === 0) return 'M' + s.x + ' ' + s.y;
